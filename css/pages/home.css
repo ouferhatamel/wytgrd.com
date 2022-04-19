@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300&display=swap");
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: #202223;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navBar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+.navBar img {
+  height: 9rem;
+}
+
+.navBar .navBar__links {
+  width: 100%;
+  position: absolute;
+  top: 1.5rem;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 60%;
+}
+
+.navBar .navBar__links a {
+  color: #adadad;
+  margin-right: .6rem;
+}
+
+.navBar .navBar__links a:hover {
+  color: #fff200;
+}
+
+.navBar #navBar__certify {
+  color: white;
+  font-weight: 700;
+}
+
+.navBar #navBar__certify:hover {
+  color: #fff200;
+}
+
+.hero {
+  width: 100%;
+  height: 90vh;
+  background-image: url("../../images/wytgrd-pokemon-grading-hero.jpg");
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .hero__certifyBtn {
+  width: 25rem;
+  height: 5rem;
+  border-radius: 50px;
+  background-color: #fff200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  padding: 1rem;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 5;
+}
+
+.hero .hero__certifyBtn:hover {
+  -webkit-box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
+          box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
+}
+
+.hero .hero__stars {
+  width: 35rem;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.mainCnt__advSec {
+  width: 100%;
+}
+
+.mainCnt__advSec .cardTypes {
+  width: 100%;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8rem;
+}
+
+.mainCnt__advSec .cardTypes > div img {
+  width: 12rem;
+}
+
+.mainCnt__advSec .mainCnt__adv {
+  padding-top: 2rem;
+}
+
+.mainCnt__advSec .mainCnt__adv h2 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__advantages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2.5rem;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__card {
+  width: 23rem;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__card p {
+  text-align: center;
+  line-height: 1.4;
+  width: 85%;
+  margin: 2rem 0;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__card:hover .mainCnt__text {
+  -webkit-box-shadow: #e8e2cc 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+          box-shadow: #e8e2cc 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 2rem 1rem;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__icn img {
+  width: 12rem;
+  margin-bottom: 1.2rem;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn {
+  border: 1px solid #b10000;
+  border-radius: 50px;
+  padding: .7rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: #b10101;
+  font-weight: 700;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn div {
+  width: 200%;
+  height: 200%;
+  background-color: #fff200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(40%, -50%);
+          transform: translate(40%, -50%);
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  z-index: -1;
+}
+
+.mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn:hover div {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.checkAuth {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/wytgrd-pokemon-grading-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.checkAuth .checkAuth__CodeInput {
+  width: 14rem;
+  height: 3.5rem;
+  background-color: white;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 5;
+}
+
+.checkAuth .checkAuth__CodeInput input {
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+.checkAuth .checkAuth__checkBtn {
+  width: 28rem;
+  height: 5rem;
+  border-radius: 50px;
+  background-color: #fff200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-weight: 700;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 3;
+}
+
+.checkAuth .checkAuth__checkBtn:hover {
+  -webkit-box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
+          box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
+}
+
+.checkAuth .checkAuth__stars {
+  width: 36rem;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.mainCnt {
+  width: 100%;
+}
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,39 @@
+.navBar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2000;
+    
+    img{
+        height: 9rem;
+    }
+    .navBar__links{
+        width: 100%;
+        position: absolute;
+        top: 1.5rem;
+        color: white;
+        display: flex;
+        justify-content: center;
+        gap: 60%;
+        
+        a{
+            color: $light_clr;
+            margin-right: .6rem;
+            &:hover{
+                color: $main_clr;
+            }
+        }
+    }
+    #navBar__certify{
+        color: white;
+        font-weight: 700;
+        &:hover{
+            color: $main_clr;
+        }
+    }
+}
