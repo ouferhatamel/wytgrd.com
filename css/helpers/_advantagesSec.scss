@@ -1,9 +1,12 @@
 .mainCnt__advSec{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     .cardTypes{
         width: 100%;
-        height: 20vh;
+        height: 25vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -13,6 +16,17 @@
             img{
                 width: 12rem;
             }
+        }
+    }
+
+    .mainCnt__Intro{
+        width: 30%;
+        padding: 2rem 0 3rem;
+        p{
+            text-align: center;
+            font-weight: 300;
+            font-size: 1.3rem;
+            line-height: 1.4;
         }
     }
 
