@@ -67,13 +67,98 @@ a {
 .hero {
   width: 100%;
   height: 90vh;
-  background-image: url("../../images/wytgrd-pokemon-grading-hero.jpg");
-  background-position: top;
-  background-size: cover;
-  background-attachment: fixed;
   margin-top: 5rem;
   position: relative;
   overflow: hidden;
+}
+
+.hero .hero__slider {
+  position: relative;
+  width: 400%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  -webkit-animation: 10s slider infinite;
+          animation: 10s slider infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+.hero .hero__slide {
+  width: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -100%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -200%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -300%;
+  }
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -100%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -200%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -300%;
+  }
+}
+
+.hero .hero__first {
+  background-image: url("../../images/bgd/wytgrd-pokemon-grading-hero1.jpg");
+  background-size: cover;
+}
+
+.hero .hero__second {
+  background-image: url("../../images/bgd/wytgrd-dragonBall-grading-hero2.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.hero .hero__third {
+  background-image: url("../../images/bgd/wytgrd-magic-the-gathering-hero3.jpg");
+  background-size: cover;
 }
 
 .hero .hero__certifyBtn {
@@ -273,9 +358,7 @@ a {
 
 .checkAuth .checkAuth__CodeInput {
   width: 14rem;
-  height: 3.5rem;
-  background-color: white;
-  border-radius: 50px;
+  height: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -285,34 +368,44 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  margin-top: 5px;
   z-index: 5;
 }
 
 .checkAuth .checkAuth__CodeInput input {
-  height: 100%;
+  width: 100%;
+  height: 75%;
   border: none;
+  border-bottom: 1.5px solid #202223;
   outline: none;
-}
-
-.checkAuth .checkAuth__checkBtn {
-  width: 28rem;
-  height: 5rem;
-  border-radius: 50px;
-  background-color: #fff200;
+  background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.checkAuth .checkAuth__checkBtn {
+  width: 28rem;
+  height: 7rem;
+  border-radius: 80px;
+  background-color: #fff200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 1.5rem;
   position: absolute;
   top: 65%;
   left: 50%;
@@ -336,6 +429,26 @@ a {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+::-webkit-input-placeholder {
+  color: #202223;
+  opacity: .8;
+}
+
+:-ms-input-placeholder {
+  color: #202223;
+  opacity: .8;
+}
+
+::-ms-input-placeholder {
+  color: #202223;
+  opacity: .8;
+}
+
+::placeholder {
+  color: #202223;
+  opacity: .8;
 }
 
 .mainCnt__steps {
