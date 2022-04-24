@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="short cut icon" href="../images/icons/wytgrd-abbr-logo-icon.svg">
+    <link rel="stylesheet" href="../scss/pages/submit-card.css">
+    <title>Someter las tcartas</title>
+</head>
+<body>
+    <!--NAVIGATION BAR-->
+    <nav class="navBar">
+        <a href="../index.html"><img src="../images/others/Willim&Turnergrd-NavBar-logo.svg" alt="Willim&Turnergrd-NavBar-logo"></a>
+        <div class="navBar__links">
+            <div class="navBar__detailsLinks">
+                <a href="#">TARIFAS</a>
+                <a href="#">SERVICIOS</a>
+            </div>
+            <div class="navBar__actionLinks">
+                <a href="#" id='navBar__certify'>¡CERTIFICAR!</a>
+                <a href="#">LOGIN</a>
+                <a href="mailto:info@williamturner-grading.com">CONTACTO</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!--STEPS-->
+        <section class="steps">
+            <div class="steps__icn steps__icn1">
+                <img src="../images/icons/wytgrd-selectCards-icon.svg" alt="wytgrd-selectCards-icon">
+            </div>
+            <div class="steps__icn steps__icn2">
+                <img src="../images/icons/wytgrd-completOrder-icon.svg" alt="wytgrd-completOrder-icon">
+            </div>
+            <div class="steps__icn steps__icn3">
+                <img src="../images/icons/wytgrd-sendCards-icon.svg" alt="wytgrd-sendCards-icon">
+            </div>
+            <div class="steps__icn steps__icn4">
+                <img src="../images/icons/wytgrd-receiveCards-icon.svg" alt="wytgrd-receiveCards-icon">
+            </div>
+        </section>
+        <!--SELECT CARD-->
+        <div class="searchCard">
+            <div class="searchCard__select">
+                <div class="searchCard__input">
+                    <input type="search" placeholder="Introduzca el nombre de la carta">
+                </div>
+                <div class="searchCard__add">+</div>
+            </div>
+            <div class="searchCard__specifity">
+                    <input type="checkbox" id="card__edition" name="card__edition">
+                    <label for="card__edition">Ed.1</label>
+                    <input type="checkbox" id="card__shadow" name="card__shadow">
+                    <label for="card__shadow">Shadow</label>
+            </div>  
+        </div>
+        <!--CARDS AND RECAP-->
+        <div class="cardRecap">
+            <!--LIST OF CARDS-->
+            <div class="cards">
+                <h2>Lista de cartas</h2>
+                <ul class="cards__list">
+                    <li>
+                        <div class="card__description">
+                            <div class="card__name">Leveinard 3/102</div>
+                            <div class="card__extension">Base set</div>
+                            <div class="card__specifity"></div>
+                        </div>
+                        <div class="card_lang">
+                            <select name="languages" id="langs">
+                                <option value="Francés">Francés</option>
+                                <option value="Inglés">Inglés</option>
+                                <option value="Español">Español</option>
+                                <option value="Español">Español</option>
+                                <option value="Italiana">Italiana</option>
+                                <option value="Portugués">Portugués</option>
+                                <option value="Russe">Russe</option>
+                                <option value="Neerlandés">Neerlandés</option>
+                            </select>
+                        </div>
+                        <div class="card__value">
+                            <input type="number" id="card__value">
+                            <label for="card_value">El valor</label>
+                            <span>€</span>
+                        </div>
+                        <div class="card__certLang">
+                            <div class="certLang__toggle" data-lang="En"></div>
+                            <div class="certlang__stroke"></div>
+                        </div>
+                        <div class="card__delete">
+                            <img src="../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
+                        </div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div class="card__description">
+                            <div class="card__name">Leveinard 3/102</div>
+                            <div class="card__extension">Base set</div>
+                            <div class="card__specifity"></div>
+                        </div>
+                        <div class="card_lang">
+                            <select name="languages" id="langs">
+                                <option value="Francés">Francés</option>
+                                <option value="Inglés">Inglés</option>
+                                <option value="Español">Español</option>
+                                <option value="Español">Español</option>
+                                <option value="Italiana">Italiana</option>
+                                <option value="Portugués">Portugués</option>
+                                <option value="Russe">Russe</option>
+                                <option value="Neerlandés">Neerlandés</option>
+                            </select>
+                        </div>
+                        <div class="card__value">
+                            <input type="number" id="card__value">
+                            <label for="card_value">El valor</label>
+                            <span>€</span>
+                        </div>
+                        <div class="card__certLang">
+                            <div class="certLang__toggle" data-lang="En"></div>
+                            <div class="certlang__stroke"></div>
+                        </div>
+                        <div class="card__delete">
+                            <img src="../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--RACAP-->
+            <div class="recap">
+                <h3>Resume</h3>
+                <div class="recap__details">
+                    <div class="details">
+                        <span>2 cartas</span>
+                        <span>24 €</span>
+                    </div>
+                    <div class="details">
+                        <span>Envío</span>
+                        <span>10 €</span>
+                    </div>
+                    <div class="details">
+                        <span>Seguros</span>
+                        <span>9.7 €</span>
+                    </div>
+                    <!------------------------->
+                    <hr>
+                    <div class="details">
+                        <span>TOTAL</span>
+                        <span>47.7 €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <script type="text/javascript" src="../js/submit-card.js"></script>
+</body>
+</html>

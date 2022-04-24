@@ -1,0 +1,219 @@
+.searchCard{
+    width: 65%;
+    height: 7rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    
+    .searchCard__select{
+        width: 65%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+
+    }
+
+    .searchCard__input{
+        width: 19rem;
+        height: 100%;
+        border-radius: 50px;
+        border: 1.5px solid $dark_clr;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .5rem 1.5rem;
+
+        input{
+            height: 100%;
+            width: 100%;
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+    }
+
+    .searchCard__add{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $main_clr;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    .searchCard__specifity{
+        width: 30%;
+        padding: 1rem;
+        font-weight: 700;
+        #card__edition{
+            &:checked:before{
+                background-color:green;
+                }
+            & + label{
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+.cardRecap{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5rem 10rem;
+}
+.cards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 0 ;
+    position: relative;
+    h2{
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 2rem;
+        padding: 0 0 2rem;
+    }
+    ul{
+        width: 80%;
+        list-style: none;
+        li{
+            width: 100%;
+            height: 3rem;
+            display: flex;
+            justify-content: space-between;
+            padding: .5rem;
+        }
+    }
+    .card__description{
+        div:first-child{
+            color: $dark_clr;
+            font-weight: 700;
+        }
+        div{
+            color: $light_clr;
+        }
+    }
+    .card_lang{
+        select{
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            outline: none;
+        }
+    }
+    .card__delete{
+        img{
+            width: 1.2rem;
+            cursor: pointer;
+        }
+    }
+    .card__value{
+        position: relative;
+        input{
+            border: none;
+            border-bottom: 1.5px solid $dark_clr;
+            outline: none;
+            padding-bottom: .5rem;
+            font-weight: 700;
+            
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            & + label{
+                font-weight: 700;
+                position: absolute;
+                left: 0;
+                pointer-events: none;
+            }
+
+            &:focus ~ label{
+                transform: translateY(-20px);
+                font-size: .8rem;
+                color: $light_clr;
+            }
+        }
+        span{
+            font-weight: 700;
+        }
+    }
+    .card__certLang{
+        width: 3.5rem;
+        height: 1.75rem;
+        position: relative;
+       
+        .certLang__toggle{
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background-image: url("../../../images/icons/wytgrd-langage-english-flag.svg");
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+        .certlang__stroke{
+            width: 3.5rem;
+            height: 1.75rem;
+            border-radius: 50px;
+            border: 1.5px solid $dark_clr;
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+        &--spanish .certLang__toggle{
+            left: 1.8rem;
+            background-image: url("../../../images/icons/wytgrd-langage-spanish-flag.svg");
+        }
+    }
+    hr{
+        margin: 1rem 0;
+    }
+}
+.recap{
+    width: 20rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-bottom: 5rem;
+    &:hover{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+    h3{
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    .details{
+        &:not(div:last-child){
+            margin-bottom: 1rem;
+        }
+        
+        span:first-child{
+            font-weight: 700;
+        }
+        span:last-child{
+            text-align: right;
+            float: right;
+        }
+    }
+    hr{
+        border: 1px solid $light_clr;
+        margin: 1.5rem 0;
+    }
+
+}
