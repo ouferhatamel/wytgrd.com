@@ -11,4 +11,5 @@ let cardList = [
     'Pikachu',
     'Sabelette',
     'Saquedeneu',
+    'Tygnon'
 ];
