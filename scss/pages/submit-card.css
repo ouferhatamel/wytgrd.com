@@ -220,6 +220,10 @@ main {
   font-weight: 400;
 }
 
+.searchCard .searchCard__add:active {
+  background-color: #d30000;
+}
+
 .searchCard .searchCard__specifity {
   width: 30%;
   padding: 1rem;
@@ -273,13 +277,12 @@ main {
 }
 
 .cards ul {
-  width: 80%;
+  width: 100%;
   list-style: none;
 }
 
 .cards ul li {
   width: 100%;
-  height: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -287,15 +290,28 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: .5rem;
+  border-bottom: 1px solid #adadad;
 }
 
-.cards .card__description div:first-child {
+.cards .card__description {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.cards .card__description .card__name {
   color: #202223;
   font-weight: 700;
 }
 
 .cards .card__description div {
   color: #adadad;
+}
+
+.cards .card_lang {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 
 .cards .card_lang select {
@@ -305,12 +321,21 @@ main {
   outline: none;
 }
 
+.cards .card__delete {
+  -webkit-box-flex: .5;
+      -ms-flex: .5;
+          flex: .5;
+}
+
 .cards .card__delete img {
   width: 1.2rem;
   cursor: pointer;
 }
 
 .cards .card__value {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   position: relative;
 }
 
@@ -346,6 +371,9 @@ main {
 }
 
 .cards .card__certLang {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   width: 3.5rem;
   height: 1.75rem;
   cursor: pointer;
