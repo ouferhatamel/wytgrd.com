@@ -1,0 +1,232 @@
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+//STYLING LABELS
+.labels{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    img{
+        height: 6.5rem;
+    }
+}
+//ABOUT US
+#about-us{
+    position: relative;
+    width: 100%;
+    padding: 12rem 0 8rem;
+    display: flex;
+    justify-content: center;
+    .about-us__prg{
+        width: 60%;
+        text-align: center;
+        p{
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+    }
+}
+//TARIFAS
+#tarifs{
+    position: relative;
+    width: 100%;
+    padding: 12rem 0 8rem;
+    display: flex;
+    justify-content: center;
+}
+//OFFERS
+.tarifs__offers{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    .tarifs__offer{
+        width: 20rem;
+        padding: 3rem 2rem;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        &:hover{
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        }
+    }
+    .tarifs__offer__quant{
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        h2{
+            font-size: 2rem;
+        }
+        span{
+            font-size: .8rem;
+            padding-bottom: 4.5px;
+        }
+    }
+    .tarifs__offer__price{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 10px;
+        border: 1.5px solid $dark_clr;
+        border-radius: 50px;
+        padding: .5rem .8rem;
+        background-color: $main_clr;
+        h2{
+            font-size: 2rem;
+        }
+        span{
+            font-size: .6rem;
+            padding-bottom: 4.5px;
+        }
+    }
+    p{
+        font-size: .8rem;
+    }
+}
+//GRADING
+.grading{
+    position: relative;
+    width: 100%;
+    padding: 10rem 0 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .grading__steps{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding-bottom: 4rem;
+    }
+    .grading__step{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        border-radius: 15px;
+        &:hover{
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        }
+        img{
+            width: 11rem;
+        }
+    }
+    .grading__step__par{
+        text-align: center;
+        p{
+            line-height: 1.5;
+        }
+    }
+}
+//GRADING PARAMETERS
+.grading__params{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+    .grading__params__h1{
+        width: 100%;
+        background-color: #dfdfdf;
+        padding: .8rem 0;
+        h1{
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+    .grading__params__icns{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem 0;
+    }
+    .grading__param{
+        img{
+            width: 9rem;
+        }
+    }
+    .grading__params__p{
+        width: 40%;
+        p{
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+    }
+    #grading__label{
+        width: 48rem;
+        margin: 3rem 0;
+    }
+}
+//GRADING SCALE
+.grading__scale{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 4rem;
+    .grading__scale__h1{
+        width: 100%;
+        background-color: #dfdfdf;
+        padding: .8rem 0;
+        h1{
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+    #grading__scale__img{
+        width: 60rem;
+        margin: 3rem 0;
+    }
+}
+//GRADING NOTATION
+.grading__notations{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    
+    .grading__notation{
+        display: flex;
+        justify-content: space-around;
+        gap: 5rem;
+    }
+    .grading__notation__txt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        h3{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+    }
+    .grading__notation__icn{
+        img{
+            width: 8rem;
+        }
+    }
+}
+    
+
