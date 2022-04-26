@@ -1,7 +1,6 @@
 @import '../helpers/variables';
 @import '../helpers/basics';
 @import '../layouts/navBar';
-
 main{
     width: 100%;
     display: flex;
@@ -32,5 +31,5 @@ main{
         }
     }
 }
-
-@import '../layouts/submit-card/addCard'
+@import '../layouts/submit-card/addCard';
+@import '../layouts/footer';

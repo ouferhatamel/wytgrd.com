@@ -205,6 +205,7 @@ main {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  border: 1.5px solid #202223;
   background-color: #fff200;
   cursor: pointer;
   display: -webkit-box;
@@ -218,6 +219,11 @@ main {
           align-items: center;
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+.searchCard .searchCard__add:hover {
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .searchCard .searchCard__add:active {
@@ -481,5 +487,114 @@ main {
           align-items: center;
   margin-top: 2rem;
   cursor: pointer;
+}
+
+.mnFtr {
+  width: 100%;
+  padding: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mnFtr .mnFtr__container {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.mnFtr .mnFtr__links {
+  width: 100%;
+}
+
+.mnFtr .mnFtr__links h4 {
+  width: 100%;
+  border-bottom: 2px solid black;
+  padding-bottom: .8rem;
+}
+
+.mnFtr .mnFtr__links ul {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.mnFtr .mnFtr__links ul li {
+  margin-bottom: .3rem;
+}
+
+.mnFtr .mnFtr__links ul li a {
+  color: #363636;
+}
+
+.mnFtr .mnFtr__links ul li a:hover {
+  color: #d30000;
+}
+
+.mnFtr .mnFtr__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mnFtr .mnFtr__logo img {
+  width: 60%;
+  cursor: pointer;
+}
+
+.mnFtr .mnFtr__lang {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.mnFtr .mnFtr__lang h4:hover {
+  color: #d30000;
+}
+
+.mnFtr .mnFtr__lang img {
+  width: 1rem;
+  position: absolute;
+  left: 4rem;
+  top: .3rem;
+}
+
+.mnFtr .mnFtr__langList {
+  display: none;
+}
+
+.mnFtr .mnFtr__langList--visible {
+  display: inherit;
+  width: 50%;
+  padding: 1rem;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.mnFtr .mntFtr__copyright {
+  font-size: .9rem;
+}
+
+.mnFtr .mntFtr__copyright p {
+  color: #363636;
 }
 /*# sourceMappingURL=submit-card.css.map */
