@@ -249,7 +249,7 @@ main {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 5rem 10rem;
+  padding: 4rem 10rem 1rem;
 }
 
 .cards {
@@ -264,7 +264,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 4rem 3rem 4rem 0;
+  padding: 4rem 3rem 2rem 0;
   position: relative;
 }
 
@@ -447,5 +447,39 @@ main {
 .recap hr {
   border: 1px solid #adadad;
   margin: 1.5rem 0;
+}
+
+.submitCard {
+  display: none;
+  font-weight: 700;
+  margin-top: 0rem;
+  padding: 0rem 10rem 4rem;
+}
+
+.submitCard--active {
+  display: inherit;
+}
+
+.submitCard .submitCard__insurance {
+  font-size: 1.1rem;
+}
+
+.submitCard .submitCard__btn {
+  width: 8rem;
+  height: 3rem;
+  border: 1.5px solid #202223;
+  border-radius: 50px;
+  background-color: #fff200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=submit-card.css.map */

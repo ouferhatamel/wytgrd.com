@@ -4,8 +4,23 @@ const addBtn = document.querySelector('.searchCard__add');
 const edCheck = document.getElementById('card__edition');
 const shadCheck = document.getElementById('card__shadow');
 const cardContainer = document.querySelector('.cards__list');
+const numbCards = document.getElementById('recap__cardNumb');
+const cardPrice = document.getElementById('recap__cardsPrice');
+const deliveryPrice = document.getElementById('recap__delivery');
+const totalPrice = document.getElementById('recap__total');
+const validateCnt = document.querySelector('.submitCard');
+const insuranceCheck = document.getElementById('submit__insurance');
+const insrPrice = document.getElementById('recap__insurance');
 
+//VARIABLES
 let extension = 'Set de base';
+let cardNumber = 0;
+let crdPrice = 0;
+let unitPrice = 9;
+let delivery = 11.07;
+let insurance = 0;
+let total = 0;
+
 //----------SAEARCH SUGGESTIONS----------
 searchInput.onkeyup = (e)=>{
     let inputData = e.target.value;
@@ -28,7 +43,6 @@ searchInput.onkeyup = (e)=>{
     }
     
 }
-
 //----------ADDING A CARD----------
 addBtn.addEventListener('click', addCard);
 
@@ -59,12 +73,10 @@ function addCard(){
         edition = 'Ed.1';
         edCheck.checked = false;
     }
-        
     if(shadCheck.checked){
         shadow = 'Shadow';
         shadCheck.checked = false;
     }
-        
     if(userInput != ''){
         const card = document.createElement('li');
         let attr = document.createAttribute('data-id');
@@ -102,14 +114,32 @@ function addCard(){
     <div class="card__delete">
         <img src="../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
         </div>`;
+        cardContainer.append(card);
+        searchInput.value = '';
+
+        //Show the Validate container
+        validateCnt.classList.add('submitCard--active');
+
+        //Update card's number the number of added cards
+        cardNumber++;
+        numbCards.innerHTML = `${cardNumber} cartas`;
+
+        //Update the price of the cards
+        crdPrice = priceOfCards();
+        cardPrice.innerHTML= `${crdPrice} €`;
+
+        //Update delivery price
+        if(cardNumber > 0)
+        deliveryPrice.innerHTML = `${delivery} €`;
+
+        //Update the total
+        total = TotalCalc();
+        totalPrice.innerHTML = `${total} €`;
 
         //Delete Card
         const delCardBtn = card.querySelector('.card__delete');
         delCardBtn.addEventListener('click', deleteCard);
-        console.log('heeere');
-        cardContainer.append(card);
-        searchInput.value = '';
-
+        
         //Langage toggle
         const langToggle = card.querySelector('.card__certLang');
         langToggle.addEventListener('click', (e)=>{
@@ -117,14 +147,54 @@ function addCard(){
             //don't forget to change the data-lang to spanish when toggling
         });
         
+        //Check if insurance is checked and add it to the invoice
+        insuranceCheck.addEventListener('change', insurranceChecker);
+
+
     }else{
         //please enter a name
     }
 }
 function deleteCard(e){
-    console.log('hele')
     const item = e.currentTarget.parentElement;
     cardContainer.removeChild(item);
+    //update the number of cards
+    cardNumber--;
+    numbCards.innerHTML = `${cardNumber} cartas`;
+    ////Update the price of the cards
+    crdPrice = priceOfCards();
+    cardPrice.innerHTML= `${crdPrice} €`;
+    //Update delivery price
+    if(cardNumber < 1)
+        deliveryPrice.innerHTML = `0 €`;
+    
+    //Update the total
+    total = TotalCalc();
+    totalPrice.innerHTML = `${total} €`;
 }
-
-
+function priceOfCards(){
+    return cardNumber*unitPrice;
+}
+function TotalCalc(){
+    if(cardNumber < 1){
+        return 0;
+        
+    }else{
+        return priceOfCards()+delivery+insurance;
+    }
+        
+}
+function insurranceChecker(e){
+    if(e.target.checked){
+        insurance=9.48;
+        insrPrice.innerHTML = `${insurance} €`;
+        total = TotalCalc();
+        totalPrice.innerHTML = `${total} €`;
+    }else{
+        insurance=0;
+        insrPrice.innerHTML = `${insurance} €`;
+        total = TotalCalc();
+        totalPrice.innerHTML = `${total} €`;
+    }
+        
+}

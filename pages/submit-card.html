@@ -44,7 +44,7 @@
         <div class="searchCard">
             <div class="searchCard__select">
                 <div class="searchCard__input">
-                    <input type="search" id="searchInput" placeholder="Introduzca el nombre de la carta">
+                    <input type="search" autocomplete="off" id="searchInput" placeholder="Introduzca el nombre de la carta">
                     <div class="searchCard__suggestions"><!--<li>...</li>--></div>
                 </div>
                 <div class="searchCard__add">+</div>
@@ -70,28 +70,35 @@
                 <h3>Resume</h3>
                 <div class="recap__details">
                     <div class="details">
-                        <span>2 cartas</span>
-                        <span>24 €</span>
+                        <span id="recap__cardNumb">Cartas</span>
+                        <span id="recap__cardsPrice">_</span>
                     </div>
                     <div class="details">
                         <span>Envío</span>
-                        <span>10 €</span>
+                        <span id="recap__delivery">_</span>
                     </div>
                     <div class="details">
-                        <span>Seguros</span>
-                        <span>9.7 €</span>
+                        <span >Seguros</span>
+                        <span id="recap__insurance">_</span>
                     </div>
                     <!------------------------->
                     <hr>
                     <div class="details">
                         <span>TOTAL</span>
-                        <span>47.7 €</span>
+                        <span id="recap__total">_</span>
                     </div>
                 </div>
             </div>
         </div>
-        
     </main>
+    <!--Submit button-->
+    <div class="submitCard">
+        <div class="submitCard__insurance">
+            <input type="checkbox" id="submit__insurance">
+            <label for="submit__insurance">Seguro</label>
+        </div>
+        <div class="submitCard__btn">Validar</div>
+    </div>
     <script type="text/javascript" src="../js/cards-list.js"></script>
     <script type="text/javascript" src="../js/submit-card.js"></script>
 </body>

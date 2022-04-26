@@ -98,14 +98,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 5rem 10rem;
+    padding: 4rem 10rem 1rem;
 }
 .cards{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4rem 3rem 4rem 0 ;
+    padding: 4rem 3rem 2rem 0 ;
     position: relative;
     h2{
         position: absolute;
@@ -250,4 +250,28 @@
         margin: 1.5rem 0;
     }
 
+}
+.submitCard{
+    display: none;
+    font-weight: 700;
+    margin-top: 0rem;
+    padding: 0rem 10rem 4rem;
+    &--active{
+        display: inherit;
+    }
+    .submitCard__insurance{
+        font-size: 1.1rem;
+    }
+    .submitCard__btn{
+        width: 8rem;
+        height: 3rem;
+        border: 1.5px solid $dark_clr;
+        border-radius: 50px;
+        background-color: $main_clr;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        cursor: pointer;
+    }
 }
