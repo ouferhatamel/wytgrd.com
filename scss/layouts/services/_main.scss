@@ -204,11 +204,14 @@ main{
     gap: 5rem;
     
     .grading__notation{
+        width: 100%;
         display: flex;
         justify-content: space-around;
-        gap: 5rem;
+        align-items: center;
+        gap: 1rem;
     }
     .grading__notation__txt{
+        flex: 4;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -223,8 +226,10 @@ main{
         }
     }
     .grading__notation__icn{
+        flex: 1;
         img{
             width: 8rem;
+            float: right;
         }
     }
 }
