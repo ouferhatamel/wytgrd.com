@@ -1,30 +1,32 @@
 const progressSection = document.querySelector('.sub__progress');
 const progressBar = document.querySelector('.sub__progress__pourcentage');
 const subNumber = document.querySelector('.sub__progress__number h2');
+const footer = document.querySelector('.mnFtr');
 
-let count = 1;
+let count = 0;
+let flag = true;
+
 window.addEventListener('scroll', ()=>{
     const secPosition = progressSection.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight;
-    var interval = setInterval(counter, .2);
-    function counter(){
-        count +=70;
-        subNumber.innerText = count;
-        console.log(count);
-        if(count >= 32703){
-            clearInterval(interval);
-            
-        }
-    }
+    console.log(secPosition)
+    const screenPosition = window.innerHeight;  
     if(secPosition < screenPosition){
         showProgress();
-        counter();
+        if(flag){
+            var interval = setInterval(()=>{
+                count +=70;
+            subNumber.innerText = count;
+            console.log(count);
+            if(count >= 32703){
+                clearInterval(interval);     
+            }
+            flag=false;
+            }, 1);
+        }
     }else{
         hideProgress();
-        count=0;
     }
 });
-
 //FUNCTIONS
 function showProgress(){
     progressBar.style.opacity = 1;
