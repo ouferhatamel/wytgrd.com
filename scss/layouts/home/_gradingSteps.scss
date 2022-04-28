@@ -1,0 +1,17 @@
+.grading__steps{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+    .grading__step{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        img{
+            width: 11rem;
+        }
+    }
+}

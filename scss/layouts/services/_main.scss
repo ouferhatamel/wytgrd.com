@@ -96,14 +96,14 @@ main{
     }
 }
 //GRADING
-.grading{
+#grading{
     position: relative;
     width: 100%;
     padding: 10rem 0 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    .grading__steps{
+    #grading__steps{
         width: 80%;
         display: flex;
         justify-content: space-between;

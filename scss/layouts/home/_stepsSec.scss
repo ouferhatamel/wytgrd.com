@@ -3,23 +3,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem;
+    padding: 5rem 0;
 
     h2{
         font-weight: 400; 
     }
-
     h4{
         font-weight: 300;
     }
-
     .mainCnt__stepsIcns{
+        width: 65%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        gap: 7rem;
+        gap: 1rem;
         margin-top: 4rem;
         .mainCnt__stepsIcn{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
             img{
                 width: 11rem;
             }

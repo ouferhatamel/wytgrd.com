@@ -1,7 +1,7 @@
 @import 'advantagesSec';
 @import 'checkAuth';
 @import 'stepsSec';
-@import 'scaleSec';
+@import 'gradingSteps';
 
 .mainCnt{
     width: 100%;
@@ -32,6 +32,32 @@
             height: 15rem;
             background-color: $dark_clr;
             cursor: pointer;
+        }
+    }
+    //BTNS ICNS
+    .icn__btn{
+        border: 1px solid $sec_clr;
+        border-radius: 50px;
+        padding: .7rem;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        color: $sec_clr;
+        font-weight: 700;
+            
+        div{
+            width: 200%;
+            height: 200%;
+            background-color: $main_clr;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(40%, -50%);
+            transition: all .3s ease-in;
+            z-index: -1;
+        }
+        &:hover div{
+            transform: translate(-50%, -50%);
         }
     }
 }

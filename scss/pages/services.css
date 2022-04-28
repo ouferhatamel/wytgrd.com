@@ -249,7 +249,7 @@ main {
   font-size: .8rem;
 }
 
-.grading {
+#grading {
   position: relative;
   width: 100%;
   padding: 10rem 0 5rem;
@@ -265,7 +265,7 @@ main {
           align-items: center;
 }
 
-.grading .grading__steps {
+#grading #grading__steps {
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -277,7 +277,7 @@ main {
   padding-bottom: 4rem;
 }
 
-.grading .grading__step {
+#grading .grading__step {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -298,20 +298,20 @@ main {
   border-radius: 15px;
 }
 
-.grading .grading__step:hover {
+#grading .grading__step:hover {
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
           box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-.grading .grading__step img {
+#grading .grading__step img {
   width: 11rem;
 }
 
-.grading .grading__step__par {
+#grading .grading__step__par {
   text-align: center;
 }
 
-.grading .grading__step__par p {
+#grading .grading__step__par p {
   line-height: 1.5;
 }
 

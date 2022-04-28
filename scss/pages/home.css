@@ -80,8 +80,8 @@ a {
   display: -ms-flexbox;
   display: flex;
   left: 0;
-  -webkit-animation: 10s slider infinite;
-          animation: 10s slider infinite;
+  -webkit-animation: 15s slider infinite;
+          animation: 15s slider infinite;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
 }
@@ -95,19 +95,19 @@ a {
   0% {
     left: 0;
   }
-  20% {
+  40% {
     left: 0%;
   }
   45% {
     left: -100%;
   }
-  50% {
+  70% {
     left: -100%;
   }
-  70% {
+  75% {
     left: -200%;
   }
-  75% {
+  90% {
     left: -200%;
   }
   95% {
@@ -122,19 +122,19 @@ a {
   0% {
     left: 0;
   }
-  20% {
+  40% {
     left: 0%;
   }
   45% {
     left: -100%;
   }
-  50% {
+  70% {
     left: -100%;
   }
-  70% {
+  75% {
     left: -200%;
   }
-  75% {
+  90% {
     left: -200%;
   }
   95% {
@@ -463,7 +463,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5rem;
+  padding: 5rem 0;
 }
 
 .mainCnt__steps h2 {
@@ -475,25 +475,21 @@ a {
 }
 
 .mainCnt__steps .mainCnt__stepsIcns {
+  width: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 7rem;
+  gap: 1rem;
   margin-top: 4rem;
 }
 
-.mainCnt__steps .mainCnt__stepsIcns .mainCnt__stepsIcn img {
-  width: 11rem;
-}
-
-.mainCnt__scale {
-  width: 100%;
+.mainCnt__steps .mainCnt__stepsIcns .mainCnt__stepsIcn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,59 +500,44 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 1rem;
 }
 
-.mainCnt__scale h2 {
-  font-weight: 400;
+.mainCnt__steps .mainCnt__stepsIcns .mainCnt__stepsIcn img {
+  width: 11rem;
 }
 
-.mainCnt__scale .mainCnt__scaleIcns {
+.grading__steps {
+  width: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 9rem;
-  padding: 4rem;
+  gap: 1rem;
+  margin-top: 4rem;
 }
 
-.mainCnt__scale .mainCnt__scaleIcns .mainCnt__scaleIcn img {
-  width: 10rem;
-}
-
-.mainCnt__scale .mainCnt__desc {
-  width: 40%;
-}
-
-.mainCnt__scale .mainCnt__desc p {
-  text-align: center;
-  font-size: 1.35rem;
-  font-weight: 300;
-}
-
-.mainCnt__scale .mainCnt__scaleImg {
-  width: 70%;
+.grading__steps .grading__step {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 5rem 2rem 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
 }
 
-.mainCnt__scale .mainCnt__scaleImg img {
-  width: 100%;
-}
-
-.mainCnt__scale .mainCnt__wtLogo {
-  width: 10%;
-  -webkit-transform: translateY(-2rem);
-          transform: translateY(-2rem);
+.grading__steps .grading__step img {
+  width: 11rem;
 }
 
 .mainCnt {
@@ -613,6 +594,36 @@ a {
   height: 15rem;
   background-color: #202223;
   cursor: pointer;
+}
+
+.mainCnt .icn__btn {
+  border: 1px solid #d30000;
+  border-radius: 50px;
+  padding: .7rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: #d30000;
+  font-weight: 700;
+}
+
+.mainCnt .icn__btn div {
+  width: 200%;
+  height: 200%;
+  background-color: #fff200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(40%, -50%);
+          transform: translate(40%, -50%);
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  z-index: -1;
+}
+
+.mainCnt .icn__btn:hover div {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .mnFtr {

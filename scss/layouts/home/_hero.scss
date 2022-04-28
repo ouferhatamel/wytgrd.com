@@ -11,7 +11,7 @@
         height: 100%;
         display: flex;
         left: 0;
-        animation: 10s slider infinite;
+        animation: 15s slider infinite;
         animation-timing-function: ease;  
     }
 
@@ -24,19 +24,19 @@
         0%{
             left: 0;
         }
-        20%{
+        40%{
             left: 0%;
         }
         45%{
             left: -100%;
         }
-        50%{
+        70%{
             left: -100%;
         }
-        70%{
+        75%{
             left: -200%;
         }
-        75%{
+        90%{
             left: -200%;
         }
         95%{
