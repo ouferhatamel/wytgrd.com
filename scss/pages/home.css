@@ -554,6 +554,39 @@ a {
           align-items: center;
 }
 
+.mainCnt .sub__progress {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5rem 0;
+}
+
+.mainCnt .sub__progress .sub__progress__bar {
+  width: 65%;
+  height: 3rem;
+  border-radius: 50px;
+  background-color: #202223;
+  overflow: hidden;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  position: relative;
+}
+
+.mainCnt .sub__progress .sub__progress__pourcentage {
+  width: 0%;
+  opacity: 0;
+  height: 100%;
+  background-color: #fff200;
+  border-radius: 50px;
+  position: absolute;
+  -webkit-transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 .mainCnt .mainCnt__instagram {
   width: 100%;
   display: -webkit-box;

@@ -8,6 +8,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    //SUBMISSIONS PROGRESS BAR
+    .sub__progress{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 5rem 0;
+        .sub__progress__bar{
+            width: 65%;
+            height: 3rem;
+            border-radius: 50px;
+            background-color: $dark_clr;
+            overflow: hidden;
+            transform-origin: left;
+            position: relative;
+        }
+        .sub__progress__pourcentage{
+            width: 0%;
+            opacity: 0;
+            height: 100%;
+            background-color: $main_clr;
+            border-radius: 50px;
+            position: absolute;
+            transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    }
+    //INSTAGRAM
     .mainCnt__instagram{
         width: 100%;
         display: flex;
