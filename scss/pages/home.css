@@ -559,10 +559,17 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 5rem 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5rem 0 3rem;
 }
 
 .mainCnt .sub__progress .sub__progress__bar {
@@ -585,6 +592,11 @@ a {
   position: absolute;
   -webkit-transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.mainCnt .sub__progress .sub__progress__number {
+  font-size: 3rem;
+  padding: 4rem 0 1rem;
 }
 
 .mainCnt .mainCnt__instagram {
