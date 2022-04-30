@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     .cardTypes{
         width: 100%;
         height: 25vh;
@@ -18,7 +17,6 @@
             }
         }
     }
-
     .mainCnt__Intro{
         width: 30%;
         padding: 2rem 0 3rem;
@@ -29,21 +27,18 @@
             line-height: 1.4;
         }
     }
-
     .mainCnt__adv{
         padding-top: 2rem;
         h2{
             text-align: center;
-            font-weight: 400;
+            font-weight: 700;
             margin-bottom: 2.5rem;
         }
-
         .mainCnt__advantages{
             display: flex;
             justify-content: center;
             gap: 2.5rem;
         }
-
         .mainCnt__card{
             width: 23rem;
             padding: 2rem;
@@ -60,7 +55,6 @@
                 box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
             }
         }
-
         .mainCnt__text{
             display: flex;
             flex-direction: column;
@@ -68,15 +62,19 @@
             border-radius: 10px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
             padding: 2rem 1rem;
+            background-color: white;
+            h3{
+                font-weight: 400;
+                font-size: 1.5rem;
+                text-align: center;
+            }
         }
-
         .mainCnt__icn{
             img{
                 width: 12rem;
                 margin-bottom: 1.2rem;
             }
         }
-
         .mainCnt__lmBtn{
             border: 1px solid $sec_clr;
             border-radius: 50px;
@@ -86,6 +84,7 @@
             cursor: pointer;
             color: $sec_clr;
             font-weight: 700;
+            z-index: 0;
             
             div{
                 width: 200%;

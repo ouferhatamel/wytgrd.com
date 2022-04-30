@@ -25,6 +25,8 @@
             background-color: transparent;
             display: flex;
             justify-content: center;
+            align-items: center;
+            position: relative;
         }
     }
     
@@ -63,4 +65,8 @@
 ::placeholder{
     color: $dark_clr;
     opacity: .8;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

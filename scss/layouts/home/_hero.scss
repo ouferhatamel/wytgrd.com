@@ -11,39 +11,61 @@
         height: 100%;
         display: flex;
         left: 0;
-        animation: 15s slider infinite;
+        animation: 28s slider infinite;
         animation-timing-function: ease;  
     }
-
-    .hero__slide{
-        width: 100%;//Because 3 images so 100% from 300% of whole width
-        height: 100%;
-    }
+    
 
     @keyframes slider{
         0%{
             left: 0;
         }
-        40%{
+        25%{
             left: 0%;
         }
-        45%{
+        30%{
             left: -100%;
         }
-        70%{
+        50%{
             left: -100%;
+        }
+        55%{
+            left: -200%;
         }
         75%{
             left: -200%;
         }
-        90%{
-            left: -200%;
-        }
-        95%{
+        80%{
             left: -300%;
         }
         100%{
             left: -300%;
+        }
+    }
+
+    .hero__slide{
+        width: 100%;//Because 3 images so 100% from 300% of whole width
+        height: 100%;
+        position: relative;
+        .heroDescription{
+            width: 80%;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1.6;
+            text-align: center;
+            h1{
+                font-size: 2.4rem;
+                color: white;
+            }
+            p{
+                text-align: center;
+                font-size: 1.4rem;
+                width: 50%;
+                margin: 0 auto;
+                color: white;
+            }
         }
     }
 

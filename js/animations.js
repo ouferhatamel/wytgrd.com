@@ -8,7 +8,6 @@ let flag = true;
 
 window.addEventListener('scroll', ()=>{
     const secPosition = progressSection.getBoundingClientRect().top;
-    console.log(secPosition)
     const screenPosition = window.innerHeight;  
     if(secPosition < screenPosition){
         showProgress();
@@ -16,8 +15,7 @@ window.addEventListener('scroll', ()=>{
             var interval = setInterval(()=>{
                 count +=70;
             subNumber.innerText = count;
-            console.log(count);
-            if(count >= 32703){
+            if(count >= 7622){
                 clearInterval(interval);     
             }
             flag=false;
