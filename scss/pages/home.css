@@ -882,7 +882,7 @@ a {
 }
 
 body {
-  background-image: url("../../../images/others/wytgrd-logo-pattern.svg");
-  background-image: center;
+  background-image: url("../../images/others/wytgrd-logo-pattern.svg");
+  background-position: center;
 }
 /*# sourceMappingURL=home.css.map */
