@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -6,6 +6,11 @@
           box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   color: #202223;
+  font-weight: 500;
+}
+
+strong {
+  font-weight: 900;
 }
 
 a {
@@ -243,7 +248,7 @@ a {
 
 .mainCnt__advSec .cardTypes {
   width: 100%;
-  height: 25vh;
+  padding: 5rem 0 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -262,12 +267,11 @@ a {
 
 .mainCnt__advSec .mainCnt__Intro {
   width: 30%;
-  padding: 2rem 0 3rem;
+  padding: 0 0 3rem;
 }
 
 .mainCnt__advSec .mainCnt__Intro p {
   text-align: center;
-  font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.4;
 }
@@ -278,8 +282,7 @@ a {
 
 .mainCnt__advSec .mainCnt__adv h2 {
   text-align: center;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .mainCnt__advSec .mainCnt__adv .mainCnt__advantages {
@@ -293,8 +296,8 @@ a {
 }
 
 .mainCnt__advSec .mainCnt__adv .mainCnt__card {
-  width: 23rem;
-  padding: 2rem;
+  width: 21rem;
+  padding: 2rem 0 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,31 +521,21 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5rem 0;
-}
-
-.mainCnt__steps h2 {
-  font-weight: 400;
-}
-
-.mainCnt__steps h4 {
-  font-weight: 300;
+  padding: 5rem 0 3rem;
 }
 
 .mainCnt__steps .mainCnt__steps__p {
   width: 30%;
   padding: 3rem 0 3rem;
   text-align: center;
-  font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.4;
 }
 
 .mainCnt__steps .mainCnt__steps__p2 {
   width: 30%;
-  padding: 6rem 0 0;
+  padding: 5rem 0 0;
   text-align: center;
-  font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.4;
 }
@@ -559,7 +552,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .mainCnt__steps .mainCnt__stepsIcns .mainCnt__stepsIcn {
@@ -592,7 +585,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
-  margin-top: 4rem;
+  padding-top: 2rem;
 }
 
 .grading__steps .grading__step {
@@ -669,20 +662,19 @@ a {
 
 .mainCnt .sub__progress .sub__progress__number {
   font-size: 3rem;
-  padding: 4rem 0 1rem;
+  padding: 0rem 0 1rem;
 }
 
 .mainCnt .sub__progress p {
   width: 30%;
-  padding: 6rem 0 0;
+  padding: 5rem 0 0;
   text-align: center;
-  font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.4;
 }
 
 .mainCnt .sub__progress p a {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .mainCnt .sub__progress p a:hover {
@@ -701,15 +693,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 3rem;
-}
-
-.mainCnt .mainCnt__instagram h2 {
-  font-weight: 400;
+  padding: 2rem 0 2rem;
 }
 
 .mainCnt .mainCnt__instagram h4 {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .mainCnt .maintCnt__instaFeed {
@@ -721,7 +709,7 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 6rem;
-  padding: 4rem;
+  padding: 5rem;
 }
 
 .mainCnt .maintCnt__instaFeed .instaFeed__post {
