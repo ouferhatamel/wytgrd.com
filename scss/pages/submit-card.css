@@ -113,7 +113,7 @@ main {
 
 .searchCard {
   width: 65%;
-  height: 7rem;
+  height: 5rem;
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,7 +208,7 @@ main {
 
 .searchCard .searchCard__add {
   width: 50px;
-  height: 50px;
+  height: 3rem;
   border-radius: 50%;
   border: 1.5px solid #202223;
   background-color: #fff200;
@@ -235,56 +235,14 @@ main {
   background-color: #d30000;
 }
 
-.searchCard .searchCard__specifity {
-  width: 30%;
-  padding: 1rem;
-  font-weight: 700;
-}
-
-.searchCard .searchCard__specifity #card__edition:checked:before {
-  background-color: green;
-}
-
-.searchCard .searchCard__specifity #card__edition + label {
-  margin-right: 2rem;
-}
-
-.cardRecap {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  padding: 4rem 10rem 1rem;
-}
-
 .cards {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 4rem 3rem 2rem 0;
-  position: relative;
+  padding: 2rem 4rem;
+  overflow-x: auto;
 }
 
 .cards h2 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 2rem;
-  padding: 0 0 2rem;
+  margin-bottom: 2rem;
 }
 
 .cards ul {
@@ -300,14 +258,16 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: .5rem;
+  gap: 1.5rem;
+  padding: 1rem .5rem;
   border-bottom: 1px solid #adadad;
+  background-color: #f1f1f1;
 }
 
 .cards .card__description {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .cards .card__description .card__name {
@@ -319,23 +279,123 @@ main {
   color: #adadad;
 }
 
+.cards .card__specifity_checkbox {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .4rem;
+}
+
+.cards .card__specifity_checkbox .card__check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+}
+
+.cards .card__specifity_checkbox #card__edition + label {
+  margin-right: 2rem;
+}
+
+.cards .card__noNotation {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.cards .card__noNotation .noNotation__toggle {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background-color: #202223;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  z-index: 3;
+}
+
+.cards .card__noNotation .noNotation__stroke {
+  width: 3.5rem;
+  height: 1.75rem;
+  border-radius: 50px;
+  border: 1.5px solid #202223;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.cards .card__noNotation span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff200;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cards .card__noNotation span:hover ~ .card__noNotation__hint {
+  display: inherit;
+}
+
+.cards .card__noNotation .card__noNotation__hint {
+  width: 100%;
+  background-color: #202223;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  position: absolute;
+  top: -6rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: none;
+  font-weight: 400;
+}
+
 .cards .card_lang {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .cards .card_lang select {
   font-size: 1rem;
   font-weight: 700;
+  background-color: transparent;
   border: none;
   outline: none;
 }
 
 .cards .card__delete {
-  -webkit-box-flex: .5;
-      -ms-flex: .5;
-          flex: .5;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .cards .card__delete img {
@@ -344,9 +404,9 @@ main {
 }
 
 .cards .card__value {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   position: relative;
 }
 
@@ -354,6 +414,7 @@ main {
   border: none;
   border-bottom: 1.5px solid #202223;
   outline: none;
+  background-color: transparent;
   padding-bottom: .5rem;
   font-weight: 700;
 }
@@ -385,8 +446,6 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  width: 3.5rem;
-  height: 1.75rem;
   cursor: pointer;
   position: relative;
 }
@@ -421,6 +480,80 @@ main {
 
 .cards hr {
   margin: 1rem 0;
+}
+
+.orderDtls {
+  width: 100%;
+  padding: 2rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.minimalNote__checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.minimalNote__checkbox span {
+  background-color: #fff200;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.minimalNote__checkbox span:hover ~ .minimalNote__hint {
+  display: block;
+}
+
+.minimalNote__checkbox .minimalNote__hint {
+  display: none;
+  width: 30%;
+  background-color: #202223;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  position: absolute;
+  top: -10rem;
+  left: 45%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  font-weight: 400;
+}
+
+.minimalNote__checkbox .minimalNote__hint strong {
+  color: white;
+}
+
+.minimalNote__dtls select {
+  width: 6rem;
+  outline: none;
+  padding: .3rem;
+  margin: 0 2rem;
+}
+
+.minimalNote__dtls #return ~ label {
+  margin-right: 1.5rem;
 }
 
 .recap {

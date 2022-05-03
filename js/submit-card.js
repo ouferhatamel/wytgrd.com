@@ -1,8 +1,8 @@
 const searchInput = document.getElementById('searchInput');
 const suggBox = document.querySelector('.searchCard__suggestions');
 const addBtn = document.querySelector('.searchCard__add');
-const edCheck = document.getElementById('card__edition');
-const shadCheck = document.getElementById('card__shadow');
+//const edCheck = document.getElementById('card__edition');
+//const shadCheck = document.getElementById('card__shadow');
 const cardContainer = document.querySelector('.cards__list');
 const numbCards = document.getElementById('recap__cardNumb');
 const cardPrice = document.getElementById('recap__cardsPrice');
@@ -46,7 +46,6 @@ searchInput.onkeyup = (e)=>{
 //----------ADDING A CARD----------
 addBtn.addEventListener('click', addCard);
 
-
 //FUNCTIONS
 function selectedRes(element){
     let selectedItem = element.textContent;
@@ -69,50 +68,67 @@ function addCard(){
     const id = new Date().getTime().toString();
     let edition = '';
     let shadow = '';
-    if(edCheck.checked){
+    /*if(edCheck.checked){
         edition = 'Ed.1';
         edCheck.checked = false;
     }
     if(shadCheck.checked){
         shadow = 'Shadow';
         shadCheck.checked = false;
-    }
+    }*/
     if(userInput != ''){
         const card = document.createElement('li');
         let attr = document.createAttribute('data-id');
         attr.value = id;
         card.setAttributeNode(attr);
-        card.innerHTML = `<div class="card__description">
-        <div class="card__name">${userInput}</div>
-        <div class="card__extension">${extension}</div>
-        <div class="card__specifity">
-            <div class="specifity__ed">${edition}</div>
-            <div class="specifity__shad">${shadow}</div>
+        card.innerHTML = `
+        <div class="card__description">
+            <div class="card__name">${userInput}</div>
+            <div class="card__extension">${extension}</div>
+            <!--
+            <div class="card__specifity">
+                <div class="specifity__ed">${edition}</div>
+                <div class="specifity__shad">${shadow}</div>
+            </div>
+            -->
         </div>
-    </div>
-    <div class="card_lang">
-        <select name="languages" id="langs">
-            <option value="Francés">Francés</option>
-            <option value="Inglés">Inglés</option>
-            <option value="Español">Español</option>
-            <option value="Español">Español</option>
-            <option value="Italiana">Italiana</option>
-            <option value="Portugués">Portugués</option>
-            <option value="Russe">Russe</option>
-            <option value="Neerlandés">Neerlandés</option>
-        </select>
-    </div>
-    <div class="card__value">
-        <input type="number" id="card__value">
-        <label for="card_value">El valor</label>
-        <span>€</span>
-    </div>
-    <div class="card__certLang">
-        <div class="certLang__toggle" data-lang="En"></div>
-        <div class="certlang__stroke"></div>
-    </div>
-    <div class="card__delete">
-        <img src="../../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
+        <div class="card__specifity_checkbox">
+            <div class="card__check">
+                <input type="checkbox" id="card__edition" name="card__edition">
+                <label for="card__edition">Ed.1</label>
+            </div>
+            <div class="card__check">
+                <input type="checkbox" id="card__shadow" name="card__shadow">
+                <label for="card__shadow">Shadow</label>
+            </div>
+        </div>
+        <div class="card__noNotation">
+            <div class="noNotation__toggle" data-lang="No"></div>
+            <div class="noNotation__stroke"></div>
+        </div>
+        <div class="card_lang">
+            <select name="languages" id="langs">
+                <option value="Francés">Francés</option>
+                <option value="Inglés">Inglés</option>
+                <option value="Español">Español</option>
+                <option value="Español">Español</option>
+                <option value="Italiana">Italiana</option>
+                <option value="Portugués">Portugués</option>
+                <option value="Russe">Russe</option>
+                <option value="Neerlandés">Neerlandés</option>
+            </select>
+        </div>
+        <div class="card__value">
+            <input type="number" id="card__value">
+            <label for="card_value">El valor declarado</label>
+            <span>€</span>
+        </div>
+        <div class="card__certLang">
+            <div class="certLang__toggle" data-lang="En"></div>
+            <div class="certlang__stroke"></div>
+        </div>
+        <div class="card__delete">
+            <img src="../../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
         </div>`;
         cardContainer.append(card);
         searchInput.value = '';
@@ -149,8 +165,6 @@ function addCard(){
         
         //Check if insurance is checked and add it to the invoice
         insuranceCheck.addEventListener('change', insurranceChecker);
-
-
     }else{
         //please enter a name
     }

@@ -1,13 +1,12 @@
 .searchCard{
     width: 65%;
-    height: 7rem;
+    height: 5rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
-    
+    margin-bottom: 3rem;    
     .searchCard__select{
         width: 65%;
         height: 100%;
@@ -15,9 +14,7 @@
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
-
     }
-
     .searchCard__input{
         width: 19rem;
         height: 100%;
@@ -66,7 +63,7 @@
 
     .searchCard__add{
         width: 50px;
-        height: 50px;
+        height: 3rem;
         border-radius: 50%;
         border: 1.5px solid $dark_clr;
         background-color: $main_clr;
@@ -83,40 +80,13 @@
             background-color: $sec_clr;
         }
     }
-    .searchCard__specifity{
-        width: 30%;
-        padding: 1rem;
-        font-weight: 700;
-        #card__edition{
-            &:checked:before{
-                background-color:green;
-                }
-            & + label{
-                margin-right: 2rem;
-            }
-        }
-    }
-}
-.cardRecap{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 4rem 10rem 1rem;
 }
 .cards{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem 3rem 2rem 0 ;
-    position: relative;
+    padding: 2rem 4rem;
+    overflow-x:auto;
     h2{
-        position: absolute;
-        left: 0;
-        top: 0;
-        font-size: 2rem;
-        padding: 0 0 2rem;
+        margin-bottom: 2rem;
     }
     ul{
         width: 100%;
@@ -125,12 +95,14 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: .5rem;
+            gap: 1.5rem;
+            padding: 1rem .5rem;
             border-bottom: 1px solid $light_clr;
+            background-color: #f1f1f1;
         }
     }
     .card__description{
-        flex: 2;
+        flex: 1;
         .card__name{
             color: $dark_clr;
             font-weight: 700;
@@ -139,29 +111,102 @@
             color: $light_clr;
         }
     }
+    .card__specifity_checkbox{
+        flex: 1;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        .card__check{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+        #card__edition{
+            & + label{
+                margin-right: 2rem;
+            }
+        }
+    }
+    .card__noNotation{
+        flex: 1;
+        position: relative;
+        cursor: pointer;
+        .noNotation__toggle{
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background-color: $dark_clr;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all .3s ease;
+            z-index: 3;
+        }
+        .noNotation__stroke{
+            width: 3.5rem;
+            height: 1.75rem;
+            border-radius: 50px;
+            border: 1.5px solid $dark_clr;
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+        span{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: $main_clr;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        span:hover ~ .card__noNotation__hint{
+            display: inherit;
+        }
+        .card__noNotation__hint{
+            width: 100%;
+            background-color: $dark_clr;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            position: absolute;
+            top: -6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            font-weight: 400;
+        }
+    }
     .card_lang{
-        flex: 2;
+        flex: 1;
         select{
             font-size: 1rem;
             font-weight: 700;
+            background-color: transparent;
             border: none;
             outline: none;
         }
     }
     .card__delete{
-        flex: .5;
+        flex: 1;
         img{
             width: 1.2rem;
             cursor: pointer;
         }
     }
     .card__value{
-        flex: 2;
+        flex: 1;
         position: relative;
         input{
             border: none;
             border-bottom: 1.5px solid $dark_clr;
             outline: none;
+            background-color: transparent;
             padding-bottom: .5rem;
             font-weight: 700;
             
@@ -189,11 +234,9 @@
     }
     .card__certLang{
         flex: 1;
-        width: 3.5rem;
-        height: 1.75rem;
         cursor: pointer;
         position: relative;
-       
+
         .certLang__toggle{
             width: 1.7rem;
             height: 1.7rem;
@@ -221,6 +264,60 @@
     }
     hr{
         margin: 1rem 0;
+    }
+}
+.orderDtls{
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.minimalNote__checkbox{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    position: relative;
+    margin-bottom: 2rem;
+    span{
+        background-color: $main_clr;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover ~ .minimalNote__hint{
+            display: block;
+        }
+    }
+    .minimalNote__hint{
+        display: none;
+        width: 30%;
+        background-color: $dark_clr;
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        position: absolute;
+        top: -10rem;
+        left: 45%;
+        transform: translateX(-100%);
+        //display: none;
+        font-weight: 400;
+        strong{
+            color: white;
+        }
+    }
+}
+.minimalNote__dtls{
+    select{
+        width: 6rem;
+        outline: none;
+        padding: .3rem;
+        margin: 0 2rem;
+    }
+    #return ~ label{
+        margin-right: 1.5rem;
     }
 }
 .recap{

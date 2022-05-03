@@ -49,49 +49,90 @@
                 </div>
                 <div class="searchCard__add">+</div>
             </div>
-            <div class="searchCard__specifity">
-                    <input type="checkbox" id="card__edition" name="card__edition">
-                    <label for="card__edition">Ed.1</label>
-                    <input type="checkbox" id="card__shadow" name="card__shadow">
-                    <label for="card__shadow">Shadow</label>
-            </div>  
         </div>
-        <!--CARDS AND RECAP-->
-        <div class="cardRecap">
             <!--LIST OF CARDS-->
             <div class="cards">
                 <h2>Lista de cartas</h2>
                 <ul class="cards__list">
-                    
+                    <li>
+                        <div class="card__description">CARTA</div>
+                        <div class="card__specifity_checkbox">ESPECIFICACIONES</div>
+                        <div class="card__noNotation">
+                            CERTIFICACIÓN SIN CALIFICACIÓN
+                            <span>i</span>
+                            <div class="card__noNotation__hint">
+                                Benefíciese de la caja de WYTGRD sin que se note su carta
+                            </div>
+                        </div>
+                        <div class="card_lang">LENGUAJE DEL CARTA</div>
+                        <div class="card__value">EL VALOR DECLARADO</div>
+                        <div class="card__certLang">LENGUA DE CERTIFICACIÓN</div>
+                        <div class="card__delete">BORRAR</div>
+                    </li>
+                    <!--Dynamic-->
                 </ul>
             </div>
-            <!--RACAP-->
-            <div class="recap">
-                <h3>Resume</h3>
-                <div class="recap__details">
-                    <div class="details">
-                        <span id="recap__cardNumb">Cartas</span>
-                        <span id="recap__cardsPrice">_</span>
-                    </div>
-                    <div class="details">
-                        <span>Envío</span>
-                        <span id="recap__delivery">_</span>
-                    </div>
-                    <div class="details">
-                        <span >Seguros</span>
-                        <span id="recap__insurance">_</span>
-                    </div>
-                    <!------------------------->
-                    <hr>
-                    <div class="details">
-                        <span>TOTAL</span>
-                        <span id="recap__total">_</span>
-                    </div>
+    </main>
+    <!--ORDER DETAILS-->>
+    <div class="orderDtls">
+        <!--MINIMAL NOTE-->
+        <div class="minimalNote">
+            <div class="minimalNote__checkbox">
+                <input type="checkbox" id="minimal">
+                <label for="minimal">Puntuación mínima </label>
+                <span class="hint">i</span>
+                <div class="minimalNote__hint">
+                    Por debajo de una calificación de su elección, le devolveremos sus tarjetas sin protección, o las protegeremos utilizando la <strong>A</strong> de <strong>Anticorrupción</strong>.
                 </div>
             </div>
+            <div class="minimalNote__dtls">
+                <span>Por debajo de</span>
+                <select name="notes" id="notes">
+                    <option value="-">---</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="9.5">9.5</option>
+                    <option value="10">10</option>
+                </select>
+                <input type="radio" name="cert-auth" id="return">
+                <label for="return">Devolver como está</label>
+                <input type="radio" name="cert-auth" id="auth">
+                <label for="auth">Certificar con la nota Auténtica</label>
+            </div>
         </div>
-    </main>
-    <!--Submit button-->
+        <!--RECAP-->
+        <div class="recap">
+            <h3>Resume</h3>
+            <div class="recap__details">
+            <div class="details">
+                <span id="recap__cardNumb">Cartas</span>
+                <span id="recap__cardsPrice">_</span>
+            </div>
+            <div class="details">
+                <span>Envío</span>
+                <span id="recap__delivery">_</span>
+            </div>
+            <div class="details">
+                <span >Seguros</span>
+                <span id="recap__insurance">_</span>
+            </div>
+            <!------------------------->
+            <hr>
+            <div class="details">
+                <span>TOTAL</span>
+                <span id="recap__total">_</span>
+            </div>
+            </div>
+        </div>    
+    </div>
+    <!--SUBMIT BUTTON-->
     <div class="submitCard">
         <div class="submitCard__insurance">
             <input type="checkbox" id="submit__insurance">
@@ -122,18 +163,15 @@
                 <ul>
                     <li><a href="#">Mi cuenta</a></li>
                     <li><a href="#">Mis pedidos</a></li>
-                    <li><a href="#">Mis direcciones</a></li>
                 </ul>
             </div>
             <!--Col04-->
             <div class="mnFtr__links">
                 <h4>Servicios</h4>
                 <ul>
-                    <li><a href="#">Recursos</a></li>
                     <li><a href="#">Nuestras garatias</a></li>
                     <li><a href="#">Certificar una carta</a></li>
                     <li><a href="#">Verificar la autenticidad</a></li>
-                    <li><a href="#">Accesorios</a></li>
                 </ul>
             </div>
             <!--Col05-->
