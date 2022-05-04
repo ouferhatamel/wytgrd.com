@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 const suggBox = document.querySelector('.searchCard__suggestions');
+const suggList = document.querySelector('.suggestions__list');
 const addBtn = document.querySelector('.searchCard__add');
 //const edCheck = document.getElementById('card__edition');
 //const shadCheck = document.getElementById('card__shadow');
@@ -22,7 +23,7 @@ let insurance = 0;
 let total = 0;
 
 //----------SAEARCH SUGGESTIONS----------
-searchInput.onkeyup = (e)=>{
+/*searchInput.onkeyup = (e)=>{
     let inputData = e.target.value;
     let dataArray = [];
     if(inputData){
@@ -42,19 +43,60 @@ searchInput.onkeyup = (e)=>{
         suggBox.classList.remove('searchCard__suggestions--active');
     }
     
-}
+}*/
 //----------ADDING A CARD----------
-addBtn.addEventListener('click', addCard);
+//addBtn.addEventListener('click', addCard);
 
+
+//-----------SEARCH CARDS------------
+addBtn.addEventListener('click', getCards);
+//searchInput.onkeyup = getCards;
+searchInput.onkeydown = clearList;
 //FUNCTIONS
-function selectedRes(element){
+async function getCards(){
+    suggList.innerHTML= '';
+    let inputData = searchInput.value;
+    if(inputData){
+        const response = await fetch('https://api.pokemontcg.io/v2/cards');
+        const res = await response.json();
+        const results = res.data;
+        printData(results, inputData);
+    }else
+        console.log('Fill name, please');
+}
+function printData(data, inputD){ 
+    let containFlag = false;
+    let inputData = inputD;
+    data.map(card =>{
+    if(card.name.toLocaleLowerCase().includes(inputData.toLocaleLowerCase())){
+        containFlag = true;
+        console.log(card.name);
+        const item = document.createElement('li');
+        item.innerHTML = `
+                <img src="${card.images.small}" class="suggestion__list__cardImg" alt="wytgrd-pokemon-card">
+                <div class="suggestion__cardInfo">
+                    <div class="cardInfo__name"><strong>${card.name}</strong></div>
+                    <div class="cardInfo__set">${card.set.name}</div>
+                    <div class="cardInfo__year">${card.set.releaseDate.substring(0, 4)}</div>
+                </div>
+                <div class="cardInfo__addBasket">
+                    <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
+                </div>
+        `
+            suggList.appendChild(item);
+    }
+    });
+    if(!containFlag)
+        console.log('No such card !'); // PRINT ON A TIMEOUTED BOX
+}
+/*function selectedRes(element){
     let selectedItem = element.textContent;
     if(selectedItem != "No existe tal carta"){
         searchInput.value = selectedItem;
         suggBox.classList.remove('searchCard__suggestions--active');
     }
-}
-function showSuggestions(list){
+}*/
+/*function showSuggestions(list){
     let listData;
     if(!list.length){
         listData = `<li>No existe tal carta</li>`;
@@ -62,7 +104,8 @@ function showSuggestions(list){
         listData = list.join('');
     }
     suggBox.innerHTML = listData;
-}
+}*/
+
 function addCard(){
     const userInput = searchInput.value;
     const id = new Date().getTime().toString();
@@ -211,4 +254,8 @@ function insurranceChecker(e){
         totalPrice.innerHTML = `${total} €`;
     }
         
+}
+function clearList(){
+    if(!searchInput.value)
+        suggList.innerHTML= '';
 }
