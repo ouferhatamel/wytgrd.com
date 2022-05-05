@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -176,7 +180,7 @@ main {
   display: none;
 }
 
-.searchCard .searchCard__add {
+.searchCard .searchCard__search {
   width: 50px;
   height: 3rem;
   border-radius: 50%;
@@ -196,12 +200,16 @@ main {
   font-weight: 400;
 }
 
-.searchCard .searchCard__add:hover {
+.searchCard .searchCard__search img {
+  width: 1rem;
+}
+
+.searchCard .searchCard__search:hover {
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.searchCard .searchCard__add:active {
+.searchCard .searchCard__search:active {
   background-color: #d30000;
 }
 
@@ -269,6 +277,7 @@ main {
 }
 
 .cards h2 {
+  margin-top: 5rem;
   margin-bottom: 2rem;
 }
 
@@ -365,6 +374,14 @@ main {
   left: 0;
   top: 0;
   pointer-events: none;
+}
+
+.cards .card__noNotation--on .noNotation__toggle {
+  left: 1.8rem;
+}
+
+.cards .card__noNotation--on .noNotation__stroke {
+  background-color: #fff200;
 }
 
 .cards .card__noNotation span {
@@ -572,6 +589,10 @@ main {
   color: white;
 }
 
+.minimalNote__dtls {
+  display: none;
+}
+
 .minimalNote__dtls select {
   width: 6rem;
   outline: none;
@@ -620,15 +641,27 @@ main {
   margin: 1.5rem 0;
 }
 
+.orderDtls__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .submitCard {
   display: none;
   font-weight: 700;
-  margin-top: 0rem;
-  padding: 0rem 10rem 4rem;
+  padding: 0 0 4rem;
 }
 
 .submitCard--active {
-  display: inherit;
+  display: block;
 }
 
 .submitCard .submitCard__insurance {

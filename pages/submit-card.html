@@ -46,39 +46,18 @@
                 <div class="searchCard__input">
                     <input type="search" autocomplete="off" id="searchInput" placeholder="Introduzca el nombre de la carta">
                 </div>
-                <div class="searchCard__add">+</div>
+                <div class="searchCard__search">
+                    <img src="../images/icons/wytgrd-search-icon.svg" alt="wytgrd-search-icon">
+                </div>
             </div>
             <div class="searchCard__suggestions">
                 <ul class="suggestions__list">
-                    <!--<li>...</li>-->
-                    <li>
-                        <img src="../images/others/wytgrd-pokemon-victiniv-test.jpg" class="suggestion__list__cardImg" alt="wytgrd-pokemon-victiniv-test">
-                        <div class="suggestion__cardInfo">
-                            <div class="cardInfo__name"><strong>Victini V</strong></div>
-                            <div class="cardInfo__set">Basic set</div>
-                            <div class="cardInfo__year">2020</div>
-                        </div>
-                        <div class="cardInfo__addBasket">
-                            <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../images/others/wytgrd-pokemon-charizard-test.jpg" class="suggestion__list__cardImg" alt="wytgrd-pokemon-victiniv-test">
-                        <div class="suggestion__cardInfo">
-                            <div class="cardInfo__name"><strong>Charizard</strong></div>
-                            <div class="cardInfo__set">Basic set</div>
-                            <div class="cardInfo__year">2000</div>
-                        </div>
-                        <div class="cardInfo__addBasket">
-                            <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
-                        </div>
-                    </li>
+                    <!--<li>...</li>--> 
                 </ul>
-
             </div>
         </div>
             <!--LIST OF CARDS-->
-            <div class="cards">
+            <div class="cards" id="cards">
                 <h2>Lista de cartas</h2>
                 <ul class="cards__list">
                     <li>
@@ -100,10 +79,11 @@
                 </ul>
             </div>
     </main>
-    <!--ORDER DETAILS-->>
+    <!--ORDER DETAILS-->
     <div class="orderDtls">
-        <!--MINIMAL NOTE-->
-        <div class="minimalNote">
+        <div class="orderDtls__left">
+            <!--MINIMAL NOTE-->
+            <div class="minimalNote">
             <div class="minimalNote__checkbox">
                 <input type="checkbox" id="minimal">
                 <label for="minimal">Puntuación mínima </label>
@@ -133,7 +113,17 @@
                 <input type="radio" name="cert-auth" id="auth">
                 <label for="auth">Certificar con la nota Auténtica</label>
             </div>
+            </div>
+            <!--SUBMIT BUTTON-->
+            <div class="submitCard">
+                <div class="submitCard__insurance">
+                    <input type="checkbox" id="submit__insurance">
+                <label for="submit__insurance">Seguro</label>
+                </div>
+                <div class="submitCard__btn">Validar</div>
+            </div>
         </div>
+        
         <!--RECAP-->
         <div class="recap">
             <h3>Resume</h3>
@@ -158,14 +148,6 @@
             </div>
             </div>
         </div>    
-    </div>
-    <!--SUBMIT BUTTON-->
-    <div class="submitCard">
-        <div class="submitCard__insurance">
-            <input type="checkbox" id="submit__insurance">
-            <label for="submit__insurance">Seguro</label>
-        </div>
-        <div class="submitCard__btn">Validar</div>
     </div>
     <!--FOOTER-->
     <footer class="mnFtr">

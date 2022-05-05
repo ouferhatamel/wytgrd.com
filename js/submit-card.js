@@ -1,7 +1,7 @@
 const searchInput = document.getElementById('searchInput');
 const suggBox = document.querySelector('.searchCard__suggestions');
 const suggList = document.querySelector('.suggestions__list');
-const addBtn = document.querySelector('.searchCard__add');
+const searchBtn = document.querySelector('.searchCard__search');
 //const edCheck = document.getElementById('card__edition');
 //const shadCheck = document.getElementById('card__shadow');
 const cardContainer = document.querySelector('.cards__list');
@@ -12,6 +12,8 @@ const totalPrice = document.getElementById('recap__total');
 const validateCnt = document.querySelector('.submitCard');
 const insuranceCheck = document.getElementById('submit__insurance');
 const insrPrice = document.getElementById('recap__insurance');
+const minimalCheck = document.getElementById('minimal');
+const minimalDtls = document.querySelector('.minimalNote__dtls');
 
 //VARIABLES
 let extension = 'Set de base';
@@ -49,15 +51,17 @@ let total = 0;
 
 
 //-----------SEARCH CARDS------------
-addBtn.addEventListener('click', getCards);
-//searchInput.onkeyup = getCards;
+searchBtn.addEventListener('click', getCards);
 searchInput.onkeydown = clearList;
+minimalCheck.addEventListener('change', showDetails);
+
+
 //FUNCTIONS
 async function getCards(){
     suggList.innerHTML= '';
     let inputData = searchInput.value;
     if(inputData){
-        const response = await fetch('https://api.pokemontcg.io/v2/cards');
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:"${inputData}"`);
         const res = await response.json();
         const results = res.data;
         printData(results, inputData);
@@ -79,15 +83,156 @@ function printData(data, inputD){
                     <div class="cardInfo__set">${card.set.name}</div>
                     <div class="cardInfo__year">${card.set.releaseDate.substring(0, 4)}</div>
                 </div>
-                <div class="cardInfo__addBasket">
+                <a class="cardInfo__addBasket" href="#cards">
                     <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
-                </div>
+                </a>
         `
             suggList.appendChild(item);
+            //ADDING TO THE ORDER LIST
+            const addItemBtn = item.querySelector('.cardInfo__addBasket');
+            addItemBtn.addEventListener('click',addItem);
     }
     });
     if(!containFlag)
         console.log('No such card !'); // PRINT ON A TIMEOUTED BOX
+}
+function addItem(e){
+    const card = e.currentTarget.parentElement;
+    console.log(card);
+    const cardName = card.querySelector('.cardInfo__name').textContent;
+    const setName = card.querySelector('.cardInfo__set').textContent;
+    console.log(`name = ${cardName}, setName = ${setName}`);
+
+    //Create the card element
+    const cardElement = document.createElement('li');
+    let attr = document.createAttribute('data-id');
+    const id = new Date().getTime().toString();
+    attr.value = id;
+    cardElement.setAttributeNode(attr);
+    cardElement.innerHTML = `
+        <div class="card__description">
+            <div class="card__name">${cardName}</div>
+            <div class="card__extension">${setName}</div>
+        </div>
+        <div class="card__specifity_checkbox">
+            <div class="card__check">
+                <input type="checkbox" id="card__edition" name="card__spec">
+                <label for="card__edition">Ed.1</label>
+            </div>
+            <div class="card__check">
+                <input type="checkbox" id="card__shadow" name="card__spec">
+                <label for="card__shadow">Shadowless</label>
+            </div>
+        </div>
+        <div class="card__noNotation">
+            <div class="noNotation__toggle" data-lang="No"></div>
+            <div class="noNotation__stroke"></div>
+        </div>
+        <div class="card_lang">
+            <select name="languages" id="langs">
+                <option value="Francés">Francés</option>
+                <option value="Inglés">Inglés</option>
+                <option value="Español">Español</option>
+                <option value="Español">Español</option>
+                <option value="Italiana">Italiana</option>
+                <option value="Portugués">Portugués</option>
+                <option value="Russe">Russe</option>
+                <option value="Neerlandés">Neerlandés</option>
+            </select>
+        </div>
+        <div class="card__value">
+            <input type="number" id="card__value">
+            <label for="card_value">El valor declarado</label>
+            <span>€</span>
+        </div>
+        <div class="card__certLang">
+            <div class="certLang__toggle" data-lang="En"></div>
+            <div class="certlang__stroke"></div>
+        </div>
+        <div class="card__delete">
+            <img src="../../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
+    </div>`;
+    cardContainer.append(cardElement);
+
+    //Update card's number the number of added cards
+    cardNumber++;
+    numbCards.innerHTML = `${cardNumber} cartas`;
+
+    //Update the price of the cards
+    crdPrice = priceOfCards();
+    cardPrice.innerHTML= `${crdPrice} €`;
+
+    //Update delivery price
+    if(cardNumber > 0)
+    deliveryPrice.innerHTML = `${delivery} €`;
+
+    //Check if insurance is checked and add it to the invoice
+    insuranceCheck.addEventListener('change', insurranceChecker);
+
+    //Update the total
+    total = TotalCalc();
+    totalPrice.innerHTML = `${total} €`;
+
+    //Delete the card element
+    const delCardBtn = cardElement.querySelector('.card__delete');
+    delCardBtn.addEventListener('click', deleteCard);
+
+    //Langage toggle
+    const langToggle = cardElement.querySelector('.card__certLang');
+    langToggle.addEventListener('click', (e)=>{
+        e.currentTarget.classList.toggle('card__certLang--spanish');
+        //don't forget to change the data-lang to spanish when toggling
+    });
+
+    //No notation toggle
+    const noNot = cardElement.querySelector('.card__noNotation');
+    noNot.addEventListener('click', (e)=>{
+        e.currentTarget.classList.toggle('card__noNotation--on');
+    });
+
+    //Show the Validate container
+    validateCnt.classList.add('submitCard--active');
+}
+function clearList(){
+    if(!searchInput.value)
+        suggList.innerHTML= '';
+}
+function deleteCard(e){
+    const item = e.currentTarget.parentElement;
+    cardContainer.removeChild(item);
+    //update the number of cards
+    cardNumber--;
+    numbCards.innerHTML = `${cardNumber} cartas`;
+    //Update the price of the cards
+    crdPrice = priceOfCards();
+    cardPrice.innerHTML= `${crdPrice} €`;
+    //Update delivery price
+    if(cardNumber < 1)
+        deliveryPrice.innerHTML = `0 €`;
+    
+    //Update the total
+    total = TotalCalc();
+    totalPrice.innerHTML = `${total} €`;
+}
+function priceOfCards(){
+    let c_price = cardNumber*unitPrice;
+    return parseFloat(c_price.toFixed(2));
+}
+function TotalCalc(){
+    if(cardNumber < 1){
+        return 0;
+        
+    }else{
+        let c_price = priceOfCards();
+        return c_price + delivery + insurance;
+    }
+        
+}
+function showDetails(e){
+    if (this.checked){
+        minimalDtls.style.display = 'inherit';
+    }else
+        minimalDtls.style.display = 'none';
 }
 /*function selectedRes(element){
     let selectedItem = element.textContent;
@@ -105,7 +250,6 @@ function printData(data, inputD){
     }
     suggBox.innerHTML = listData;
 }*/
-
 function addCard(){
     const userInput = searchInput.value;
     const id = new Date().getTime().toString();
@@ -128,12 +272,6 @@ function addCard(){
         <div class="card__description">
             <div class="card__name">${userInput}</div>
             <div class="card__extension">${extension}</div>
-            <!--
-            <div class="card__specifity">
-                <div class="specifity__ed">${edition}</div>
-                <div class="specifity__shad">${shadow}</div>
-            </div>
-            -->
         </div>
         <div class="card__specifity_checkbox">
             <div class="card__check">
@@ -212,37 +350,9 @@ function addCard(){
         //please enter a name
     }
 }
-function deleteCard(e){
-    const item = e.currentTarget.parentElement;
-    cardContainer.removeChild(item);
-    //update the number of cards
-    cardNumber--;
-    numbCards.innerHTML = `${cardNumber} cartas`;
-    ////Update the price of the cards
-    crdPrice = priceOfCards();
-    cardPrice.innerHTML= `${crdPrice} €`;
-    //Update delivery price
-    if(cardNumber < 1)
-        deliveryPrice.innerHTML = `0 €`;
-    
-    //Update the total
-    total = TotalCalc();
-    totalPrice.innerHTML = `${total} €`;
-}
-function priceOfCards(){
-    return cardNumber*unitPrice;
-}
-function TotalCalc(){
-    if(cardNumber < 1){
-        return 0;
-        
-    }else{
-        return priceOfCards()+delivery+insurance;
-    }
-        
-}
 function insurranceChecker(e){
     if(e.target.checked){
+        console.log(insurance);
         insurance=9.48;
         insrPrice.innerHTML = `${insurance} €`;
         total = TotalCalc();
@@ -254,8 +364,4 @@ function insurranceChecker(e){
         totalPrice.innerHTML = `${total} €`;
     }
         
-}
-function clearList(){
-    if(!searchInput.value)
-        suggList.innerHTML= '';
 }
