@@ -217,10 +217,28 @@ main {
   width: 50%;
   padding: 2rem 3rem;
   list-style: none;
+  position: relative;
 }
 
 .searchCard .searchCard__suggestions--active {
   display: block;
+}
+
+.searchCard .suggestions__loader {
+  width: 100%;
+  height: auto;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: -5%;
+  z-index: 5;
+}
+
+.searchCard .suggestions__loader img {
+  width: 18rem;
 }
 
 .searchCard .suggestions__list {

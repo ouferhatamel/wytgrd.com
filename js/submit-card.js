@@ -14,6 +14,7 @@ const insuranceCheck = document.getElementById('submit__insurance');
 const insrPrice = document.getElementById('recap__insurance');
 const minimalCheck = document.getElementById('minimal');
 const minimalDtls = document.querySelector('.minimalNote__dtls');
+const loader = document.querySelector('.suggestions__loader');
 
 //VARIABLES
 let extension = 'Set de base';
@@ -58,6 +59,7 @@ minimalCheck.addEventListener('change', showDetails);
 
 //FUNCTIONS
 async function getCards(){
+    loader.style.display = 'flex';
     suggList.innerHTML= '';
     let inputData = searchInput.value;
     if(inputData){
@@ -74,6 +76,7 @@ function printData(data, inputD){
     data.map(card =>{
     if(card.name.toLocaleLowerCase().includes(inputData.toLocaleLowerCase())){
         containFlag = true;
+        loader.style.display = 'none';
         console.log(card.name);
         const item = document.createElement('li');
         item.innerHTML = `
@@ -87,10 +90,10 @@ function printData(data, inputD){
                     <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
                 </a>
         `
-            suggList.appendChild(item);
-            //ADDING TO THE ORDER LIST
-            const addItemBtn = item.querySelector('.cardInfo__addBasket');
-            addItemBtn.addEventListener('click',addItem);
+        suggList.appendChild(item);
+        //ADDING TO THE ORDER LIST
+        const addItemBtn = item.querySelector('.cardInfo__addBasket');
+        addItemBtn.addEventListener('click',addItem);
     }
     });
     if(!containFlag)

@@ -64,9 +64,22 @@
         width: 50%;
         padding: 2rem 3rem;
         list-style: none;
-        //display: none;
+        position: relative;
         &--active{
             display: block;
+        }
+    }
+    .suggestions__loader{
+        width: 100%;
+        height: auto;
+        display: none;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: -5%;
+        z-index: 5;
+        img{
+            width: 18rem;
         }
     }
     .suggestions__list{
