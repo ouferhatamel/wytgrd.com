@@ -153,7 +153,7 @@ function addItem(e){
             <div class="certlang__stroke"></div>
         </div>
         <div class="card__delete">
-            <img src="../../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
+            <img src="../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
     </div>`;
     cardContainer.append(cardElement);
 
