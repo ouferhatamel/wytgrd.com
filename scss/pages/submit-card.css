@@ -537,7 +537,7 @@ main {
 
 .cards .card__certLang--spanish .certLang__toggle {
   left: 1.8rem;
-  background-image: url("../../../images/icons/wytgrd-langage-spanish-flag.svg");
+  background-image: url("../../images/icons/wytgrd-langage-spanish-flag.svg");
 }
 
 .cards hr {
