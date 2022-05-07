@@ -646,6 +646,20 @@ main {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
+.recap .recap__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.recap .recap__head span {
+  display: none;
+  margin-top: .7rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
 .recap h3 {
   font-size: 1.8rem;
   margin-bottom: 1.2rem;

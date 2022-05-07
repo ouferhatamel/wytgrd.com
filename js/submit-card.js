@@ -17,12 +17,13 @@ const minimalDtls = document.querySelector('.minimalNote__dtls');
 const loader = document.querySelector('.suggestions__loader');
 const inputCnt = document.querySelector('.searchCard__input');
 const inputMsg = document.querySelector('.search__input__msg');
+const offerTxt = document.querySelector('.recap__head span');
 
 //VARIABLES
-let extension = 'Set de base';
+let extension = '';
 let cardNumber = 0;
 let crdPrice = 0;
-let unitPrice = 9.95;
+let unitPrice = 10.15;
 let delivery = 11.07;
 let insurance = 0;
 let total = 0;
@@ -58,8 +59,9 @@ searchBtn.addEventListener('click', getCards);
 searchInput.onkeydown = clearList;
 minimalCheck.addEventListener('change', showDetails);
 
-
 //FUNCTIONS
+
+//Fetching cards from the pokemon API
 async function getCards(){
     suggList.innerHTML= '';
     let inputData = searchInput.value;
@@ -89,6 +91,7 @@ async function getCards(){
     
         
 }
+//Printing the search results on the list
 function printData(data, inputD){ 
     let containFlag = false; //When it equals to true, means that at least one card has been found
     let inputData = inputD;
@@ -128,6 +131,7 @@ function printData(data, inputD){
     }
         
 }
+//Add a card element to the order list
 function addItem(e){
     const card = e.currentTarget.parentElement;
     console.log(card);
@@ -226,10 +230,12 @@ function addItem(e){
     //Show the Validate container
     validateCnt.classList.add('submitCard--active');
 }
+//Clear the search results list when input data is eraised
 function clearList(){
     if(!searchInput.value)
         suggList.innerHTML= '';
 }
+//Delete a card from the order list
 function deleteCard(e){
     const item = e.currentTarget.parentElement;
     cardContainer.removeChild(item);
@@ -248,6 +254,25 @@ function deleteCard(e){
     totalPrice.innerHTML = `${total} €`;
 }
 function priceOfCards(){
+    if(cardNumber >= 10){
+        offerTxt.textContent = 'Oferta 01'
+        offerTxt.style.display = 'inherit';
+        unitPrice = 9.95;
+        if(cardNumber >= 20){
+            offerTxt.textContent = 'Oferta 02'
+            offerTxt.style.display = 'inherit';
+            unitPrice = 9.50;
+            if(cardNumber >=50){
+                offerTxt.textContent = 'Oferta 03'
+                offerTxt.style.display = 'inherit';
+                unitPrice = 8.95;
+            }
+        }
+    }else{
+        offerTxt.style.display = 'none';
+        unitPrice = 10.15;
+    }
+    console.log(unitPrice);
     let c_price = cardNumber*unitPrice;
     return parseFloat(c_price.toFixed(2));
 }
@@ -257,7 +282,7 @@ function TotalCalc(){
         
     }else{
         let c_price = priceOfCards();
-        return c_price + delivery + insurance;
+        return (c_price + delivery + insurance).toFixed(2);
     }
         
 }
@@ -267,6 +292,8 @@ function showDetails(e){
     }else
         minimalDtls.style.display = 'none';
 }
+
+
 /*function selectedRes(element){
     let selectedItem = element.textContent;
     if(selectedItem != "No existe tal carta"){
