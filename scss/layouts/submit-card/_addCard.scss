@@ -38,8 +38,17 @@
             &[type="search"]::-webkit-search-results-decoration { display: none; }
         }
     }
+    .search__input__msg{
+        display: none;
+        position: absolute;
+        left: 10px;
+        top: 110%;
+        margin-top: 5px;
+        font-weight: 400;
+        color: $sec_clr;
+    }
     .searchCard__search{
-        width: 50px;
+        width: 3rem;
         height: 3rem;
         border-radius: 50%;
         border: 1.5px solid $dark_clr;

@@ -15,6 +15,8 @@ const insrPrice = document.getElementById('recap__insurance');
 const minimalCheck = document.getElementById('minimal');
 const minimalDtls = document.querySelector('.minimalNote__dtls');
 const loader = document.querySelector('.suggestions__loader');
+const inputCnt = document.querySelector('.searchCard__input');
+const inputMsg = document.querySelector('.search__input__msg');
 
 //VARIABLES
 let extension = 'Set de base';
@@ -59,19 +61,36 @@ minimalCheck.addEventListener('change', showDetails);
 
 //FUNCTIONS
 async function getCards(){
-    loader.style.display = 'flex';
     suggList.innerHTML= '';
     let inputData = searchInput.value;
-    if(inputData){
-        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:"${inputData}"`);
-        const res = await response.json();
-        const results = res.data;
-        printData(results, inputData);
-    }else
-        console.log('Fill name, please');
+    try{
+        if(inputData){
+            loader.style.display = 'flex';
+            const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:"${inputData}"`);
+            const res = await response.json();
+            const results = res.data;
+            printData(results, inputData);
+        }else{
+            inputMsg.textContent = 'Rellene el nombre de la carta';
+            inputMsg.style.display = 'inherit';
+            inputCnt.style.borderColor = 'red';
+            setTimeout(() =>{
+                inputMsg.style.display = 'none';
+                inputCnt.style.borderColor = 'inherit';
+            }, 3000);
+            console.log('Fill name, please');
+        }
+    }catch(e){
+        loader.style.display = 'none';
+        inputMsg.textContent = '404 - El enlace al servidor está roto o es erróneo';
+        inputMsg.style.display = 'inherit';
+        console.log('Error', e.message);
+    }
+    
+        
 }
 function printData(data, inputD){ 
-    let containFlag = false;
+    let containFlag = false; //When it equals to true, means that at least one card has been found
     let inputData = inputD;
     data.map(card =>{
     if(card.name.toLocaleLowerCase().includes(inputData.toLocaleLowerCase())){
@@ -96,15 +115,25 @@ function printData(data, inputD){
         addItemBtn.addEventListener('click',addItem);
     }
     });
-    if(!containFlag)
-        console.log('No such card !'); // PRINT ON A TIMEOUTED BOX
+    if(!containFlag){
+        inputMsg.textContent = 'No existe tal carta. Asegúrese de que el nombre está escrito correctamente.';
+        inputMsg.style.display = 'inherit';
+        inputCnt.style.borderColor = 'red';
+        setTimeout(() =>{
+            inputMsg.style.display = 'none';
+            inputCnt.style.borderColor = 'inherit';
+        }, 3000);
+        
+        loader.style.display = 'none';
+    }
+        
 }
 function addItem(e){
     const card = e.currentTarget.parentElement;
     console.log(card);
     const cardName = card.querySelector('.cardInfo__name').textContent;
     const setName = card.querySelector('.cardInfo__set').textContent;
-    console.log(`name = ${cardName}, setName = ${setName}`);
+    const cardRyear = card.querySelector('.cardInfo__year').textContent;
 
     //Create the card element
     const cardElement = document.createElement('li');
@@ -116,6 +145,7 @@ function addItem(e){
         <div class="card__description">
             <div class="card__name">${cardName}</div>
             <div class="card__extension">${setName}</div>
+            <div class="card__year">${cardRyear}</div>
         </div>
         <div class="card__specifity_checkbox">
             <div class="card__check">
