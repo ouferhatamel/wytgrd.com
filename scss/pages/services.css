@@ -74,7 +74,7 @@ a {
 }
 
 body {
-  background-image: url("../../images/others/wytgrd-logo-pattern.svg");
+  background-image: url("../../images/others/wytgrd-logo-pattern.jpg");
   background-position: center;
 }
 
@@ -145,7 +145,7 @@ main {
 #about-us {
   position: relative;
   width: 100%;
-  padding: 12rem 0 8rem;
+  padding: 12rem 0 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,7 +155,7 @@ main {
 }
 
 #about-us .about-us__prg {
-  width: 60%;
+  width: 50%;
   text-align: center;
 }
 
@@ -167,7 +167,7 @@ main {
 #tarifs {
   position: relative;
   width: 100%;
-  padding: 12rem 0 8rem;
+  padding: 12rem 0 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

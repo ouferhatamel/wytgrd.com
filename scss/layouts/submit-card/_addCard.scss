@@ -133,13 +133,74 @@
         width: 100%;
         list-style: none;
         li{
+            padding: 1rem 2rem;
+            border-bottom: 3px solid $light_clr;
+            background-color: #f1f1f1;
+        }
+        .f_line{
             width: 100%;
             display: flex;
             justify-content: space-between;
             gap: 1.5rem;
-            padding: 1rem .5rem;
-            border-bottom: 1px solid $light_clr;
-            background-color: #f1f1f1;
+            margin-bottom: 1rem;
+        }
+        .c__list__head{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            background-color: $dark_clr;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            div{
+                color: white;
+            }
+            
+        }
+    }
+    .minimalNote__checkbox{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        position: relative;
+        margin-bottom: .5rem;
+        span{
+            background-color: $main_clr;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover ~ .minimalNote__hint{
+                display: block;
+            }
+        }
+        .minimalNote__hint{
+            display: none;
+            width: 14rem;
+            background-color: $main_clr;
+            color: $dark_clr;
+            padding: 1rem;
+            border-radius: 10px;
+            position: absolute;
+            top: -8rem;
+            left: 30%;
+            transform: translateX(-100%);
+            font-weight: 400;
+        }
+    }
+    .minimalNote__dtls{
+        display: none;
+        select{
+            width: 6rem;
+            outline: none;
+            padding: .3rem;
+            margin: 0 2rem;
+        }
+        #return ~ label{
+            margin-right: 1.5rem;
         }
     }
     .card__description{
@@ -207,8 +268,8 @@
             top: 0;
             right: 0;
             background-color: $main_clr;
-            width: 2rem;
-            height: 2rem;
+            width: 1.5rem;
+            height: 1.5rem;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -219,12 +280,12 @@
         }
         .card__noNotation__hint{
             width: 100%;
-            background-color: $dark_clr;
-            color: white;
+            background-color: $main_clr;
+            color: $dark_clr;
             padding: 1rem;
             border-radius: 10px;
             position: absolute;
-            top: -6rem;
+            top: -10rem;
             left: 50%;
             transform: translateX(-50%);
             display: none;
@@ -233,6 +294,12 @@
     }
     .card_lang{
         flex: 1;
+        p{
+            color: white;
+            margin-top: 3px;
+            font-size: .7rem;
+            font-weight: 300;
+        }
         select{
             font-size: 1rem;
             font-weight: 700;
@@ -251,9 +318,17 @@
     .card__value{
         flex: 1;
         position: relative;
+        p{
+            color: white;
+            margin-top: 3px;
+            font-size: .7rem;
+            font-weight: 300;
+        }
         input{
-            border: none;
-            border-bottom: 1.5px solid $dark_clr;
+            width: 60%;
+            border: 2px solid $dark_clr;
+            border-radius: 5px;
+            padding: 3px .5rem;
             outline: none;
             background-color: transparent;
             padding-bottom: .5rem;
@@ -285,6 +360,12 @@
         flex: 1;
         cursor: pointer;
         position: relative;
+        p{
+            color: white;
+            margin-top: 3px;
+            font-size: .7rem;
+            font-weight: 300;
+        }
 
         .certLang__toggle{
             width: 1.7rem;
@@ -320,55 +401,6 @@
     padding: 2rem 4rem;
     display: flex;
     justify-content: space-between;
-}
-.minimalNote__checkbox{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    position: relative;
-    margin-bottom: 2rem;
-    span{
-        background-color: $main_clr;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        &:hover ~ .minimalNote__hint{
-            display: block;
-        }
-    }
-    .minimalNote__hint{
-        display: none;
-        width: 30%;
-        background-color: $dark_clr;
-        color: white;
-        padding: 1rem;
-        border-radius: 10px;
-        position: absolute;
-        top: -10rem;
-        left: 45%;
-        transform: translateX(-100%);
-        //display: none;
-        font-weight: 400;
-        strong{
-            color: white;
-        }
-    }
-}
-.minimalNote__dtls{
-    display: none;
-    select{
-        width: 6rem;
-        outline: none;
-        padding: .3rem;
-        margin: 0 2rem;
-    }
-    #return ~ label{
-        margin-right: 1.5rem;
-    }
 }
 .recap{
     width: 20rem;

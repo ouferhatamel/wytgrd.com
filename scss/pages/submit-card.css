@@ -315,6 +315,12 @@ main {
 }
 
 .cards ul li {
+  padding: 1rem 2rem;
+  border-bottom: 3px solid #adadad;
+  background-color: #f1f1f1;
+}
+
+.cards ul .f_line {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -323,9 +329,88 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem .5rem;
-  border-bottom: 1px solid #adadad;
-  background-color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+.cards ul .c__list__head {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1.5rem;
+  background-color: #202223;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+}
+
+.cards ul .c__list__head div {
+  color: white;
+}
+
+.cards .minimalNote__checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+  position: relative;
+  margin-bottom: .5rem;
+}
+
+.cards .minimalNote__checkbox span {
+  background-color: #fff200;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.cards .minimalNote__checkbox span:hover ~ .minimalNote__hint {
+  display: block;
+}
+
+.cards .minimalNote__checkbox .minimalNote__hint {
+  display: none;
+  width: 14rem;
+  background-color: #fff200;
+  color: #202223;
+  padding: 1rem;
+  border-radius: 10px;
+  position: absolute;
+  top: -8rem;
+  left: 30%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  font-weight: 400;
+}
+
+.cards .minimalNote__dtls {
+  display: none;
+}
+
+.cards .minimalNote__dtls select {
+  width: 6rem;
+  outline: none;
+  padding: .3rem;
+  margin: 0 2rem;
+}
+
+.cards .minimalNote__dtls #return ~ label {
+  margin-right: 1.5rem;
 }
 
 .cards .card__description {
@@ -417,8 +502,8 @@ main {
   top: 0;
   right: 0;
   background-color: #fff200;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -437,12 +522,12 @@ main {
 
 .cards .card__noNotation .card__noNotation__hint {
   width: 100%;
-  background-color: #202223;
-  color: white;
+  background-color: #fff200;
+  color: #202223;
   padding: 1rem;
   border-radius: 10px;
   position: absolute;
-  top: -6rem;
+  top: -10rem;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -454,6 +539,13 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.cards .card_lang p {
+  color: white;
+  margin-top: 3px;
+  font-size: .7rem;
+  font-weight: 300;
 }
 
 .cards .card_lang select {
@@ -482,9 +574,18 @@ main {
   position: relative;
 }
 
+.cards .card__value p {
+  color: white;
+  margin-top: 3px;
+  font-size: .7rem;
+  font-weight: 300;
+}
+
 .cards .card__value input {
-  border: none;
-  border-bottom: 1.5px solid #202223;
+  width: 60%;
+  border: 2px solid #202223;
+  border-radius: 5px;
+  padding: 3px .5rem;
   outline: none;
   background-color: transparent;
   padding-bottom: .5rem;
@@ -520,6 +621,13 @@ main {
           flex: 1;
   cursor: pointer;
   position: relative;
+}
+
+.cards .card__certLang p {
+  color: white;
+  margin-top: 3px;
+  font-size: .7rem;
+  font-weight: 300;
 }
 
 .cards .card__certLang .certLang__toggle {
@@ -563,73 +671,6 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.minimalNote__checkbox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: .5rem;
-  position: relative;
-  margin-bottom: 2rem;
-}
-
-.minimalNote__checkbox span {
-  background-color: #fff200;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-}
-
-.minimalNote__checkbox span:hover ~ .minimalNote__hint {
-  display: block;
-}
-
-.minimalNote__checkbox .minimalNote__hint {
-  display: none;
-  width: 30%;
-  background-color: #202223;
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  position: absolute;
-  top: -10rem;
-  left: 45%;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  font-weight: 400;
-}
-
-.minimalNote__checkbox .minimalNote__hint strong {
-  color: white;
-}
-
-.minimalNote__dtls {
-  display: none;
-}
-
-.minimalNote__dtls select {
-  width: 6rem;
-  outline: none;
-  padding: .3rem;
-  margin: 0 2rem;
-}
-
-.minimalNote__dtls #return ~ label {
-  margin-right: 1.5rem;
 }
 
 .recap {

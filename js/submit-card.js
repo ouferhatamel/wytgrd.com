@@ -12,8 +12,6 @@ const totalPrice = document.getElementById('recap__total');
 const validateCnt = document.querySelector('.submitCard');
 const insuranceCheck = document.getElementById('submit__insurance');
 const insrPrice = document.getElementById('recap__insurance');
-const minimalCheck = document.getElementById('minimal');
-const minimalDtls = document.querySelector('.minimalNote__dtls');
 const loader = document.querySelector('.suggestions__loader');
 const inputCnt = document.querySelector('.searchCard__input');
 const inputMsg = document.querySelector('.search__input__msg');
@@ -57,7 +55,6 @@ let total = 0;
 //-----------SEARCH CARDS------------
 searchBtn.addEventListener('click', getCards);
 searchInput.onkeydown = clearList;
-minimalCheck.addEventListener('change', showDetails);
 
 //FUNCTIONS
 
@@ -134,7 +131,6 @@ function printData(data, inputD){
 //Add a card element to the order list
 function addItem(e){
     const card = e.currentTarget.parentElement;
-    console.log(card);
     const cardName = card.querySelector('.cardInfo__name').textContent;
     const setName = card.querySelector('.cardInfo__set').textContent;
     const cardRyear = card.querySelector('.cardInfo__year').textContent;
@@ -146,49 +142,84 @@ function addItem(e){
     attr.value = id;
     cardElement.setAttributeNode(attr);
     cardElement.innerHTML = `
-        <div class="card__description">
-            <div class="card__name">${cardName}</div>
-            <div class="card__extension">${setName}</div>
-            <div class="card__year">${cardRyear}</div>
-        </div>
-        <div class="card__specifity_checkbox">
-            <div class="card__check">
-                <input type="checkbox" id="card__edition" name="card__spec">
-                <label for="card__edition">Ed.1</label>
+        <!--FIRST LINE-->
+        <div class="f_line">
+            <div class="card__description">
+                <div class="card__name">${cardName}</div>
+                <div class="card__extension">${setName}</div>
+                <div class="card__year">${cardRyear}</div>
             </div>
-            <div class="card__check">
-                <input type="checkbox" id="card__shadow" name="card__spec">
-                <label for="card__shadow">Shadowless</label>
+            <div class="card__specifity_checkbox">
+                <div class="card__check">
+                    <input type="checkbox" id="card__edition" name="card__spec">
+                    <label for="card__edition">Ed.1</label>
+                </div>
+                <div class="card__check">
+                    <input type="checkbox" id="card__shadow" name="card__spec">
+                    <label for="card__shadow">Shadowless</label>
+                </div>
+            </div>
+            <div class="card_lang">
+                <select name="languages" id="langs">
+                    <option value="Francés">Francés</option>
+                    <option value="Inglés">Inglés</option>
+                    <option value="Español">Español</option>
+                    <option value="Español">Español</option>
+                    <option value="Italiana">Italiana</option>
+                    <option value="Portugués">Portugués</option>
+                    <option value="Russe">Russe</option>
+                    <option value="Neerlandés">Neerlandés</option>
+                </select>
+            </div>
+            <div class="card__certLang">
+                <div class="certLang__toggle" data-lang="En"></div>
+                <div class="certlang__stroke"></div>
+            </div>
+            <div class="card__value">
+                <input type="number" id="card__value">
+                <span>€</span>
+            </div>
+            <div class="card__noNotation">
+                <div class="noNotation__toggle" data-lang="No"></div>
+                <div class="noNotation__stroke"></div>
+            </div>
+            <div class="card__delete">
+                <img src="../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
             </div>
         </div>
-        <div class="card__noNotation">
-            <div class="noNotation__toggle" data-lang="No"></div>
-            <div class="noNotation__stroke"></div>
+        <!--MINIMAL NOTE-->
+        <div class="minimalNote">
+            <div class="minimalNote__checkbox">
+                <input type="checkbox" class="minimal">
+                <label for="minimal">Puntuación mínima </label>
+                <span class="hint">i</span>
+                <div class="minimalNote__hint">
+                    Por debajo de una calificación de su elección, le devolveremos sus tarjetas sin protección, o las protegeremos utilizando la <strong>A</strong> de <strong>Anticorrupción</strong>.
+                </div>
+            </div>
+            <div class="minimalNote__dtls">
+                <span>Por debajo de</span>
+                <select name="notes" id="notes">
+                    <option value="-">---</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="9.5">9.5</option>
+                    <option value="10">10</option>
+                </select>
+                <input type="radio" name="cert-auth" id="return">
+                <label for="return">Devolver como está</label>
+                <input type="radio" name="cert-auth" id="auth">
+                <label for="auth">Certificar con la nota Auténtica</label>
+            </div>
         </div>
-        <div class="card_lang">
-            <select name="languages" id="langs">
-                <option value="Francés">Francés</option>
-                <option value="Inglés">Inglés</option>
-                <option value="Español">Español</option>
-                <option value="Español">Español</option>
-                <option value="Italiana">Italiana</option>
-                <option value="Portugués">Portugués</option>
-                <option value="Russe">Russe</option>
-                <option value="Neerlandés">Neerlandés</option>
-            </select>
-        </div>
-        <div class="card__value">
-            <input type="number" id="card__value">
-            <label for="card_value">El valor declarado</label>
-            <span>€</span>
-        </div>
-        <div class="card__certLang">
-            <div class="certLang__toggle" data-lang="En"></div>
-            <div class="certlang__stroke"></div>
-        </div>
-        <div class="card__delete">
-            <img src="../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
-    </div>`;
+        `;
     cardContainer.append(cardElement);
 
     //Update card's number the number of added cards
@@ -227,6 +258,17 @@ function addItem(e){
         e.currentTarget.classList.toggle('card__noNotation--on');
     });
 
+    //Minimal note
+    const minimalCheck = cardElement.querySelector('.minimal');
+    const minimalDtls = cardElement.querySelector('.minimalNote__dtls');
+    minimalCheck.addEventListener('change', (e)=>{
+        if (e.currentTarget.checked){
+            minimalDtls.style.display = 'inherit';
+        }else{
+            minimalDtls.style.display = 'none';
+        }
+    });
+    
     //Show the Validate container
     validateCnt.classList.add('submitCard--active');
 }
@@ -237,7 +279,8 @@ function clearList(){
 }
 //Delete a card from the order list
 function deleteCard(e){
-    const item = e.currentTarget.parentElement;
+    const item = e.currentTarget.parentElement.parentElement;
+    console.log(item);
     cardContainer.removeChild(item);
     //update the number of cards
     cardNumber--;
@@ -285,12 +328,6 @@ function TotalCalc(){
         return (c_price + delivery + insurance).toFixed(2);
     }
         
-}
-function showDetails(e){
-    if (this.checked){
-        minimalDtls.style.display = 'inherit';
-    }else
-        minimalDtls.style.display = 'none';
 }
 
 
