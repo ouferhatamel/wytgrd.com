@@ -191,7 +191,7 @@ main {
 }
 
 .tarifs__offers .tarifs__offer {
-  background-image: url(../../../images/others/wytgrd-offers-bgd.svg);
+  background-image: url("../../images/others/wytgrd-offers-bgd.svg");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -218,7 +218,7 @@ main {
 }
 
 .tarifs__offers .tarifs__offer:last-child {
-  background-image: url(../../../images/others/wytgrd-offer3-bgd.svg);
+  background-image: url("../../images/others/wytgrd-offer3-bgd.svg");
 }
 
 .tarifs__offers .tarifs__offer__quant {
