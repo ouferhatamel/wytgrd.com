@@ -465,6 +465,13 @@ main {
   cursor: pointer;
 }
 
+.cards .card__noNotation p {
+  color: white;
+  margin-top: 3px;
+  font-size: .7rem;
+  font-weight: 300;
+}
+
 .cards .card__noNotation .noNotation__toggle {
   width: 1.7rem;
   height: 1.7rem;
@@ -500,7 +507,7 @@ main {
 .cards .card__noNotation span {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.5rem;
   background-color: #fff200;
   width: 1.5rem;
   height: 1.5rem;

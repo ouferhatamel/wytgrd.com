@@ -234,6 +234,12 @@
         flex: 1;
         position: relative;
         cursor: pointer;
+        p{
+            color: white;
+            margin-top: 3px;
+            font-size: .7rem;
+            font-weight: 300;
+        }
         .noNotation__toggle{
             width: 1.7rem;
             height: 1.7rem;
@@ -266,7 +272,7 @@
         span{
             position: absolute;
             top: 0;
-            right: 0;
+            right: 0.5rem;
             background-color: $main_clr;
             width: 1.5rem;
             height: 1.5rem;
