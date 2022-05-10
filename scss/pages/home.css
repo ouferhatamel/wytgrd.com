@@ -356,34 +356,17 @@ a {
 }
 
 .mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn {
-  border: 1px solid #d30000;
   border-radius: 50px;
   padding: .7rem;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  color: #d30000;
-  font-weight: 700;
-  z-index: 0;
-}
-
-.mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn div {
-  width: 200%;
-  height: 200%;
   background-color: #fff200;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(40%, -50%);
-          transform: translate(40%, -50%);
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  z-index: -1;
+  cursor: pointer;
+  color: #202223;
+  font-weight: 700;
 }
 
-.mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn:hover div {
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.mainCnt__advSec .mainCnt__adv .mainCnt__lmBtn:hover {
+  background-color: #d30000;
+  color: #fff200;
 }
 
 .checkAuth {
@@ -726,12 +709,10 @@ a {
 .mainCnt .icn__btn {
   width: 5.7rem;
   height: 2rem;
-  border: 1px solid #d30000;
+  background-color: #fff200;
   border-radius: 50px;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
-  color: #d30000;
+  color: #202223;
   font-weight: 700;
   font-size: .7rem;
   display: -webkit-box;
@@ -745,23 +726,9 @@ a {
           align-items: center;
 }
 
-.mainCnt .icn__btn div {
-  width: 200%;
-  height: 200%;
-  background-color: #fff200;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(40%, -50%);
-          transform: translate(40%, -50%);
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  z-index: -1;
-}
-
-.mainCnt .icn__btn:hover div {
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.mainCnt .icn__btn:hover {
+  background-color: #d30000;
+  color: #fff200;
 }
 
 .mnFtr {
