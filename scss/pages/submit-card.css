@@ -201,8 +201,6 @@ main {
   -webkit-animation: shake .8s ease-in;
           animation: shake .8s ease-in;
   background-color: #fff200;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 .searchCard .searchCard__select {
