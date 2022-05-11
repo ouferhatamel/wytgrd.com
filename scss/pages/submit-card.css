@@ -296,7 +296,6 @@ main {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: 1.5px solid #202223;
   background-color: #fff200;
   cursor: pointer;
   display: -webkit-box;
@@ -863,7 +862,6 @@ main {
 .submitCard .submitCard__btn {
   width: 8rem;
   height: 3rem;
-  border: 1.5px solid #202223;
   border-radius: 50px;
   background-color: #fff200;
   display: -webkit-box;
