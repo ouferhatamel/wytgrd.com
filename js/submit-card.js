@@ -16,6 +16,8 @@ const loader = document.querySelector('.suggestions__loader');
 const inputCnt = document.querySelector('.searchCard__input');
 const inputMsg = document.querySelector('.search__input__msg');
 const offerTxt = document.querySelector('.recap__head span');
+const pokeGame = document.getElementById('pokemon-game');
+const magicGame = document.getElementById('magic-game');
 
 //VARIABLES
 let extension = '';
@@ -48,8 +50,6 @@ let total = 0;
     }
     
 }*/
-//----------ADDING A CARD----------
-//addBtn.addEventListener('click', addCard);
 
 
 //-----------SEARCH CARDS------------
@@ -60,55 +60,93 @@ searchInput.onkeydown = clearList;
 
 //Fetching cards from the pokemon API
 async function getCards(){
-    suggList.innerHTML= '';
-    let inputData = searchInput.value;
-    try{
-        if(inputData){
-            loader.style.display = 'flex';
-            const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:"${inputData}"`);
-            const res = await response.json();
-            const results = res.data;
-            printData(results, inputData);
-        }else{
-            inputMsg.textContent = 'Rellene el nombre de la carta';
+    //Check if a card game is chosen
+    if(!pokeGame.checked && !magicGame.checked){
+        const c_gameRadio = document.querySelector('.searchCard__c-game');
+        const c_gameHead = document.querySelector('.c-game-h1');
+        c_gameRadio.classList.add('searchCard__c-game--choose');
+        c_gameHead.style.transform
+        setTimeout(()=>{
+            c_gameRadio.classList.remove('searchCard__c-game--choose');
+        },1000);
+    }else{
+        suggList.innerHTML= '';
+        let inputData = searchInput.value;
+        let url = '';
+        let sfx = 'data';
+        let gameFlag = '';
+        try{
+            if(inputData){
+                loader.style.display = 'flex';
+                //Checking the chosen cards game
+                if(pokeGame.checked){
+                    url = `https://api.pokemontcg.io/v2/cards?q=name:"${inputData}"`;
+                    sfx = 'data';
+                    gameFlag = 'Pokemon';
+                }else if(magicGame.checked){
+                    url = `https://api.magicthegathering.io/v1/cards?name=${inputData}`;
+                    sfx = 'cards';
+                    gameFlag = 'Magic';
+                }
+                //Fetching the data
+                console.log('passed here')
+                console.log(url);
+                const response = await fetch(url);
+                const res = await response.json();
+                const results = res[sfx];
+                console.log(results);
+                printData(results, inputData, gameFlag);
+            }else{
+                inputMsg.textContent = 'Rellene el nombre de la carta';
+                inputMsg.style.display = 'inherit';
+                inputCnt.style.borderColor = 'red';
+                setTimeout(() =>{
+                    inputMsg.style.display = 'none';
+                    inputCnt.style.borderColor = 'inherit';
+                }, 3000);
+            }
+        }catch(e){
+            loader.style.display = 'none';
+            inputMsg.textContent = '404 - El enlace al servidor está roto o es erróneo';
             inputMsg.style.display = 'inherit';
-            inputCnt.style.borderColor = 'red';
-            setTimeout(() =>{
-                inputMsg.style.display = 'none';
-                inputCnt.style.borderColor = 'inherit';
-            }, 3000);
-            console.log('Fill name, please');
+            console.log('Error', e.message);
         }
-    }catch(e){
-        loader.style.display = 'none';
-        inputMsg.textContent = '404 - El enlace al servidor está roto o es erróneo';
-        inputMsg.style.display = 'inherit';
-        console.log('Error', e.message);
     }
-    
-        
 }
 //Printing the search results on the list
-function printData(data, inputD){ 
+function printData(data, inputD, g_flag){ 
     let containFlag = false; //When it equals to true, means that at least one card has been found
     let inputData = inputD;
+    
     data.map(card =>{
     if(card.name.toLocaleLowerCase().includes(inputData.toLocaleLowerCase())){
         containFlag = true;
         loader.style.display = 'none';
-        console.log(card.name);
         const item = document.createElement('li');
-        item.innerHTML = `
+        if(g_flag == 'Pokemon'){
+            item.innerHTML = `
                 <img src="${card.images.small}" class="suggestion__list__cardImg" alt="wytgrd-pokemon-card">
                 <div class="suggestion__cardInfo">
                     <div class="cardInfo__name"><strong>${card.name}</strong></div>
                     <div class="cardInfo__set">${card.set.name}</div>
-                    <div class="cardInfo__year">${card.set.releaseDate.substring(0, 4)}</div>
+                    <div class="cardInfo__year">${card.set.releaseDate.substring(0, 4)}}</div>
                 </div>
                 <a class="cardInfo__addBasket" href="#cards">
                     <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
                 </a>
         `
+        }else if(g_flag = 'Magic'){
+            item.innerHTML = `
+                <img src="${card.imageUrl}" class="suggestion__list__cardImg" alt="wytgrd-pokemon-card" onerror="this.onerror=null;this.src='../images/others/wytgrd-magic-the-gathering-back.jpg';" >
+                <div class="suggestion__cardInfo">
+                    <div class="cardInfo__name"><strong>${card.name}</strong></div>
+                    <div class="cardInfo__set">${card.setName}</div>
+                </div>
+                <a class="cardInfo__addBasket" href="#cards">
+                    <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
+                </a>
+        `
+        }
         suggList.appendChild(item);
         //ADDING TO THE ORDER LIST
         const addItemBtn = item.querySelector('.cardInfo__addBasket');
@@ -126,14 +164,14 @@ function printData(data, inputD){
         
         loader.style.display = 'none';
     }
-        
 }
 //Add a card element to the order list
 function addItem(e){
+    console.log('Im executed !');
     const card = e.currentTarget.parentElement;
     const cardName = card.querySelector('.cardInfo__name').textContent;
     const setName = card.querySelector('.cardInfo__set').textContent;
-    const cardRyear = card.querySelector('.cardInfo__year').textContent;
+    //const cardRyear = card.querySelector('.cardInfo__year').textContent;
 
     //Create the card element
     const cardElement = document.createElement('li');
@@ -147,7 +185,6 @@ function addItem(e){
             <div class="card__description">
                 <div class="card__name">${cardName}</div>
                 <div class="card__extension">${setName}</div>
-                <div class="card__year">${cardRyear}</div>
             </div>
             <div class="card__specifity_checkbox">
                 <div class="card__check">

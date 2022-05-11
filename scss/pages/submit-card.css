@@ -1,4 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate(0.8rem);
+            transform: translate(0.8rem);
+    -webkit-box-shadow: rgba(255, 217, 0, 0.4) 5px 5px, rgba(255, 217, 0, 0.3) 10px 10px, rgba(255, 217, 0, 0.2) 15px 15px, rgba(255, 217, 0, 0.1) 20px 20px, rgba(255, 217, 0, 0.05) 25px 25px;
+            box-shadow: rgba(255, 217, 0, 0.4) 5px 5px, rgba(255, 217, 0, 0.3) 10px 10px, rgba(255, 217, 0, 0.2) 15px 15px, rgba(255, 217, 0, 0.1) 20px 20px, rgba(255, 217, 0, 0.05) 25px 25px;
+  }
+  10%,
+  30%,
+  50% {
+    -webkit-transform: translate(-0.2rem);
+            transform: translate(-0.2rem);
+  }
+  70%,
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate(0.8rem);
+            transform: translate(0.8rem);
+    -webkit-box-shadow: rgba(255, 217, 0, 0.4) 5px 5px, rgba(255, 217, 0, 0.3) 10px 10px, rgba(255, 217, 0, 0.2) 15px 15px, rgba(255, 217, 0, 0.1) 20px 20px, rgba(255, 217, 0, 0.05) 25px 25px;
+            box-shadow: rgba(255, 217, 0, 0.4) 5px 5px, rgba(255, 217, 0, 0.3) 10px 10px, rgba(255, 217, 0, 0.2) 15px 15px, rgba(255, 217, 0, 0.1) 20px 20px, rgba(255, 217, 0, 0.05) 25px 25px;
+  }
+  10%,
+  30%,
+  50% {
+    -webkit-transform: translate(-0.2rem);
+            transform: translate(-0.2rem);
+  }
+  70%,
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -128,6 +181,28 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 1rem;
+}
+
+.searchCard .searchCard__c-game {
+  width: 26%;
+  background-color: #e1e1e1;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.searchCard .searchCard__c-game--choose {
+  -webkit-animation: shake .8s ease-in;
+          animation: shake .8s ease-in;
+  background-color: #fff200;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .searchCard .searchCard__select {

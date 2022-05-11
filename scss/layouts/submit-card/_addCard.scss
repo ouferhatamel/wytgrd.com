@@ -4,7 +4,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    gap: 1rem;
+    .searchCard__c-game{
+        width: 26%;
+        background-color: #e1e1e1;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        &--choose{
+            animation: shake .8s ease-in;
+            background-color: $main_clr;
+            transform: scale(1.1);
+        }
+    }
     .searchCard__select{
         width: 65%;
         height: 100%;

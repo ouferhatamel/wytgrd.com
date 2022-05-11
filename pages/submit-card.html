@@ -42,11 +42,27 @@
         </section>
         <!--SELECT CARD-->
         <div class="searchCard">
+            <!--Card game-->
+            <h2 class="c-game-h1">Elige un juego de cartas</h2>
+            <div class="searchCard__c-game">
+                <div class="c-game__pokemon">
+                    <input type="radio" id="pokemon-game" name="c-game">
+                    <label for="pokemon-game">Pokemon</label>
+                </div>
+                <div class="c-game__magic">
+                    <input type="radio" id="magic-game" name="c-game">
+                <label for="magic-game">Magic - The gathering</label>
+                </div>
+                
+            </div>
+            <!--Search card-->
             <div class="searchCard__select">
+                <!--Search Input-->
                 <div class="searchCard__input">
                     <input type="search" autocomplete="off" id="searchInput" placeholder="Introduzca el nombre de la carta">
                     <div class="search__input__msg">No such card</div>
                 </div>
+                <!--Search button-->
                 <div class="searchCard__search">
                     <img src="../images/icons/wytgrd-search-icon.svg" alt="wytgrd-search-icon">
                 </div>
