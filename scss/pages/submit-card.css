@@ -203,7 +203,6 @@ main {
 .searchCard .searchCard__c-game--choose {
   -webkit-animation: shake .8s ease-in;
           animation: shake .8s ease-in;
-  background-color: #fff200;
 }
 
 .searchCard .searchCard__c-game input {
