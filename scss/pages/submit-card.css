@@ -185,22 +185,52 @@ main {
 }
 
 .searchCard .searchCard__c-game {
-  width: 26%;
-  background-color: #e1e1e1;
-  padding: 1rem;
+  width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 3rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .searchCard .searchCard__c-game--choose {
   -webkit-animation: shake .8s ease-in;
           animation: shake .8s ease-in;
   background-color: #fff200;
+}
+
+.searchCard .searchCard__c-game input {
+  display: none;
+}
+
+.searchCard .searchCard__c-game label {
+  width: 100%;
+  padding: 2rem 6rem;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.searchCard .searchCard__c-game label:hover {
+  opacity: 100%;
+}
+
+.searchCard .searchCard__c-game .c-game__pokemon label {
+  background-image: url("../../../images/logos/wytgrd-pokemon-logo.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.searchCard .searchCard__c-game .c-game__magic label {
+  background-image: url("../../../images/logos/wytgrd-magic-the-gathering-logo.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .searchCard .searchCard__select {

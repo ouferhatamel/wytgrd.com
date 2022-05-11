@@ -6,15 +6,39 @@
     align-items: center;
     gap: 1rem;
     .searchCard__c-game{
-        width: 26%;
-        background-color: #e1e1e1;
-        padding: 1rem;
+        width:30%;
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 3rem;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
         &--choose{
             animation: shake .8s ease-in;
             background-color: $main_clr;
+        }
+        input{
+            display: none;
+        }
+        label{
+            width: 100%;
+            padding: 2rem 6rem;
+            opacity: .5;
+            cursor: pointer;
+            &:hover{
+                opacity: 100%;
+            }
+        }
+        .c-game__pokemon label{
+            background-image: url('../../../images/logos/wytgrd-pokemon-logo.png');
+            background-position: center;
+            background-size: cover;
+            
+        }
+        .c-game__magic label{
+            background-image: url('../../../images/logos/wytgrd-magic-the-gathering-logo.png');
+            background-position: center;
+            background-size: cover;
         }
     }
     .searchCard__select{

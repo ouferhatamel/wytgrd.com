@@ -18,6 +18,8 @@ const inputMsg = document.querySelector('.search__input__msg');
 const offerTxt = document.querySelector('.recap__head span');
 const pokeGame = document.getElementById('pokemon-game');
 const magicGame = document.getElementById('magic-game');
+const pokeLabel = document.querySelector('.c-game__pokemon label');
+const magicLabel = document.querySelector('.c-game__magic label');
 
 //VARIABLES
 let extension = '';
@@ -57,7 +59,15 @@ searchBtn.addEventListener('click', getCards);
 searchInput.onkeydown = clearList;
 
 //FUNCTIONS
-
+//Card game Radio click
+pokeGame.addEventListener('click', ()=>{
+    pokeLabel.style.opacity = '1';
+    magicLabel.style.opacity ='.5';
+});
+magicGame.addEventListener('click', ()=>{
+    pokeLabel.style.opacity = '.5';
+    magicLabel.style.opacity ='1';
+});
 //Fetching cards from the pokemon API
 async function getCards(){
     //Check if a card game is chosen
