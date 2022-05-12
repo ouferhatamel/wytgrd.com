@@ -232,6 +232,13 @@ main {
   background-size: cover;
 }
 
+.searchCard .searchCard__c-game .c-game__yu label {
+  background-image: url("../../images/logos/wytgrd-yugioh-logo.png");
+  background-position: center;
+  background-size: cover;
+  padding: 1.5rem 6rem;
+}
+
 .searchCard .searchCard__select {
   width: 65%;
   height: 100%;

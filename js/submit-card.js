@@ -18,8 +18,10 @@ const inputMsg = document.querySelector('.search__input__msg');
 const offerTxt = document.querySelector('.recap__head span');
 const pokeGame = document.getElementById('pokemon-game');
 const magicGame = document.getElementById('magic-game');
+const yuGame = document.getElementById('yu-game');
 const pokeLabel = document.querySelector('.c-game__pokemon label');
 const magicLabel = document.querySelector('.c-game__magic label');
+const yuLabel = document.querySelector('.c-game__yu label');
 
 //VARIABLES
 let extension = '';
@@ -63,15 +65,22 @@ searchInput.onkeydown = clearList;
 pokeGame.addEventListener('click', ()=>{
     pokeLabel.style.opacity = '1';
     magicLabel.style.opacity ='.5';
+    yuLabel.style.opacity ='.5';
 });
 magicGame.addEventListener('click', ()=>{
-    pokeLabel.style.opacity = '.5';
     magicLabel.style.opacity ='1';
+    pokeLabel.style.opacity = '.5';
+    yuLabel.style.opacity ='.5';
+});
+yuGame.addEventListener('click', ()=>{
+    yuLabel.style.opacity ='1';
+    magicLabel.style.opacity ='.5';
+    pokeLabel.style.opacity = '.5';
 });
 //Fetching cards from the pokemon API
 async function getCards(){
     //Check if a card game is chosen
-    if(!pokeGame.checked && !magicGame.checked){
+    if(!pokeGame.checked && !magicGame.checked && !yuGame.checked){
         const c_gameRadio = document.querySelector('.searchCard__c-game');
         const c_gameHead = document.querySelector('.c-game-h1');
         c_gameRadio.classList.add('searchCard__c-game--choose');
@@ -97,10 +106,13 @@ async function getCards(){
                     url = `https://api.magicthegathering.io/v1/cards?name=${inputData}`;
                     sfx = 'cards';
                     gameFlag = 'Magic';
+                }else if(yuGame.checked){
+                    console.log('ça passe ici yugi')
+                    url = `https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${inputData}`;
+                    sfx = 'data';
+                    gameFlag = 'Yu'
                 }
                 //Fetching the data
-                console.log('passed here')
-                console.log(url);
                 const response = await fetch(url);
                 const res = await response.json();
                 const results = res[sfx];
@@ -134,6 +146,7 @@ function printData(data, inputD, g_flag){
         loader.style.display = 'none';
         const item = document.createElement('li');
         if(g_flag == 'Pokemon'){
+
             item.innerHTML = `
                 <img src="${card.images.small}" class="suggestion__list__cardImg" alt="wytgrd-pokemon-card">
                 <div class="suggestion__cardInfo">
@@ -145,12 +158,31 @@ function printData(data, inputD, g_flag){
                     <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
                 </a>
         `
-        }else if(g_flag = 'Magic'){
+        }else if(g_flag == 'Magic'){
+            console.log('its the magic')
             item.innerHTML = `
-                <img src="${card.imageUrl}" class="suggestion__list__cardImg" alt="wytgrd-pokemon-card" onerror="this.onerror=null;this.src='../images/others/wytgrd-magic-the-gathering-back.jpg';" >
+                <img src="${card.imageUrl}" class="suggestion__list__cardImg" alt="wytgrd-magic-theGathering-card" onerror="this.onerror=null;this.src='../images/others/wytgrd-magic-the-gathering-back.jpg';" >
                 <div class="suggestion__cardInfo">
                     <div class="cardInfo__name"><strong>${card.name}</strong></div>
                     <div class="cardInfo__set">${card.setName}</div>
+                </div>
+                <a class="cardInfo__addBasket" href="#cards">
+                    <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
+                </a>
+        `
+        }else if(g_flag == 'Yu'){
+            let c_set = '';
+            if(!card.hasOwnProperty('card_sets')){
+                console.log('No set property')
+                c_set = 'No set name';
+            }else{
+                c_set = card.card_sets[0].set_name;
+            }
+            item.innerHTML = `
+                <img src="${card.card_images[0].image_url_small}" class="suggestion__list__cardImg" alt="wytgrd-yugioh-card" onerror="this.onerror=null;this.src='../images/others/wytgrd-yugioh-back.jpg';" >
+                <div class="suggestion__cardInfo">
+                    <div class="cardInfo__name"><strong>${card.name}</strong></div>
+                    <div class="cardInfo__set">${c_set}</div>
                 </div>
                 <a class="cardInfo__addBasket" href="#cards">
                     <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
