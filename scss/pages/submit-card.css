@@ -82,11 +82,11 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  overflow: hidden;
   z-index: 2000;
 }
 
@@ -124,6 +124,18 @@ a {
 
 .navBar #navBar__certify:hover {
   color: #fff200;
+}
+
+@media only screen and (max-width: 480px) {
+  .navBar {
+    width: 100%;
+  }
+  .navBar img {
+    height: 6rem;
+  }
+  .navBar .navBar__links {
+    display: none;
+  }
 }
 
 main {

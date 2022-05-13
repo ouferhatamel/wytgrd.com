@@ -2,13 +2,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    overflow: hidden;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
+    overflow: hidden;
     z-index: 2000;
-    
     img{
         height: 9rem;
     }
@@ -20,7 +19,6 @@
         display: flex;
         justify-content: center;
         gap: 60%;
-        
         a{
             color: $light_clr;
             margin-right: .6rem;
@@ -34,6 +32,21 @@
         font-weight: 700;
         &:hover{
             color: $main_clr;
+        }
+    }
+}
+
+//RESPONSIVE
+
+//Mobile screens
+@media only screen and (max-width: 480px){
+    .navBar{
+        width: 100%;
+        img{
+            height: 6rem;
+        }
+        .navBar__links{
+            display: none;
         }
     }
 }
