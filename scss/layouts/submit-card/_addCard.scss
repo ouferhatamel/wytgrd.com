@@ -5,13 +5,40 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    .searchCard__howTo{
+        width:50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        h3{
+            cursor: pointer;
+            color: $light_clr;
+            &:hover{
+                color: $sec_clr;
+            }
+        }
+    }
+    .howTo{
+        display: none;
+        p{
+            font-size: .9rem;
+            padding: 1rem;
+            margin-bottom: .8rem;
+            border-radius: 50px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        }
+        &--shown{
+            display: block;
+        }
+    }
     .searchCard__c-game{
-        width:30%;
+        width: 80%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 2rem;
-        gap: 1.5rem;
+        gap: 2.5rem;
         margin-bottom: 2rem;
         &--choose{
             animation: shake .8s ease-in;
@@ -73,10 +100,10 @@
             outline: none;
             background-color: transparent;
             font-size: 1rem;
-            &[type="search"]::-webkit-search-decoration,
-            &[type="search"]::-webkit-search-cancel-button,
-            &[type="search"]::-webkit-search-results-button,
-            &[type="search"]::-webkit-search-results-decoration { display: none; }
+            //&[type="search"]::-webkit-search-decoration,
+            //&[type="search"]::-webkit-search-cancel-button,
+            //&[type="search"]::-webkit-search-results-button,
+            //&[type="search"]::-webkit-search-results-decoration { display: none; }
         }
     }
     .search__input__msg{
@@ -331,7 +358,7 @@
             padding: 1rem;
             border-radius: 10px;
             position: absolute;
-            top: -10rem;
+            top: -6.5rem;
             left: 50%;
             transform: translateX(-50%);
             display: none;

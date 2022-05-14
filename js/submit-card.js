@@ -32,33 +32,26 @@ let delivery = 11.07;
 let insurance = 0;
 let total = 0;
 
-//----------SAEARCH SUGGESTIONS----------
-/*searchInput.onkeyup = (e)=>{
-    let inputData = e.target.value;
-    let dataArray = [];
-    if(inputData){
-        dataArray = cardList.filter(data =>{
-            return data.toLocaleLowerCase().startsWith(inputData.toLocaleLowerCase());
-        });
-        dataArray = dataArray.map(data =>{
-            return data = `<li>${data}</li>`;
-        });
-        suggBox.classList.add('searchCard__suggestions--active');
-        showSuggestions(dataArray);
-        let searchResult = suggBox.querySelectorAll('li');
-        for (let i = 0; i < searchResult.length; i++) {
-            searchResult[i].setAttribute('onclick', 'selectedRes(this)');  
-        }
-    }else{
-        suggBox.classList.remove('searchCard__suggestions--active');
-    }
-    
-}*/
-
-
 //-----------SEARCH CARDS------------
+//Listen to click event on the search button
 searchBtn.addEventListener('click', getCards);
+//Listen to enter key on the search input
+searchInput.onkeyup = (e)=>{
+    if (e.keyCode === 13){
+        console.log('clicked here');
+        getCards();
+    }
+        
+};
+//Empty the search results list when the input value is cleard
 searchInput.onkeydown = clearList;
+//Show howTo explanation
+const show_howTo = document.querySelector('.searchCard__howTo h3');
+show_howTo.addEventListener('click', ()=>{
+    const howTo = document.querySelector('.howTo');
+    howTo.classList.toggle('howTo--shown');
+});
+
 
 //FUNCTIONS
 //Card game Radio click
@@ -77,7 +70,7 @@ yuGame.addEventListener('click', ()=>{
     magicLabel.style.opacity ='.5';
     pokeLabel.style.opacity = '.5';
 });
-//Fetching cards from the pokemon API
+//Fetching cards from the pokemon, Magic the gathering and the Yu gi oh APIs
 async function getCards(){
     //Check if a card game is chosen
     if(!pokeGame.checked && !magicGame.checked && !yuGame.checked){

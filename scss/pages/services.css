@@ -345,7 +345,7 @@ main {
 }
 
 .tarifs__offers .tarifs__offer__btn:hover {
-  background-color: #d30000;
+  background-color: #202223;
   color: #fff200;
 }
 
@@ -501,6 +501,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0 0 4rem;
 }
 
@@ -516,7 +519,7 @@ main {
 }
 
 .grading__scale #grading__scale__img {
-  width: 60rem;
+  width: 75rem;
   margin: 3rem 0;
 }
 

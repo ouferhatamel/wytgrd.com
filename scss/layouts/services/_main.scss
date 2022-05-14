@@ -113,7 +113,7 @@ main{
         margin-top: 1rem;
         cursor: pointer;
         &:hover{
-            background-color: $sec_clr;
+            background-color: $dark_clr;
             color: $main_clr;
         }
     }
@@ -218,6 +218,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 0 0 4rem;
     .grading__scale__h1{
         width: 100%;
@@ -229,7 +230,7 @@ main{
         }
     }
     #grading__scale__img{
-        width: 60rem;
+        width: 75rem;
         margin: 3rem 0;
     }
 }
