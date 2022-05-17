@@ -58,6 +58,8 @@
         }
     }
 }
+
+
 //Payment Form
 #orderInfo__payForm{
     background-color: #e5e5e54f;
@@ -69,6 +71,18 @@
         margin-bottom: 3rem;
         padding-bottom: 2rem;
         border-bottom: 1px solid $light_clr;
+    }
+    .payForm__payMethode{
+        display: flex;
+        align-items: flex-end;
+        gap: 1rem;
+        margin-bottom: 4rem;
+        img{
+            width: 2.5rem;
+        }
+        span{
+            color: #616569;
+        }
     }
     form{
         display: flex;
@@ -105,7 +119,6 @@
         }
     }
 }
-
 //RIHGT SIDE - RESUME
 .orderInfo__recap{
     flex: 1;

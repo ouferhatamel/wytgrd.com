@@ -282,6 +282,25 @@ main {
   border-bottom: 1px solid #adadad;
 }
 
+#orderInfo__payForm .payForm__payMethode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+#orderInfo__payForm .payForm__payMethode img {
+  width: 2.5rem;
+}
+
+#orderInfo__payForm .payForm__payMethode span {
+  color: #616569;
+}
+
 #orderInfo__payForm form {
   display: -webkit-box;
   display: -ms-flexbox;
