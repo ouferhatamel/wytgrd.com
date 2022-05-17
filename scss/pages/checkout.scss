@@ -1,0 +1,35 @@
+@import '../helpers/variables';
+@import '../helpers/basics';
+@import '../layouts/navBar';
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+//STEPS
+.steps{
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 10rem;
+
+    .steps__icn{
+        img{
+            width: 10rem;
+            opacity: .4;
+        }
+    }
+
+    .steps__icn2{
+        img{
+            opacity: 1;
+        }
+    }
+}
+@import '../layouts/checkout/orderInfo';
+@import '../layouts/footer';

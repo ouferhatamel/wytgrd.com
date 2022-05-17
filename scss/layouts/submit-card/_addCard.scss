@@ -13,9 +13,9 @@
         gap: 1.5rem;
         h3{
             cursor: pointer;
-            color: $light_clr;
+            color: $main_clr;
             &:hover{
-                color: $sec_clr;
+                color: $dark_clr;
             }
         }
     }
@@ -515,7 +515,6 @@
         border: 1px solid $light_clr;
         margin: 1.5rem 0;
     }
-
 }
 .orderDtls__left{
     display: flex;

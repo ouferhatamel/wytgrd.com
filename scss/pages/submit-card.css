@@ -213,11 +213,11 @@ main {
 
 .searchCard .searchCard__howTo h3 {
   cursor: pointer;
-  color: #adadad;
+  color: #fff200;
 }
 
 .searchCard .searchCard__howTo h3:hover {
-  color: #d30000;
+  color: #202223;
 }
 
 .searchCard .howTo {

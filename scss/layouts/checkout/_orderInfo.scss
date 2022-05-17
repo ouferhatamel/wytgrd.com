@@ -1,0 +1,175 @@
+//CONTAINER OF THE ORDER INFORMATIONS
+.orderInfo{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 0;
+}
+//LEFT SIDE - FORMS
+.orderInfo__forms{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .orderInfo__head{
+        margin-bottom: 3rem;
+    }
+}
+//Adress Form
+#orderInfo__adressForm{
+    background-color: #e5e5e54f;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 15px;
+    h3{
+        font-weight: 700;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $light_clr;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        input{
+            background-color: transparent;
+            outline: none;
+            border: none;
+            padding: .8rem .5rem .5rem;
+            border-bottom: 1.5px solid $dark_clr;
+        }
+    }
+    .adressForm__line{
+        display: flex;
+        flex-direction: column;
+    }
+    .pc_city, .country_tel{
+        display: flex;
+        gap: 2rem;
+    }
+    .country_tel{
+        select{
+            width: 200%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1.5px solid $dark_clr;
+            font-size: 1rem;
+            padding-bottom: 2rem;
+        }
+    }
+}
+//Payment Form
+#orderInfo__payForm{
+    background-color: #e5e5e54f;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 15px;
+    h3{
+        font-weight: 700;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $light_clr;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        input{
+            background-color: transparent;
+            outline: none;
+            border: none;
+            padding: .8rem .5rem .5rem;
+            border-bottom: 1.5px solid $dark_clr;
+        }
+    }
+    .payForm__line{
+        display: flex;
+        flex-direction: column;
+    }
+    .exdate_cvv{
+        display: flex;
+        gap: 2rem;
+    }
+    .payForm_submit{
+        input{
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            background-color: $main_clr;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+    }
+}
+
+//RIHGT SIDE - RESUME
+.orderInfo__recap{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+}
+//Recap
+.recap{
+    width: 20rem;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 5rem;
+    background-color: #e5e5e54f;
+    margin-top: 6.5rem;
+    &:hover{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+    .recap__head{
+        display: flex;
+        gap: 1rem;
+        span{
+            display: none;
+            margin-top: .7rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+    }
+    h3{
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    .details{
+        &:not(div:last-child){
+            margin-bottom: 1rem;
+        }
+        
+        span:first-child{
+            font-weight: 700;
+        }
+        span:last-child{
+            text-align: right;
+            float: right;
+        }
+    }
+    hr{
+        border: 1px solid $light_clr;
+        margin: 1.5rem 0;
+    }
+}
+//WTIG protection
+.wtig_protection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    img{
+        width: 9rem;
+    }
+    p{
+        width: 70%;
+        text-align: center;
+        color: $light_clr;
+        font-size: .8rem;
+    }
+}

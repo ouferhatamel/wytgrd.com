@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="short cut icon" href="../images/icons/wytgrd-abbr-logo-icon.svg">
+    <link rel="stylesheet" href="../scss/pages/checkout.css">
+    <title>Checkout</title>
+</head>
+<body>
+    <!--NAVIGATION BAR-->
+    <nav class="navBar">
+        <a href="../index.html"><img src="../images/others/Willim&Turnergrd-NavBar-logo.svg" alt="Willim&Turnergrd-NavBar-logo"></a>
+        <div class="navBar__links">
+            <div class="navBar__detailsLinks">
+                <a href="../pages/services.html#tarifs">TARIFAS</a>
+                <a href="../pages/services.html">SERVICIOS</a>
+            </div>
+            <div class="navBar__actionLinks">
+                <a href="submit-card.html" id='navBar__certify'>¡CERTIFICAR!</a>
+                <a href="#">LOGIN</a>
+                <a href="mailto:info@williamturner-grading.com">CONTACTO</a>
+            </div>
+        </div>
+    </nav>
+    <!--MAINN CONTENT-->
+    <main>
+        <!--STEPS-->
+        <section class="steps">
+            <div class="steps__icn steps__icn1">
+                <img src="../images/icons/wytgrd-selectCards-icon.svg" alt="wytgrd-selectCards-icon">
+            </div>
+            <div class="steps__icn steps__icn2">
+                <img src="../images/icons/wytgrd-completOrder-icon.svg" alt="wytgrd-completOrder-icon">
+            </div>
+            <div class="steps__icn steps__icn3">
+                <img src="../images/icons/wytgrd-sendCards-icon.svg" alt="wytgrd-sendCards-icon">
+            </div>
+            <div class="steps__icn steps__icn4">
+                <img src="../images/icons/wytgrd-receiveCards-icon.svg" alt="wytgrd-receiveCards-icon">
+            </div>
+        </section>
+        <!--ORDER INFORMATIONS-->
+        <section class="orderInfo">
+            <!--Left Side - Forms-->
+            <div class="orderInfo__forms">
+                <h2 class="orderInfo__head">Información sobre el pedido</h2>
+                <!--Adress form-->
+                <div id="orderInfo__adressForm">
+                    <h3>Dirección de envío</h3>
+                    <form action="" name="adressForm" >
+                        <div class="adressForm__line">
+                            <label for="adress">Dirección</label>
+                            <input type="text" id="adress" name="adress">
+                        </div>
+                        <div class="adressForm__line">
+                            <label for="complement">Complemento (opcional)</label>
+                            <input type="text" id="complement" name="complement">
+                        </div>
+                        <div class="pc_city">
+                            <div class="adressForm__line">
+                                <label for="cp">Código postal</label>
+                                <input type="text" id="cp" name="cp">
+                            </div>
+                            <div class="adressForm__line">
+                                <label for="city">Ciudad</label>
+                                <input type="text" id="city" name="city">
+                            </div>
+                        </div>
+                        <div class="country_tel">
+                            <Select name="country">
+                                <option value="España">País</option>
+                                <option value="España">España</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Rusia">Rusia</option>
+                            </Select>
+                            <div class="adressForm__line">
+                                <label for="tel">Teléfono</label>
+                                <input type="tel" id="tel" name="tel">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--Payment form-->
+                <div id="orderInfo__payForm">
+                    <h3>Forma de pago</h3>
+                    <form action="" name="payForm" >
+                        <div class="payForm__line">
+                            <label for="u_name">Nombre del titular</label>
+                            <input type="text" id="u_name" name="u_name">
+                        </div>
+                        <div class="payForm__line">
+                            <label for="card_name">Número de tarjeta</label>
+                            <input type="text" id="card_name" name="card_name">
+                        </div>
+                        <div class="exdate_cvv">
+                            <div class="payForm__line">
+                                <label for="exdate">MM/AA</label>
+                                <input type="text" id="exdate" name="exdate">
+                            </div>
+                            <div class="payForm__line">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv">
+                            </div>
+                        </div>
+                        <div class="payForm_submit">
+                            <input type="submit" value="PAGAR">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--Right Side - Recap-->
+            <div class="orderInfo__recap">
+                <!--Recap-->
+                <div class="recap">
+                    <div class="recap__head">
+                        <h3>Resume</h3><span>OFFRETA 01</span>
+                    </div>
+                    <div class="recap__details">
+                    <div class="details">
+                        <span id="recap__cardNumb">Cartas</span>
+                        <span id="recap__cardsPrice">_</span>
+                    </div>
+                    <div class="details">
+                        <span>Envío</span>
+                        <span id="recap__delivery">_</span>
+                    </div>
+                    <div class="details">
+                        <span >Seguros</span>
+                        <span id="recap__insurance">_</span>
+                    </div>
+                    <!------------------------->
+                    <hr>
+                    <div class="details">
+                        <span>TOTAL</span>
+                        <span id="recap__total">_</span>
+                    </div>
+                    </div>
+                </div> 
+                <!--WTIG protection-->
+                <div class="wtig_protection">
+                    <img src="../images/logos/wytgrd-grading-company-logo.svg" alt="wtig-logo">
+                    <p>WTIG protege su información personal y de pago.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--FOOTER-->
+    <footer class="mnFtr">
+        <div class="mnFtr__container">
+            <!--Col01-->
+            <div class="mnFtr__links mnFtr__logo">
+                <img src="../images/logos/wytgrd-grading-company-logo.svg" alt="wytgrd-grading-company-logo">
+            </div>
+            <!--Col02-->
+            <div class="mnFtr__links">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Sobre nostros</a></li>
+                    <li><a href="#">Tarifas</a></li>
+                    <li><a href="#">Faq</a></li>
+                    <li><a href="mailto:info@williamturner-grading.com">Contactar</a></li>
+                </ul>
+            </div>
+            <!--Col03-->
+            <div class="mnFtr__links">
+                <h4>Mi cuenta</h4>
+                <ul>
+                    <li><a href="#">Mi cuenta</a></li>
+                    <li><a href="#">Mis pedidos</a></li>
+                </ul>
+            </div>
+            <!--Col04-->
+            <div class="mnFtr__links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#">Nuestras garantias</a></li>
+                    <li><a href="#">Certificar una carta</a></li>
+                    <li><a href="#">Verificar la autenticidad</a></li>
+                </ul>
+            </div>
+            <!--Col05-->
+            <div class="mnFtr__links">
+                <div class="mnFtr__lang">
+                    <h4>Español</h4>
+                    <img src="../images/icons/wytgrd-dropdown-icon.svg" alt="wytgrd-dropdown-icon">
+                </div>
+                
+                <ul class="mnFtr__langList">
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mntFtr__copyright">
+            <p>©2022 WYTGRD - Todos los derechos reservados | Aviso legal | Condiciones generales de venta | Politica de privacidad
+            </p>
+        </div>
+    </footer>
