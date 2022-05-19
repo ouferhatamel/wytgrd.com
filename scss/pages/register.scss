@@ -1,0 +1,91 @@
+@import '../helpers/variables';
+@import '../helpers/basics';
+@import '../layouts/navBar';
+
+.register{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(45deg,rgba(0, 0, 0, 0.646) 60%,rgba(0, 0, 0, 0.2)) ,url('../../images/bgd/wytgrd-services-bgd-pokemon-cards.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+.register__wtigLogo{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    img{
+        width: 15rem;
+    }
+}
+.register__formCnt{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.register__form{
+    background-color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 7rem;
+    .register__form__header{
+        h1{
+            font-weight: 900;
+            margin-bottom: .8rem;
+        }
+        p{
+            a{
+                color: $sec_clr;
+                &:hover{
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+#register__form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .form__line{
+        display: flex;
+        gap: 2rem;
+    }
+    .input__field{
+        display: flex;
+        flex-direction: column;
+        label{
+            color: #747474;
+        }
+        input{
+            background-color: transparent;
+            outline: none;
+            border: none;
+            padding: .5rem .5rem;
+            border-bottom: 1.5px solid $light_clr;
+            &#tel{
+                width: 220%;
+            }
+        }
+    }
+    button{
+        background-color: $main_clr;
+        border: none;
+        padding: .9rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 900;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        &:hover{
+            background-color: $dark_clr;
+            color: $main_clr;
+        }
+    }
+}
