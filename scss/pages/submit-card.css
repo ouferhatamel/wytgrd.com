@@ -181,8 +181,8 @@ main {
 }
 
 .searchCard {
-  width: 65%;
-  padding: 1rem;
+  width: 100%;
+  padding: 0rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -194,6 +194,29 @@ main {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
+}
+
+.searchCard .searchCard__ht {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .6rem;
+  background-color: #202223;
+  border-radius: 50px;
+  padding: .5rem 2rem;
+}
+
+.searchCard .searchCard__ht h2 {
+  color: white;
+  font-size: 1.3rem;
 }
 
 .searchCard .searchCard__howTo {
@@ -213,15 +236,18 @@ main {
 
 .searchCard .searchCard__howTo h3 {
   cursor: pointer;
-  color: #fff200;
+  color: #adadad;
+  font-size: 1rem;
 }
 
 .searchCard .searchCard__howTo h3:hover {
-  color: #202223;
+  color: #fff200;
 }
 
 .searchCard .howTo {
+  width: 40%;
   display: none;
+  background-color: white;
 }
 
 .searchCard .howTo p {
@@ -231,6 +257,11 @@ main {
   border-radius: 50px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
           box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.searchCard .howTo span {
+  font-weight: 300;
+  font-style: italic;
 }
 
 .searchCard .howTo--shown {
@@ -248,7 +279,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2rem;
+  padding: 3rem 3rem 1.5rem;
   gap: 2.5rem;
   margin-bottom: 2rem;
 }
@@ -381,7 +412,7 @@ main {
 }
 
 .searchCard .searchCard__suggestions {
-  width: 50%;
+  width: 35%;
   padding: 2rem 3rem;
   list-style: none;
   position: relative;
@@ -457,12 +488,11 @@ main {
 
 .cards {
   width: 100%;
-  padding: 2rem 4rem;
+  padding: 1rem 4rem 2rem;
   overflow-x: auto;
 }
 
 .cards h2 {
-  margin-top: 5rem;
   margin-bottom: 2rem;
 }
 

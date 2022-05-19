@@ -1,10 +1,24 @@
 .searchCard{
-    width: 65%;
-    padding: 1rem;
+    width: 100%;
+    padding: 0rem 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    .searchCard__ht{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .6rem;
+        background-color: $dark_clr;
+        border-radius: 50px;
+        padding: .5rem 2rem;
+        h2{
+            color: white;
+            font-size: 1.3rem;
+        }
+    }
     .searchCard__howTo{
         width:50%;
         display: flex;
@@ -13,20 +27,27 @@
         gap: 1.5rem;
         h3{
             cursor: pointer;
-            color: $main_clr;
+            color: $light_clr;
+            font-size: 1rem;
             &:hover{
-                color: $dark_clr;
+                color: $main_clr;
             }
         }
     }
     .howTo{
+        width: 40%;
         display: none;
+        background-color: white;
         p{
             font-size: .9rem;
             padding: 1rem;
             margin-bottom: .8rem;
             border-radius: 50px;
             box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+        span{
+            font-weight: 300;
+            font-style: italic;
         }
         &--shown{
             display: block;
@@ -37,7 +58,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 2rem;
+        padding: 3rem 3rem 1.5rem;
         gap: 2.5rem;
         margin-bottom: 2rem;
         &--choose{
@@ -137,7 +158,7 @@
         }
     }
     .searchCard__suggestions{
-        width: 50%;
+        width: 35%;
         padding: 2rem 3rem;
         list-style: none;
         position: relative;
@@ -190,10 +211,9 @@
 }
 .cards{
     width: 100%;
-    padding: 2rem 4rem;
+    padding: 1rem 4rem 2rem;
     overflow-x:auto;
     h2{
-        margin-top: 5rem;
         margin-bottom: 2rem;
     }
     ul{
