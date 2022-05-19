@@ -7,6 +7,7 @@
     <link rel="short cut icon" href="images/icons/wytgrd-abbr-logo-icon.svg">
     <link rel="stylesheet" href="../scss/pages/register.css">
     <title>Register</title>
+    <script type="module" src="bundle.js"></script>
 </head>
 <body>
     <!--NAVIGATION BAR-->
@@ -70,34 +71,6 @@
                 </form>
             </div>
         </div>
-
     </main>
-    <!--Scripts-->
-    <!--Firebase SDK integration-->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
-        import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyB5CRFwKomKp8tV87S6_3S83yQfcYvbdlw",
-            authDomain: "williamturner-grading-2a059.firebaseapp.com",
-            projectId: "williamturner-grading-2a059",
-            storageBucket: "williamturner-grading-2a059.appspot.com",
-            messagingSenderId: "546793748854",
-            appId: "1:546793748854:web:39839f4a74f72f105a2257",
-            measurementId: "G-0NW7SHMLVH"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const analytics = getAnalytics(app);
-</script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+{
+  "name": "wtig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ouferhatamel/wytgrd.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ouferhatamel/wytgrd.com/issues"
+  },
+  "homepage": "https://github.com/ouferhatamel/wytgrd.com#readme",
+  "dependencies": {
+    "firebase": "^9.8.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
