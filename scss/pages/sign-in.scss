@@ -2,31 +2,32 @@
 @import '../helpers/basics';
 @import '../layouts/navBar';
 
-.register{
+
+.signin{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(45deg,rgba(0, 0, 0, 0.646) 60%,rgba(0, 0, 0, 0.2)) ,url('../../images/bgd/wytgrd-services-bgd-pokemon-cards.jpg');
+    background-image: linear-gradient(45deg,rgba(0, 0, 0, 0.646) 60%,rgba(0, 0, 0, 0.2)) ,url('../../images/bgd/wtig-grading-yugioh-bgd.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
 }
-.register__wtigLogo{
+.signin__wtigLogo{
     flex: 1;
     display: flex;
     justify-content: center;
     img{
-        margin-top: 7rem;
         width: 15rem;
+        margin-top: 7rem;
     }
 }
-.register__formCnt{
+.signin__formCnt{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.register__form{
+.signin__form{
     background-color: white;
     padding: 3rem;
     border-radius: 15px;
@@ -34,7 +35,7 @@
     flex-direction: column;
     gap: 3rem;
     margin-top: 7rem;
-    .register__form__header{
+    .signin__form__header{
         h1{
             font-weight: 900;
             margin-bottom: .8rem;
@@ -49,7 +50,7 @@
         }
     }
 }
-#register__form{
+#signin__form{
     display: flex;
     flex-direction: column;
     gap: 2rem;

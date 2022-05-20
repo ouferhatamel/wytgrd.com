@@ -27,7 +27,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
-//Register users
+//Register user
 const registerForm = document.getElementById('register__form');
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -46,4 +46,8 @@ registerForm.addEventListener('submit', (e) => {
         console.log(err.message);
     })
 });
+
+//Log out user
+
+//Sign in user
 

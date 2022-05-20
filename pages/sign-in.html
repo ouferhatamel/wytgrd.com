@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="short cut icon" href="images/icons/wytgrd-abbr-logo-icon.svg">
-    <link rel="stylesheet" href="../scss/pages/register.css">
-    <title>Register</title>
+    <link rel="stylesheet" href="../scss/pages/sign-in.css">
+    <title>Sign-in</title>
     <script type="module" src="bundle.js"></script>
 </head>
 <body>
@@ -25,36 +25,20 @@
             </div>
         </div>
     </nav>
-    <main class="register">
-        <div class="register__wtigLogo">
+    <main class="signin">
+        <div class="signin__wtigLogo">
             <img src="../images/logos/wtig-grading-log-whiteV.svg" alt="wtig-grading-log-whiteV">
         </div>
         <!--Form container-->
-        <div class="register__formCnt">
-            <div class="register__form">
+        <div class="signin__formCnt">
+            <div class="signin__form">
                 <!--Form header-->
-                <div class="register__form__header">
-                    <h1>Crear una cuenta</h1>
-                    <p>¿Ya tiene una cuenta? <a href="sign-in.html">Conéctate en</a></p>
+                <div class="signin__form__header">
+                    <h1>Accede a</h1>
+                    <p>¿Aún no tienes una cuenta? <a href="register.html">Cree su cuenta</a></p>
                 </div>
                 <!--Form-->
-                <form id="register__form">
-                    <div class="form__line">
-                        <div class="input__field">
-                            <label for="fname">Nombre</label>
-                            <input type="text" id="fname" required>
-                        </div>
-                        <div class="input__field">
-                            <label for="lname">Apellido</label>
-                            <input type="text" id="lname" required>
-                        </div>
-                    </div>
-                    <div class="form__line">
-                        <div class="input__field">
-                            <label for="tel">Número de teléfono</label>
-                            <input type="tel" id="tel" required>
-                        </div>
-                    </div>
+                <form id="signin__form">
                     <div class="form__line">
                         <div class="input__field">
                             <label for="email">Dirección de e-mail</label>
@@ -66,7 +50,7 @@
                         </div>
                     </div>
                     <div class="form__line">
-                        <button>Regístrate</button>
+                        <button>Autentifícate</button>
                     </div>
                 </form>
             </div>
