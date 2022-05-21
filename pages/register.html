@@ -7,7 +7,7 @@
     <link rel="short cut icon" href="images/icons/wytgrd-abbr-logo-icon.svg">
     <link rel="stylesheet" href="../scss/pages/register.css">
     <title>Register</title>
-    <script type="module" src="bundle.js"></script>
+    <script type="module" src="../js/auth.js"></script>
 </head>
 <body>
     <!--NAVIGATION BAR-->
@@ -25,20 +25,22 @@
             </div>
         </div>
     </nav>
-    <main class="register">
-        <div class="register__wtigLogo">
+    <main class="forms">
+        <div class="forms__wtigLogo">
             <img src="../images/logos/wtig-grading-log-whiteV.svg" alt="wtig-grading-log-whiteV">
         </div>
         <!--Form container-->
-        <div class="register__formCnt">
-            <div class="register__form">
+        <div class="forms__container">
+            <!-- Form box -->
+            <div class="form__box">
                 <!--Form header-->
-                <div class="register__form__header">
+                <div class="forms__header">
                     <h1>Crear una cuenta</h1>
-                    <p>¿Ya tiene una cuenta? <a href="sign-in.html">Conéctate en</a></p>
+                    <p>¿Ya tiene una cuenta?</p>
+                    <span>Conéctate en</span>
                 </div>
-                <!--Form-->
-                <form id="register__form">
+                <!--Register form-->
+                <form id="register__form" class="forms_style">
                     <div class="form__line">
                         <div class="input__field">
                             <label for="fname">Nombre</label>
@@ -57,16 +59,32 @@
                     </div>
                     <div class="form__line">
                         <div class="input__field">
-                            <label for="email">Dirección de e-mail</label>
-                            <input type="email" id="email" required>
+                            <label for="reg_email">Dirección de e-mail</label>
+                            <input type="email" id="reg_email" required>
                         </div>
                         <div class="input__field">
-                            <label for="pwd">Contraseña</label>
-                            <input type="password" id="pwd" required>
+                            <label for="reg_pwd">Contraseña</label>
+                            <input type="password" id="reg_pwd" required>
                         </div>
                     </div>
                     <div class="form__line">
                         <button>Regístrate</button>
+                    </div>
+                </form>
+                <!-- Sign-in form -->
+                <form id="signin__form" class="forms_style">
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="sign_email">Dirección de e-mail</label>
+                            <input type="email" id="sign_email" required>
+                        </div>
+                        <div class="input__field">
+                            <label for="sign_pwd">Contraseña</label>
+                            <input type="password" id="sign_pwd" required>
+                        </div>
+                    </div>
+                    <div class="form__line">
+                        <button>Autentifícate</button>
                     </div>
                 </form>
             </div>

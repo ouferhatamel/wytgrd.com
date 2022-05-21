@@ -2,16 +2,16 @@
 @import '../helpers/basics';
 @import '../layouts/navBar';
 
-.register{
+.forms{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(45deg,rgba(0, 0, 0, 0.646) 60%,rgba(0, 0, 0, 0.2)) ,url('../../images/bgd/wytgrd-services-bgd-pokemon-cards.jpg');
+    background-image: linear-gradient(45deg,rgba(0, 0, 0, 0.646) 60%,rgba(0, 0, 0, 0.2)) ,url('../../images/bgd/wtig-grading-yugioh-bgd.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
 }
-.register__wtigLogo{
+.forms__wtigLogo{
     flex: 1;
     display: flex;
     justify-content: center;
@@ -20,13 +20,13 @@
         width: 15rem;
     }
 }
-.register__formCnt{
+.forms__container{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.register__form{
+.form__box{
     background-color: white;
     padding: 3rem;
     border-radius: 15px;
@@ -34,22 +34,24 @@
     flex-direction: column;
     gap: 3rem;
     margin-top: 7rem;
-    .register__form__header{
+    .forms__header{
         h1{
             font-weight: 900;
             margin-bottom: .8rem;
         }
         p{
-            a{
-                color: $sec_clr;
-                &:hover{
-                    font-weight: 700;
-                }
+        display: inline-block;
+        }
+        span{
+            color: $sec_clr;
+            cursor: pointer;
+            &:hover{
+                font-weight: 700;
             }
         }
     }
 }
-#register__form{
+.forms_style{
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -88,4 +90,7 @@
             color: $main_clr;
         }
     }
+}
+#signin__form{
+    display: none;
 }

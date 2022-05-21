@@ -138,10 +138,10 @@ a {
   }
 }
 
-.register {
+.forms {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.646) 60%, rgba(0, 0, 0, 0.2)), url("../../images/bgd/wytgrd-services-bgd-pokemon-cards.jpg");
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.646) 60%, rgba(0, 0, 0, 0.2)), url("../../images/bgd/wtig-grading-yugioh-bgd.jpg");
   background-size: cover;
   background-position: center;
   display: -webkit-box;
@@ -152,7 +152,7 @@ a {
           align-items: center;
 }
 
-.register__wtigLogo {
+.forms__wtigLogo {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -164,12 +164,12 @@ a {
           justify-content: center;
 }
 
-.register__wtigLogo img {
+.forms__wtigLogo img {
   margin-top: 7rem;
   width: 15rem;
 }
 
-.register__formCnt {
+.forms__container {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -184,7 +184,7 @@ a {
           align-items: center;
 }
 
-.register__form {
+.form__box {
   background-color: white;
   padding: 3rem;
   border-radius: 15px;
@@ -199,20 +199,25 @@ a {
   margin-top: 7rem;
 }
 
-.register__form .register__form__header h1 {
+.form__box .forms__header h1 {
   font-weight: 900;
   margin-bottom: .8rem;
 }
 
-.register__form .register__form__header p a {
-  color: #d30000;
+.form__box .forms__header p {
+  display: inline-block;
 }
 
-.register__form .register__form__header p a:hover {
+.form__box .forms__header span {
+  color: #d30000;
+  cursor: pointer;
+}
+
+.form__box .forms__header span:hover {
   font-weight: 700;
 }
 
-#register__form {
+.forms_style {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,14 +228,14 @@ a {
   gap: 2rem;
 }
 
-#register__form .form__line {
+.forms_style .form__line {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 2rem;
 }
 
-#register__form .input__field {
+.forms_style .input__field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,11 +245,11 @@ a {
           flex-direction: column;
 }
 
-#register__form .input__field label {
+.forms_style .input__field label {
   color: #747474;
 }
 
-#register__form .input__field input {
+.forms_style .input__field input {
   background-color: transparent;
   outline: none;
   border: none;
@@ -252,11 +257,11 @@ a {
   border-bottom: 1.5px solid #adadad;
 }
 
-#register__form .input__field input#tel {
+.forms_style .input__field input#tel {
   width: 220%;
 }
 
-#register__form button {
+.forms_style button {
   background-color: #fff200;
   border: none;
   padding: .9rem 2.5rem;
@@ -267,8 +272,12 @@ a {
   margin-top: 1rem;
 }
 
-#register__form button:hover {
+.forms_style button:hover {
   background-color: #202223;
   color: #fff200;
+}
+
+#signin__form {
+  display: none;
 }
 /*# sourceMappingURL=register.css.map */
