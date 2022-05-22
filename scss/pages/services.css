@@ -126,6 +126,10 @@ a {
   color: #fff200;
 }
 
+.navBar #navBar__myAccount {
+  display: none;
+}
+
 @media only screen and (max-width: 480px) {
   .navBar {
     width: 100%;
