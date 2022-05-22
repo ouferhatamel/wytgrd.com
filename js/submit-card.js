@@ -148,7 +148,7 @@ function printData(data, inputD, g_flag){
                     <div class="cardInfo__year">${card.set.releaseDate.substring(0, 4)}}</div>
                 </div>
                 <a class="cardInfo__addBasket" href="#cards">
-                    <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
+                    <img src="images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
                 </a>
         `
         }else if(g_flag == 'Magic'){
@@ -160,7 +160,7 @@ function printData(data, inputD, g_flag){
                     <div class="cardInfo__set">${card.setName}</div>
                 </div>
                 <a class="cardInfo__addBasket" href="#cards">
-                    <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
+                    <img src="images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
                 </a>
         `
         }else if(g_flag == 'Yu'){
@@ -178,7 +178,7 @@ function printData(data, inputD, g_flag){
                     <div class="cardInfo__set">${c_set}</div>
                 </div>
                 <a class="cardInfo__addBasket" href="#cards">
-                    <img src="../images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
+                    <img src="images/icons/wytgrd-basket-icon.svg" alt="wytgrd-basket-icon">
                 </a>
         `
         }
@@ -236,7 +236,6 @@ function addItem(e){
                     <option value="Francés">Francés</option>
                     <option value="Inglés">Inglés</option>
                     <option value="Español">Español</option>
-                    <option value="Español">Español</option>
                     <option value="Italiana">Italiana</option>
                     <option value="Portugués">Portugués</option>
                     <option value="Russe">Russe</option>
@@ -256,7 +255,7 @@ function addItem(e){
                 <div class="noNotation__stroke"></div>
             </div>
             <div class="card__delete">
-                <img src="../images/icons/wytgrd-delete-icon.svg" alt="WYTGRD-delete-icon">
+                <img src="images/icons/wytgrd-delete-icon.svg" alt="WYTGRD-delete-icon">
             </div>
         </div>
         <!--MINIMAL NOTE-->
@@ -401,37 +400,36 @@ function TotalCalc(){
     }
         
 }
-
-
-/*function selectedRes(element){
-    let selectedItem = element.textContent;
-    if(selectedItem != "No existe tal carta"){
-        searchInput.value = selectedItem;
-        suggBox.classList.remove('searchCard__suggestions--active');
-    }
-}*/
-/*function showSuggestions(list){
-    let listData;
-    if(!list.length){
-        listData = `<li>No existe tal carta</li>`;
+function insurranceChecker(e){
+    if(e.target.checked){
+        console.log(insurance);
+        insurance=9.48;
+        insrPrice.innerHTML = `${insurance} €`;
+        total = TotalCalc();
+        totalPrice.innerHTML = `${total} €`;
     }else{
-        listData = list.join('');
+        insurance=0;
+        insrPrice.innerHTML = `${insurance} €`;
+        total = TotalCalc();
+        totalPrice.innerHTML = `${total} €`;
     }
-    suggBox.innerHTML = listData;
-}*/
-function addCard(){
+        
+}
+
+
+/* function addCard(){
     const userInput = searchInput.value;
     const id = new Date().getTime().toString();
     let edition = '';
     let shadow = '';
-    /*if(edCheck.checked){
+    if(edCheck.checked){
         edition = 'Ed.1';
         edCheck.checked = false;
     }
     if(shadCheck.checked){
         shadow = 'Shadow';
         shadCheck.checked = false;
-    }*/
+    }
     if(userInput != ''){
         const card = document.createElement('li');
         let attr = document.createAttribute('data-id');
@@ -461,7 +459,6 @@ function addCard(){
                 <option value="Francés">Francés</option>
                 <option value="Inglés">Inglés</option>
                 <option value="Español">Español</option>
-                <option value="Español">Español</option>
                 <option value="Italiana">Italiana</option>
                 <option value="Portugués">Portugués</option>
                 <option value="Russe">Russe</option>
@@ -478,7 +475,7 @@ function addCard(){
             <div class="certlang__stroke"></div>
         </div>
         <div class="card__delete">
-            <img src="../../images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
+            <img src="images/icons/WYTGRD-delete-icon.svg" alt="WYTGRD-delete-icon">
         </div>`;
         cardContainer.append(card);
         searchInput.value = '';
@@ -518,19 +515,5 @@ function addCard(){
     }else{
         //please enter a name
     }
-}
-function insurranceChecker(e){
-    if(e.target.checked){
-        console.log(insurance);
-        insurance=9.48;
-        insrPrice.innerHTML = `${insurance} €`;
-        total = TotalCalc();
-        totalPrice.innerHTML = `${total} €`;
-    }else{
-        insurance=0;
-        insrPrice.innerHTML = `${insurance} €`;
-        total = TotalCalc();
-        totalPrice.innerHTML = `${total} €`;
-    }
-        
-}
+} */
+
