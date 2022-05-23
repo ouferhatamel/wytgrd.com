@@ -3,13 +3,19 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut
+    signOut,
+    updateProfile,
+    getFirestore,
+    db,
+    collection,
+    doc,
+    setDoc
  } from "./modules/firebaseSdk.js";
 
 onAuthStateChanged(auth, user => {
     if(user){
         //location.replace("checkout.html");
-        console.log('User logged in');
+        console.log('User logged in', user);
     }
     else{
         console.log('logged out');
@@ -21,19 +27,29 @@ const registerForm = document.getElementById('register__form');
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    //Get user infos
+    //Get user input infos
+    const fname = registerForm['fname'].value;
+    const lname = registerForm['lname'].value;
+    const tel = registerForm['tel'].value;
     const email = registerForm['reg_email'].value;
     const pwd = registerForm['reg_pwd'].value;
 
     //Register the user
     createUserWithEmailAndPassword(auth, email, pwd)
     .then((cred) => {
-        console.log('User Created', cred.user);
+        //Adding extra user infos to the users collection
+        const userRef = collection (db, 'users');
+        setDoc(doc(userRef, cred.user.uid),{
+            "first name" : fname,
+            "last name" : lname,
+            "phone number" : tel,
+        });
+        console.log('User Created on the users table', userRef);
         registerForm.reset();
     })
     .catch(err => {
         console.log(err.message);
-    })
+    });
 });
 
 //Log out user

@@ -5,8 +5,15 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     signOut,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    updateProfile 
 } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+import{ 
+  getFirestore,
+  collection,
+  doc,
+  setDoc
+ } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
 // The web app's Firebase configuration
 const firebaseConfig = {
@@ -22,12 +29,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 //Exporting variables and funtions
 export {auth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut};
+  signOut,
+  updateProfile,
+  getFirestore,
+  db,
+  collection,
+  doc,
+  setDoc };
 ///////////////////////////////////////////////////////////////////////////////////////
-//Listen for auth status changes
