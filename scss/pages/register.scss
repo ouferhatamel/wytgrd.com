@@ -1,7 +1,10 @@
 @import '../helpers/variables';
 @import '../helpers/basics';
-@import '../layouts/navBar';
+/* @import '../layouts/navBar'; */
 
+body{
+    position: relative;
+}
 .forms{
     width: 100%;
     height: 100vh;
@@ -10,13 +13,17 @@
     background-position: center;
     display: flex;
     align-items: center;
+    &--darken{
+        filter: brightness(20%);
+        //filter: blur(5px);
+    }
+    
 }
 .forms__wtigLogo{
     flex: 1;
     display: flex;
     justify-content: center;
     img{
-        margin-top: 7rem;
         width: 15rem;
     }
 }
@@ -33,7 +40,6 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin-top: 7rem;
     .forms__header{
         h1{
             font-weight: 900;
@@ -93,4 +99,56 @@
 }
 #signin__form{
     display: none;
+}
+.popup{
+    display: none;
+    &--opened{
+        background-color: white;
+        width: 20rem;
+        padding: 3rem;
+        border-radius: 40px;
+        overflow: hidden;
+        background-image: url('../../images/others/wtig-popup-header.svg');
+        background-position: top;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+    }
+    .popup__head{
+        margin-bottom: 4rem;
+        h4{
+            font-size: 2rem;
+        }
+        h3{
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+    }
+    .popup__msg{
+        line-height: 1.6;
+        a{
+            color: $light_clr;
+            &:hover{
+                color: $sec_clr;
+            }
+        }
+    }
+    #popup__btn{
+        background-color: $main_clr;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 900;
+        cursor: pointer;
+        &:hover{
+            background-color: $dark_clr;
+            color: $main_clr;
+        }
+    }
 }

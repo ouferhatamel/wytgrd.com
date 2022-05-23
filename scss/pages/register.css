@@ -74,72 +74,9 @@ a {
   text-decoration: none;
 }
 
-.navBar {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: 2000;
-}
-
-.navBar img {
-  height: 9rem;
-}
-
-.navBar .navBar__links {
-  width: 100%;
-  position: absolute;
-  top: 1.5rem;
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 60%;
-}
-
-.navBar .navBar__links a {
-  color: #adadad;
-  margin-right: .6rem;
-}
-
-.navBar .navBar__links a:hover {
-  color: #fff200;
-}
-
-.navBar #navBar__certify {
-  color: white;
-  font-weight: 700;
-}
-
-.navBar #navBar__certify:hover {
-  color: #fff200;
-}
-
-.navBar #navBar__myAccount {
-  display: none;
-}
-
-@media only screen and (max-width: 480px) {
-  .navBar {
-    width: 100%;
-  }
-  .navBar img {
-    height: 6rem;
-  }
-  .navBar .navBar__links {
-    display: none;
-  }
+/* @import '../layouts/navBar'; */
+body {
+  position: relative;
 }
 
 .forms {
@@ -156,6 +93,11 @@ a {
           align-items: center;
 }
 
+.forms--darken {
+  -webkit-filter: brightness(20%);
+          filter: brightness(20%);
+}
+
 .forms__wtigLogo {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -169,7 +111,6 @@ a {
 }
 
 .forms__wtigLogo img {
-  margin-top: 7rem;
   width: 15rem;
 }
 
@@ -200,7 +141,6 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 3rem;
-  margin-top: 7rem;
 }
 
 .form__box .forms__header h1 {
@@ -283,5 +223,75 @@ a {
 
 #signin__form {
   display: none;
+}
+
+.popup {
+  display: none;
+}
+
+.popup--opened {
+  background-color: white;
+  width: 20rem;
+  padding: 3rem;
+  border-radius: 40px;
+  overflow: hidden;
+  background-image: url("../../images/others/wtig-popup-header.svg");
+  background-position: top;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+
+.popup .popup__head {
+  margin-bottom: 4rem;
+}
+
+.popup .popup__head h4 {
+  font-size: 2rem;
+}
+
+.popup .popup__head h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.popup .popup__msg {
+  line-height: 1.6;
+}
+
+.popup .popup__msg a {
+  color: #adadad;
+}
+
+.popup .popup__msg a:hover {
+  color: #d30000;
+}
+
+.popup #popup__btn {
+  background-color: #fff200;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.popup #popup__btn:hover {
+  background-color: #202223;
+  color: #fff200;
 }
 /*# sourceMappingURL=register.css.map */

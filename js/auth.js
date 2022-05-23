@@ -5,22 +5,25 @@ import {
     signInWithEmailAndPassword,
     signOut,
     updateProfile,
-    getFirestore,
     db,
     collection,
     doc,
     setDoc
  } from "./modules/firebaseSdk.js";
 
+ //Authentication states
 onAuthStateChanged(auth, user => {
     if(user){
-        //location.replace("checkout.html");
-        console.log('User logged in', user);
+        alert ("You're already connected");
+        location.replace("checkout.html");
     }
     else{
         console.log('logged out');
     }
 });
+
+//Global varibales
+let actionFlag = '';
 
 //Register user
 const registerForm = document.getElementById('register__form');
@@ -37,6 +40,7 @@ registerForm.addEventListener('submit', (e) => {
     //Register the user
     createUserWithEmailAndPassword(auth, email, pwd)
     .then((cred) => {
+
         //Adding extra user infos to the users collection
         const userRef = collection (db, 'users');
         setDoc(doc(userRef, cred.user.uid),{
@@ -44,6 +48,15 @@ registerForm.addEventListener('submit', (e) => {
             "last name" : lname,
             "phone number" : tel,
         });
+
+        //Updating auth user object info
+        updateProfile(auth.currentUser, {
+            displayName : fname
+        }); // Catch
+
+        //Showing a successful message popup
+        actionFlag = 'signup';
+        showPopup(actionFlag, fname);
         console.log('User Created on the users table', userRef);
         registerForm.reset();
     })
@@ -61,7 +74,8 @@ logOut.addEventListener('click', (e) => {
     }).catch(err => {
         console.log(err.message);
     })
-})
+});
+
 //Sign in user
 const signinForm = document.getElementById('signin__form');
 signinForm.addEventListener('submit', (e) => {
@@ -74,21 +88,29 @@ signinForm.addEventListener('submit', (e) => {
     //Sign in the user
     signInWithEmailAndPassword(auth, email, pwd)
     .then((cred) => {
+        const lname = auth.currentUser.displayName;
+        //Showing a successful popup
+        actionFlag = 'signin';
+        showPopup(actionFlag, lname);
         console.log('logged in', cred.user);
         signinForm.reset();
     })
     .catch(err => {
         console.log(err.message)
     })
-})
+});
 
 //Sign up or Sign in ?
+const fHeaderSpan = document.querySelector('.forms__header span');
 const fHeaderTitle = document.querySelector('.forms__header h1');
 const fHeaderParg = document.querySelector('.forms__header p');
-const fHeaderSpan = document.querySelector('.forms__header span');
 let cnxFlag = false;
+fHeaderSpan.addEventListener('click', actionType);
 
-fHeaderSpan.addEventListener('click', () => {
+//Functions---------------------------------------------------------------------
+
+//Sign up or Sign in ?
+function actionType(){
     if(!cnxFlag){
         registerForm.style.display = 'none';
         signinForm.style.display = 'inherit';
@@ -103,6 +125,37 @@ fHeaderSpan.addEventListener('click', () => {
         fHeaderParg.textContent = '¿Ya tiene una cuenta?';
         fHeaderSpan.textContent = 'Conéctate en';
         cnxFlag = false;
-        
     }
-});
+}
+
+//Successful Sign-up/login popup
+function showPopup(af,lname){
+    const popup = document.querySelector('.popup');
+    const mainCnt = document.querySelector('.forms');
+    const uName = document.querySelector('.popup__head h3');
+    const msg = document.querySelector('.popup__msg p');
+    const btn = document.getElementById('popup__btn');
+
+    //Show up the pop-up
+    uName.textContent = lname;
+    if(af == 'signup'){
+        msg.innerHTML = `
+        Su cuenta ha sido creada. <br>
+        Ha iniciado la sesión con éxito.
+    `;
+    }else{
+        msg.innerHTML = `
+        Ha iniciado la sesión con éxito.
+    `;
+    }
+    popup.classList.add('popup--opened');
+    mainCnt.classList.add('forms--darken');
+    //Block the background click action
+    mainCnt.style.pointerEvents = 'none';
+
+    //Go to the page of provenance
+    btn.addEventListener('click', (e) =>{
+        const provPage = document.referrer;
+        location.replace(provPage);
+    });
+}
