@@ -14,8 +14,9 @@ import {
  //Authentication states
 onAuthStateChanged(auth, user => {
     if(user){
-        alert ("You're already connected");
-        location.replace("checkout.html");
+        /* const provPage = document.referrer;
+        location.replace(provPage); */
+        console.log('Loggin !');
     }
     else{
         console.log('logged out');
