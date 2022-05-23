@@ -1,0 +1,116 @@
+@import '../helpers/variables';
+@import '../helpers/basics';
+@import '../layouts/navBar';
+@import '../layouts/footer';
+
+body{
+    width: 100%;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 10rem;
+    
+    .menu__item{
+        background-color: $main_clr;
+        width: 20rem;
+        padding: 2rem 1rem;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 900;
+        cursor: pointer;
+        &--selected{
+            background-color: $dark_clr;
+            color: $main_clr;
+        }
+        &:hover{
+            background-color: $dark_clr;
+            color: $main_clr;
+        }
+    }
+    #menu__logout{
+        cursor: pointer;
+        img{
+            width: 1.5rem;
+        }
+        span{
+            margin-left: .5rem;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+    }
+}
+.modals{
+    margin-top: 10rem;
+    #modals__perso{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .forms__header{
+        p{
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.5;
+            color: $light_clr;
+        }
+    }
+    #modals__form{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .form__line{
+            display: flex;
+            gap: 2rem;
+        }
+        .input__field{
+            display: flex;
+            flex-direction: column;
+            label{
+                color: #747474;
+            }
+            input{
+                background-color: transparent;
+                outline: none;
+                border: none;
+                padding: .5rem .5rem;
+                border-bottom: 1.5px solid $light_clr;
+                &#tel{
+                    width: 220%;
+                }
+                &#email{
+                    width: 220%;
+                }
+            }
+        }
+        button{
+            background-color: $main_clr;
+            border: none;
+            padding: .9rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            &:hover{
+                background-color: $dark_clr;
+                color: $main_clr;
+            }
+        }
+    }
+}

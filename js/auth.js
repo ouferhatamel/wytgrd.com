@@ -66,17 +66,6 @@ registerForm.addEventListener('submit', (e) => {
     });
 });
 
-//Log out user
-const logOut = document.querySelector('.forms__wtigLogo img');
-logOut.addEventListener('click', (e) => {
-    signOut(auth)
-    .then(()=>{
-        console.log('User Signed out');
-    }).catch(err => {
-        console.log(err.message);
-    })
-});
-
 //Sign in user
 const signinForm = document.getElementById('signin__form');
 signinForm.addEventListener('submit', (e) => {
