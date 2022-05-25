@@ -322,7 +322,7 @@ a {
     top: 75%;
   }
   .hero .hero__stars {
-    width: 24rem;
+    width: 95%;
     top: 70%;
   }
   .hero .hero__slide .heroDescription {
@@ -537,41 +537,6 @@ a {
   position: relative;
 }
 
-#checkAuth .checkAuth__CodeInput {
-  width: 14rem;
-  height: 3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 5px;
-  z-index: 5;
-}
-
-#checkAuth .checkAuth__CodeInput input {
-  width: 100%;
-  height: 75%;
-  border: none;
-  border-bottom: 1.5px solid #202223;
-  outline: none;
-  background-color: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
 #checkAuth .checkAuth__checkBtn {
   width: 28rem;
   height: 7rem;
@@ -606,6 +571,41 @@ a {
 #checkAuth .checkAuth__checkBtn:hover {
   -webkit-box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
           box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
+}
+
+#checkAuth .checkAuth__CodeInput {
+  width: 14rem;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5px;
+  z-index: 5;
+}
+
+#checkAuth .checkAuth__CodeInput input {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-bottom: 1.5px solid #202223;
+  outline: none;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
 }
 
 #checkAuth .checkAuth__stars {
@@ -656,18 +656,18 @@ a {
 }
 
 @media only screen and (max-width: 480px) {
-  .checkAuth .checkAuth__CodeInput input {
-    height: 150%;
-  }
-  .checkAuth .checkAuth__checkBtn {
-    width: 20rem;
+  #checkAuth .checkAuth__checkBtn {
+    width: 80%;
     height: 7rem;
-    padding: 2rem;
-    top: 65%;
+    text-align: center;
+    font-weight: 700;
   }
-  .checkAuth .checkAuth__stars {
-    width: 25rem;
+  #checkAuth .checkAuth__stars {
+    width: 95%;
     top: 60%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
 
@@ -688,7 +688,7 @@ a {
 
 .mainCnt__steps .mainCnt__steps__p {
   width: 30%;
-  padding: 3rem 0 3rem;
+  padding: 3rem 0;
   text-align: center;
   font-size: 1.3rem;
   line-height: 1.4;
@@ -735,6 +735,32 @@ a {
   width: 11rem;
 }
 
+@media only screen and (max-width: 480px) {
+  .mainCnt__steps .mainCnt__steps__p {
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  .mainCnt__steps .mainCnt__steps__p2 {
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  .mainCnt__stepsIcns {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mainCnt__stepsIcns .mainCnt__stepsIcn {
+    margin-bottom: 1rem;
+    /*  img{
+                width: 13rem !important;
+            } */
+  }
+}
+
 .grading__steps {
   width: 65%;
   display: -webkit-box;
@@ -766,6 +792,22 @@ a {
 
 .grading__steps .grading__step img {
   width: 11rem;
+}
+
+@media only screen and (max-width: 480px) {
+  .grading__steps {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .grading__steps .grading__step {
+    margin-bottom: 1rem;
+  }
+  .grading__steps .grading__step img {
+    width: 11rem;
+  }
 }
 
 .mainCnt {
@@ -907,6 +949,42 @@ a {
   color: #fff200;
 }
 
+@media only screen and (max-width: 480px) {
+  .mainCnt .sub__progress {
+    width: 80%;
+  }
+  .mainCnt .sub__progress .sub__progress__bar {
+    width: 100%;
+  }
+  .mainCnt .sub__progress .sub__progress__number {
+    font-size: 2rem;
+  }
+  .mainCnt .sub__progress p {
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  .mainCnt .maintCnt__instaFeed {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2rem;
+  }
+  .mainCnt .maintCnt__instaFeed .instaFeed__post {
+    width: 18rem;
+    height: 18rem;
+  }
+  .mainCnt .icn__btn {
+    width: 7rem;
+    height: 2.5rem;
+  }
+}
+
 .mnFtr {
   width: 100%;
   padding: 1.5rem;
@@ -1014,6 +1092,44 @@ a {
 
 .mnFtr .mntFtr__copyright p {
   color: #363636;
+}
+
+@media only screen and (max-width: 480px) {
+  .mnFtr {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  .mnFtr .mnFtr__container {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mnFtr .mnFtr__links {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .mnFtr .mnFtr__links h4 {
+    font-weight: 900;
+  }
+  .mnFtr .mnFtr__links ul {
+    margin-top: 1rem;
+  }
+  .mnFtr .mnFtr__logo {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .mnFtr .mntFtr__copyright {
+    text-align: center;
+  }
 }
 
 body {

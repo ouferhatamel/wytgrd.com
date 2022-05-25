@@ -6,7 +6,29 @@
     background-size: cover;
     background-attachment: fixed;
     position: relative;
-
+    .checkAuth__checkBtn{
+        width: 28rem;
+        height: 7rem;
+        border-radius: 80px;
+        background-color: $main_clr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+            
+        text-align: center;
+        font-weight: 700;
+        transition: all .3s ease-in-out;
+        z-index: 3;
+        &:hover{
+            box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
+        }
+    }
     .checkAuth__CodeInput{
         width: 14rem;
         height: 3rem;
@@ -26,29 +48,6 @@
             justify-content: center;
             align-items: center;
             position: relative;
-        }
-    }
-    .checkAuth__checkBtn{
-        width: 28rem;
-        height: 7rem;
-        border-radius: 80px;
-        background-color: $main_clr;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5rem;
-        position: absolute;
-        top: 65%;
-        left: 50%;
-        transform: translateX(-50%);
-        
-        text-align: center;
-        font-weight: 700;
-        transition: all .3s ease-in-out;
-        z-index: 3;
-        &:hover{
-            box-shadow: rgba(255, 242, 0, 0.8) 5px 5px, rgba(255, 242, 0, 0.3) 10px 10px, rgba(255, 242, 0, 0.2) 15px 15px, rgba(255, 242, 0, 0.1) 20px 20px, rgba(255, 242, 0, 0.05) 25px 25px;
         }
     }
     .checkAuth__stars{
@@ -73,21 +72,18 @@
 
 //Mobile screens
 @media only screen and (max-width: 480px){
-    .checkAuth{
-        .checkAuth__CodeInput{
-            input{
-                height: 150%;
-            }
-        }
+    #checkAuth{
         .checkAuth__checkBtn{
-            width: 20rem;
+            width: 80%;
             height: 7rem;
-            padding: 2rem;
-            top: 65%;
+            text-align: center;
+            font-weight: 700;
         }
         .checkAuth__stars{
-            width: 25rem;
+            width: 95%;
             top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }

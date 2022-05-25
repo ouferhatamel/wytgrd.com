@@ -77,8 +77,39 @@
         p{
             color: rgb(54, 54, 54);
         }
-        
     }
-    
+}
 
+//RESPONSIVE
+
+//Mobile screens
+@media only screen and (max-width: $mobile_bp){
+    .mnFtr{
+        width: 100%;
+        padding: 1.5rem;
+        .mnFtr__container{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .mnFtr__links{
+            text-align: center;
+            margin-bottom: 2rem;
+            h4{
+                font-weight: 900;
+            }
+            ul{
+                margin-top: 1rem;
+            }
+        }
+        .mnFtr__logo{
+            justify-content: center;
+        }
+    
+        .mntFtr__copyright{
+            text-align: center;
+        }
+    }
 }

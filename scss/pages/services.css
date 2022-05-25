@@ -705,4 +705,42 @@ main {
 .mnFtr .mntFtr__copyright p {
   color: #363636;
 }
+
+@media only screen and (max-width: 480px) {
+  .mnFtr {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  .mnFtr .mnFtr__container {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mnFtr .mnFtr__links {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .mnFtr .mnFtr__links h4 {
+    font-weight: 900;
+  }
+  .mnFtr .mnFtr__links ul {
+    margin-top: 1rem;
+  }
+  .mnFtr .mnFtr__logo {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .mnFtr .mntFtr__copyright {
+    text-align: center;
+  }
+}
 /*# sourceMappingURL=services.css.map */

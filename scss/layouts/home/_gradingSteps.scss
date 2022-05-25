@@ -15,3 +15,18 @@
         }
     }
 }
+//RESPONSIVE
+
+//Mobile screens
+@media only screen and (max-width: $mobile_bp){
+    .grading__steps{
+        width: 100%;
+        flex-direction: column;
+        .grading__step{
+            margin-bottom: 1rem;
+            img{
+                width: 11rem;
+            }
+        }
+    }
+}

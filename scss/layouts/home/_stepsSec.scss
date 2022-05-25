@@ -7,7 +7,7 @@
 
     .mainCnt__steps__p{
         width: 30%;
-        padding: 3rem 0 3rem;
+        padding: 3rem 0;
         text-align: center;
         font-size: 1.3rem;
         line-height: 1.4;
@@ -34,6 +34,33 @@
             img{
                 width: 11rem;
             }
+        }
+    }
+}
+//RESPONSIVE
+
+//Mobile screens
+@media only screen and (max-width: $mobile_bp){
+    .mainCnt__steps{
+        .mainCnt__steps__p{
+            width: 80%;
+            font-size: $m_size;
+            line-height: $m_lineHeigt;
+        }
+        .mainCnt__steps__p2{
+            width: 80%;
+            font-size: $m_size;
+            line-height: $m_lineHeigt;
+        }
+    }
+    .mainCnt__stepsIcns{
+        width: 100%;
+        flex-direction: column;
+        .mainCnt__stepsIcn{
+            margin-bottom: 1rem;
+           /*  img{
+                width: 13rem !important;
+            } */
         }
     }
 }

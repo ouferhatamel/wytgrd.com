@@ -98,3 +98,42 @@
     }
 }
 
+//RESPONSIVE
+
+//Mobile screens
+@media only screen and (max-width: $mobile_bp){
+    .mainCnt{
+        //SUBMISSIONS PROGRESS BAR
+        .sub__progress{
+            width: 80%;
+            .sub__progress__bar{
+                width: 100%;
+            }
+            .sub__progress__number{
+                font-size: 2rem;
+            }
+            p{
+                width: 80%;
+                font-size: $m_size;
+                line-height: $m_lineHeigt;
+            }
+        }
+        //INSTAGRAM
+        .maintCnt__instaFeed{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            .instaFeed__post{
+                width: 18rem;
+                height: 18rem;
+            }
+        }
+        //BTNS ICNS
+        .icn__btn{
+            width: 7rem;
+            height: 2.5rem;
+        }
+    }
+}
+
