@@ -265,14 +265,12 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 5rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding: 15rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: 10rem;
+  margin-bottom: 3rem;
 }
 
 .menu {
@@ -420,5 +418,18 @@ main {
 .modals #modals__form button:hover {
   background-color: #202223;
   color: #fff200;
+}
+
+.modals #modals__order {
+  display: none;
+}
+
+.modals #modals__order #orders__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3rem;
+  border-bottom: 1.5px solid #202223;
+  padding: 2rem 0;
 }
 /*# sourceMappingURL=account.css.map */

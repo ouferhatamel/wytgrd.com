@@ -10,10 +10,10 @@ main{
     width: 100%;
     height: 100vh;
     display: flex;
-    padding: 5rem;
-    justify-content: center;
+    padding: 15rem;
     align-items: center;
     gap: 10rem;
+    margin-bottom: 3rem;
 }
 .menu{
     display: flex;
@@ -111,6 +111,15 @@ main{
                 background-color: $dark_clr;
                 color: $main_clr;
             }
+        }
+    }
+    #modals__order{
+        display: none;
+        #orders__header{
+            display: flex;
+            gap: 3rem;
+            border-bottom: 1.5px solid $dark_clr;
+            padding: 2rem 0;
         }
     }
 }

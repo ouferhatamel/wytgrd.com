@@ -12,7 +12,10 @@ import{
   getFirestore,
   collection,
   doc,
-  setDoc
+  getDoc,
+  setDoc,
+  query,
+  where
  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
 // The web app's Firebase configuration
@@ -41,5 +44,8 @@ export {auth,
   db,
   collection,
   doc,
-  setDoc };
+  getDoc,
+  setDoc,
+  query,
+  where };
 ///////////////////////////////////////////////////////////////////////////////////////

@@ -3,7 +3,6 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut,
     updateProfile,
     db,
     collection,
@@ -16,7 +15,8 @@ onAuthStateChanged(auth, user => {
     if(user){
         /* const provPage = document.referrer;
         location.replace(provPage); */
-        console.log('Loggin !');
+        console.log('Loggin !', user);
+        //user..metadata.creationTime //To get the creation Time
     }
     else{
         console.log('logged out');
@@ -41,12 +41,12 @@ registerForm.addEventListener('submit', (e) => {
     //Register the user
     createUserWithEmailAndPassword(auth, email, pwd)
     .then((cred) => {
-
         //Adding extra user infos to the users collection
-        const userRef = collection (db, 'users');
-        setDoc(doc(userRef, cred.user.uid),{
+        const usersRef = collection (db, 'users');
+        setDoc(doc(usersRef, cred.user.uid),{
             "first name" : fname,
             "last name" : lname,
+            "email" : email,
             "phone number" : tel,
         });
 
@@ -58,7 +58,7 @@ registerForm.addEventListener('submit', (e) => {
         //Showing a successful message popup
         actionFlag = 'signup';
         showPopup(actionFlag, fname);
-        console.log('User Created on the users table', userRef);
+        console.log('User Created on the users table', usersRef);
         registerForm.reset();
     })
     .catch(err => {
