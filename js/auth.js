@@ -10,6 +10,10 @@ import {
     setDoc
  } from "./modules/firebaseSdk.js";
 
+///////////////////////////////
+////////Functions calls////////
+///////////////////////////////
+
  //Authentication states
 onAuthStateChanged(auth, user => {
     if(user){
@@ -23,43 +27,31 @@ onAuthStateChanged(auth, user => {
     }
 });
 
-//Global varibales
-let actionFlag = '';
-
 //Register user
 const registerForm = document.getElementById('register__form');
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     //Get user input infos
-    const fname = registerForm['fname'].value;
-    const lname = registerForm['lname'].value;
-    const tel = registerForm['tel'].value;
-    const email = registerForm['reg_email'].value;
-    const pwd = registerForm['reg_pwd'].value;
+    const userInput = getInputValues();
+    console.log(userInput);
 
     //Register the user
-    createUserWithEmailAndPassword(auth, email, pwd)
+    createUserWithEmailAndPassword(auth, userInput.email, userInput.pwd)
     .then((cred) => {
         //Adding extra user infos to the users collection
-        const usersRef = collection (db, 'users');
-        setDoc(doc(usersRef, cred.user.uid),{
-            "first name" : fname,
-            "last name" : lname,
-            "email" : email,
-            "phone number" : tel,
-        });
+        addUser(cred, userInput);
 
         //Updating auth user object info
         updateProfile(auth.currentUser, {
-            displayName : fname
-        }); // Catch
+            displayName : userInput.fname
+        }).catch(err => {
+            console.log('error is here', err.message);
+        })
 
         //Showing a successful message popup
-        actionFlag = 'signup';
-        showPopup(actionFlag, fname);
-        console.log('User Created on the users table', usersRef);
-        registerForm.reset();
+        showPopup('signup', userInput.fname);
+        
     })
     .catch(err => {
         console.log(err.message);
@@ -78,12 +70,9 @@ signinForm.addEventListener('submit', (e) => {
     //Sign in the user
     signInWithEmailAndPassword(auth, email, pwd)
     .then((cred) => {
-        const lname = auth.currentUser.displayName;
+        const fname = auth.currentUser.displayName;
         //Showing a successful popup
-        actionFlag = 'signin';
-        showPopup(actionFlag, lname);
-        console.log('logged in', cred.user);
-        signinForm.reset();
+        showPopup('signin', fname);
     })
     .catch(err => {
         console.log(err.message)
@@ -97,8 +86,30 @@ const fHeaderParg = document.querySelector('.forms__header p');
 let cnxFlag = false;
 fHeaderSpan.addEventListener('click', actionType);
 
-//Functions---------------------------------------------------------------------
+/////////////////////////
+////////Functions////////
+////////////////////////
 
+//Get user input
+function getInputValues(){
+    return {
+      fname : registerForm['fname'].value,
+      lname : registerForm['lname'].value,
+      email : registerForm['reg_email'].value,
+      tel : registerForm['tel'].value,
+      pwd : registerForm['reg_pwd'].value,
+    };
+}
+//Create a new doc to the users collection
+function addUser(cred, userInput){
+    const usersRef = collection (db, 'users');
+        setDoc(doc(usersRef, cred.user.uid),{
+            "first name" : userInput.fname,
+            "last name" : userInput.lname,
+            "email" : userInput.email,
+            "phone number" : userInput.tel,
+        });
+}
 //Sign up or Sign in ?
 function actionType(){
     if(!cnxFlag){
@@ -117,7 +128,6 @@ function actionType(){
         cnxFlag = false;
     }
 }
-
 //Successful Sign-up/login popup
 function showPopup(af,lname){
     const popup = document.querySelector('.popup');
@@ -142,7 +152,8 @@ function showPopup(af,lname){
     mainCnt.classList.add('forms--darken');
     //Block the background click action
     mainCnt.style.pointerEvents = 'none';
-
+    //reset the form
+    registerForm.reset();
     //Go to the page of provenance
     btn.addEventListener('click', (e) =>{
         const provPage = document.referrer;
