@@ -221,6 +221,19 @@ body {
   color: #fff200;
 }
 
+.forms_style #forgotten_pwd {
+  font-weight: 300;
+  font-style: italic;
+  color: #adadad;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.forms_style #forgotten_pwd:hover {
+  color: #202223;
+}
+
 #signin__form {
   display: none;
 }

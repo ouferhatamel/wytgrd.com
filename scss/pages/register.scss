@@ -96,6 +96,16 @@ body{
             color: $main_clr;
         }
     }
+    #forgotten_pwd{
+        font-weight: 300;
+        font-style: italic;
+        color: $light_clr;
+        text-decoration-line: underline;
+        cursor: pointer;
+        &:hover{
+            color: $dark_clr;
+        }
+    }
 }
 #signin__form{
     display: none;

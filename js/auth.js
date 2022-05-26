@@ -7,8 +7,10 @@ import {
     db,
     collection,
     doc,
-    setDoc
+    setDoc,
+    sendPasswordResetEmail 
  } from "./modules/firebaseSdk.js";
+ 
 
 ///////////////////////////////
 ////////Functions calls////////
@@ -87,6 +89,10 @@ const fHeaderParg = document.querySelector('.forms__header p');
 let cnxFlag = false;
 fHeaderSpan.addEventListener('click', actionType);
 
+//Reset password mail
+const pwdReset = document.getElementById('forgotten_pwd');
+pwdReset.addEventListener('click', resetPwd);
+
 /////////////////////////
 ////////Functions////////
 ////////////////////////
@@ -161,3 +167,15 @@ function showPopup(af,lname){
         location.replace(provPage);
     });
 }
+//Send a reset password mail
+function resetPwd(){
+    const email = signinForm['sign_email'].value;
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+      //Show a timed popup
+      console.log('Reset mail send pop');
+    })
+    .catch((error) => {
+      console.log(error.code, error.message);
+    });
+  }

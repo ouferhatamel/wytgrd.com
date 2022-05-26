@@ -9,7 +9,8 @@ import {
     setDoc,
     EmailAuthProvider,
     reauthenticateWithCredential,
-    updatePassword
+    updatePassword,
+    sendPasswordResetEmail 
 } from "./modules/firebaseSdk.js";
 
 //Call the getCurrentUser function
@@ -31,15 +32,10 @@ persoBtn.addEventListener('click', ()=> {
  //Log out the user
  const logout = document.getElementById('menu__logout');
  logout.addEventListener('click', (e) => {
-    signOut(auth)
-    .then(()=>{
-        location.replace('index.html');
-    }).catch(err => {
-        console.log(err.message);
-    })
+  logOut('index.html');
 });
 
-//Update Profile call
+//Update Profile
 const form = document.getElementById('modals__form');
 form.addEventListener('submit', (e)=> {
   e.preventDefault();
@@ -49,6 +45,10 @@ form.addEventListener('submit', (e)=> {
     reAuthUser(user);
   });
 })
+
+//Reset password mail
+const pwdReset = document.getElementById('forgotten_pwd');
+pwdReset.addEventListener('click', resetPwd);
 
 /////////////////////////
 ////////Functions////////
@@ -157,6 +157,22 @@ function updatePwd(user){
     });
   }
 }
+//Send a reset password mail
+function resetPwd(){
+  const email = form['email'].value;
+  sendPasswordResetEmail(auth, email)
+  .then(() => {
+    //Show a timed popup
+    console.log('Reset mail send pop');
+    //Logout 
+    logOut('register.html');
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  });
+}
 //Define user credencials
 function promptForCredentials(email, pwd){
   const credential = EmailAuthProvider.credential(
@@ -181,4 +197,13 @@ function reAuthUser(user){
   }).catch((err) => {
     console.log('An error occured when trying re-authenticated the user', err.message);
   });
+}
+//Logout user
+function logOut(url){
+  signOut(auth)
+    .then(()=>{
+        location.replace(url);
+    }).catch(err => {
+        console.log(err.message);
+    })
 }
