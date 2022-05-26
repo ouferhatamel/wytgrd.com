@@ -741,6 +741,7 @@ main {
   }
   .mnFtr .mntFtr__copyright {
     text-align: center;
+    line-height: 1.5;
   }
 }
 /*# sourceMappingURL=services.css.map */
