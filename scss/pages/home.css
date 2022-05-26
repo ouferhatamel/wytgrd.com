@@ -929,19 +929,19 @@ a {
 }
 
 .mainCnt .maintCnt__instaFeed .instaFeed__post:nth-child(1) {
-  background-image: url("../../../images/others/wtig-instagram-pic1.PNG");
+  background-image: url("../../images/others/wtig-instagram-pic1.PNG");
 }
 
 .mainCnt .maintCnt__instaFeed .instaFeed__post:nth-child(2) {
-  background-image: url("../../../images/others/wtig-instagram-pic2.PNG");
+  background-image: url("../../images/others/wtig-instagram-pic2.PNG");
 }
 
 .mainCnt .maintCnt__instaFeed .instaFeed__post:nth-child(3) {
-  background-image: url("../../../images/others/wtig-instagram-pic3.PNG");
+  background-image: url("../../images/others/wtig-instagram-pic3.PNG");
 }
 
 .mainCnt .maintCnt__instaFeed .instaFeed__post:nth-child(4) {
-  background-image: url("../../../images/others/wtig-instagram-pic4.PNG");
+  background-image: url("../../images/others/wtig-instagram-pic4.PNG");
 }
 
 .mainCnt .icn__btn {

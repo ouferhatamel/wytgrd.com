@@ -10,6 +10,11 @@ import {
     setDoc
 } from "./modules/firebaseSdk.js";
 
+//Call the getCurrentUser function
+getCurrentUser().then(uid => {
+  getUserDoc(uid);
+});
+
 //Toggle modals 
 const persoBtn = document.getElementById('menu__perso');
 const orderBtn = document.getElementById('menu__orders');
@@ -32,11 +37,6 @@ persoBtn.addEventListener('click', ()=> {
     })
 });
 
-//Call the getCurrentUser function
-getCurrentUser().then(uid => {
-  getUserDoc(uid);
-});
-
 //Update Profile call
 const form = document.getElementById('modals__form');
 form.addEventListener('submit', (e)=> {
@@ -45,7 +45,7 @@ form.addEventListener('submit', (e)=> {
   getCurrentUser().then(uid => {
     updateUProfile(uid);
   });
-})//prevent
+})
 
 /////////////////////////
 ////////Functions////////
