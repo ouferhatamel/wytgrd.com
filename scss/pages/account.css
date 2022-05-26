@@ -443,6 +443,19 @@ main {
   width: 220%;
 }
 
+.modals #modals__form #forgotten_pwd {
+  font-weight: 300;
+  font-style: italic;
+  color: #adadad;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.modals #modals__form #forgotten_pwd:hover {
+  color: #202223;
+}
+
 .modals #modals__form button {
   background-color: #fff200;
   border: none;

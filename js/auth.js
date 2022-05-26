@@ -41,6 +41,7 @@ registerForm.addEventListener('submit', (e) => {
     .then((cred) => {
         //Adding extra user infos to the users collection
         addUser(cred, userInput);
+        console.log(cred);
 
         //Updating auth user object info
         updateProfile(auth.currentUser, {

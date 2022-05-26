@@ -6,7 +6,9 @@ import {
     createUserWithEmailAndPassword,
     signOut,
     signInWithEmailAndPassword,
-    updateProfile 
+    updateProfile,
+    EmailAuthProvider,
+    reauthenticateWithCredential,updatePassword
 } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
 import{ 
   getFirestore,
@@ -47,5 +49,7 @@ export {auth,
   getDoc,
   setDoc,
   query,
-  where };
+  where,EmailAuthProvider,
+  reauthenticateWithCredential,
+  updatePassword };
 ///////////////////////////////////////////////////////////////////////////////////////

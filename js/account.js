@@ -4,15 +4,17 @@ import {
     signOut,
     updateProfile,
     db,
-    collection,
     doc,
     getDoc,
-    setDoc
+    setDoc,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
+    updatePassword
 } from "./modules/firebaseSdk.js";
 
 //Call the getCurrentUser function
-getCurrentUser().then(uid => {
-  getUserDoc(uid);
+getCurrentUser().then(user => {
+  getUserDoc(user.uid);
 });
 
 //Toggle modals 
@@ -42,8 +44,9 @@ const form = document.getElementById('modals__form');
 form.addEventListener('submit', (e)=> {
   e.preventDefault();
   //Update the profile after getting uid
-  getCurrentUser().then(uid => {
-    updateUProfile(uid);
+  getCurrentUser().then(user => {
+    //Check user validity - Re-authentification
+    reAuthUser(user);
   });
 })
 
@@ -75,11 +78,9 @@ function toggleModals(flag){
 function getCurrentUser(){
   return new Promise(resolve =>{
     onAuthStateChanged(auth, user => {
-      let uid = '';
       if(user){
-        uid = user.uid;
       }
-      resolve(uid);
+      resolve(user);
   });
   })
 }
@@ -120,13 +121,14 @@ function getInputValues(){
     lname : form['lname'].value,
     email : form['email'].value,
     tel : form['tel'].value,
+    cpwd : form['c_pwd'].value,
   };
 }
-//Update profile data (on the users collection and on the currentUser)
-async function updateUProfile(uid){
+//Update profile data (on the users collection and on the currentUser) + password
+async function updateUProfile(user){
   const userInfo = getInputValues();
   //Update on the users collection
-  await setDoc(doc(db, "users", uid), {
+  await setDoc(doc(db, "users", user.uid), {
     "first name" : userInfo.fname,
     "last name" : userInfo.lname,
     "email" : userInfo.email,
@@ -134,11 +136,49 @@ async function updateUProfile(uid){
   });
   //Update on currentUser
   updateProfile(auth.currentUser, {
-    displayName: userInfo.lname,
+    displayName: userInfo.fname,
     email: userInfo.email
   }).then(() => {
     console.log('Profile updated');
-  }).catch((error) => {
-    console.log('Error occured while updating Profile');
+  }).catch((err) => {
+    console.log('Error occured while updating Profile', err.message);
+  });
+  //Update password if new password field is not empty
+  updatePwd(user);
+}
+//Update password 
+function updatePwd(user){
+  const n_pwd = form['n_pwd'].value;
+  if(n_pwd !== ''){
+    updatePassword(user, n_pwd).then(() => {
+      console.log('password updated');
+    }).catch((err) => {
+      console.log('Error: ', err.message);
+    });
+  }
+}
+//Define user credencials
+function promptForCredentials(email, pwd){
+  const credential = EmailAuthProvider.credential(
+    email,
+    pwd
+  );
+  return credential;
+}
+//Reauthentificate user
+function reAuthUser(user){
+
+  const email = getInputValues().email;
+  const pwd = getInputValues().cpwd;
+  //Get user credentials
+  const credential = promptForCredentials(email,pwd);
+
+  reauthenticateWithCredential(user, credential).then(() => {
+    // User re-authenticated.
+    console.log('User re-authenticated !');
+    //Update the profile
+    updateUProfile(user);
+  }).catch((err) => {
+    console.log('An error occured when trying re-authenticated the user', err.message);
   });
 }

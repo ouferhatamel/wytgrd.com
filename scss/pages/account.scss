@@ -98,6 +98,16 @@ main{
                 }
             }
         }
+        #forgotten_pwd{
+            font-weight: 300;
+            font-style: italic;
+            color: $light_clr;
+            text-decoration-line: underline;
+            cursor: pointer;
+            &:hover{
+                color: $dark_clr;
+            }
+        }
         button{
             background-color: $main_clr;
             border: none;
