@@ -42,17 +42,97 @@
     }
 }
 
+//Burger menu button
+.burger{
+    visibility: hidden;
+    position: fixed;
+    top: -1.4rem;
+    right: 1.5rem;
+    z-index: 3000;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+
+    .burger__bar{
+        width: 12px;
+        height: 2px;
+        border-radius: 5px;
+        background-color: $main_clr;
+        transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            border-radius: 5px;
+            background-color: $main_clr;
+            transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    
+        &:before{
+            transform: translateY(-8px);
+        }
+    
+        &:after{
+            transform: translateY(8px);
+        }
+    }
+
+    &.burger__bar--open .burger__bar{
+        transform: translateX(-50px);
+        background: transparent;
+    }
+
+    &.burger__bar--open .burger__bar::before{
+        transform: rotate(45deg) translate(35px, -35px);
+    }
+
+    &.burger__bar--open .burger__bar::after{
+        transform: rotate(-45deg) translate(35px, 35px);
+    }
+}
+
 //RESPONSIVE
 
 //Mobile screens
 @media only screen and (max-width: 480px){
     .navBar{
         width: 100%;
+        flex-direction: column;
+        align-items: center;
         img{
             height: 6rem;
         }
         .navBar__links{
-            display: none;
+            height: 100vh;
+            background-color: $dark_clr;
+            position: relative;
+            top: -5rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: $main_clr;
+            gap: 2rem;
+            clip-path: circle(0%);
+            transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            a{
+                color: $main_clr;
+                font-size: 1.5rem;
+            }
         }
+        .navBar__detailsLinks{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+    }
+    .burger{
+        visibility: visible;
     }
 }
