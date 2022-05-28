@@ -176,7 +176,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   gap: 2rem;
+}
+
+.forms_style .form__defaultError {
+  display: none;
+  background-color: #ffa6a6;
+  padding: .4rem .8rem;
+  border-radius: 50px;
+  color: #d30000;
 }
 
 .forms_style .input__field {
@@ -203,6 +214,18 @@ body {
 
 .forms_style .input__field input#tel {
   width: 220%;
+}
+
+.forms_style .input__field .input_error {
+  border-bottom-color: #d30000;
+}
+
+.forms_style .input__field .errorMessage {
+  visibility: hidden;
+  color: #d30000;
+  font-weight: 400;
+  padding-top: 7px;
+  font-size: .8rem;
 }
 
 .forms_style button {

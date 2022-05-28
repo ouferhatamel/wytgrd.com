@@ -11,7 +11,6 @@ import {
     sendPasswordResetEmail 
  } from "./modules/firebaseSdk.js";
  
-
 ///////////////////////////////
 ////////Functions calls////////
 ///////////////////////////////
@@ -34,52 +33,18 @@ const registerForm = document.getElementById('register__form');
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    //Get user input infos
-    const userInput = getInputValues();
-    console.log(userInput);
-
-    //Register the user
-    createUserWithEmailAndPassword(auth, userInput.email, userInput.pwd)
-    .then((cred) => {
-        //Adding extra user infos to the users collection
-        addUser(cred, userInput);
-        console.log(cred);
-
-        //Updating auth user object info
-        updateProfile(auth.currentUser, {
-            displayName : userInput.fname
-        }).catch(err => {
-            console.log('error is here', err.message);
-        })
-
-        //Showing a successful message popup
-        showPopup('signup', userInput.fname);
-        
-    })
-    .catch(err => {
-        console.log(err.message);
-    });
+    //Create the user account
+    createUserAccount(auth);
 });
 
 //Sign in user
 const signinForm = document.getElementById('signin__form');
 signinForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    //Get user infos
-    const email = signinForm['sign_email'].value;
-    const pwd = signinForm['sign_pwd'].value;
-
-    //Sign in the user
-    signInWithEmailAndPassword(auth, email, pwd)
-    .then((cred) => {
-        const fname = auth.currentUser.displayName;
-        //Showing a successful popup
-        showPopup('signin', fname);
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
+    
+    //Sign-in the user
+    signInUser(auth);
+    
 });
 
 //Sign up or Sign in ?
@@ -106,6 +71,52 @@ function getInputValues(){
       tel : registerForm['tel'].value,
       pwd : registerForm['reg_pwd'].value,
     };
+}
+//Create a user account
+function createUserAccount(auth){
+
+    //Get user input infos
+    const userInput = getInputValues();
+
+    //Register the user
+    createUserWithEmailAndPassword(auth, userInput.email, userInput.pwd)
+    .then((cred) => {
+
+        //Adding extra user infos to the users collection
+        addUser(cred, userInput);
+        console.log(cred);
+
+        //Updating auth user object info
+        updateProfile(auth.currentUser, {
+            displayName : userInput.fname
+        }).catch(err => {
+            showError(err.code);
+        });
+
+        //Showing a successful message popup
+        showPopup('signup', userInput.fname);
+    })
+    .catch(err => {
+        showError(err.code);
+    });
+}
+//Sign-in user
+function signInUser(auth){
+
+    //Get user infos
+    const email = signinForm['sign_email'].value;
+    const pwd = signinForm['sign_pwd'].value;
+
+    //Sign in the user
+    signInWithEmailAndPassword(auth, email, pwd)
+    .then((cred) => {
+        const fname = auth.currentUser.displayName;
+        //Showing a successful popup
+        showPopup('signin', fname);
+    })
+    .catch(err => {
+        showError(err.code, 'signin');
+    });
 }
 //Create a new doc to the users collection
 function addUser(cred, userInput){
@@ -169,13 +180,130 @@ function showPopup(af,lname){
 }
 //Send a reset password mail
 function resetPwd(){
+
     const email = signinForm['sign_email'].value;
-    sendPasswordResetEmail(auth, email)
-    .then(() => {
-      //Show a timed popup
-      console.log('Reset mail send pop');
-    })
-    .catch((error) => {
-      console.log(error.code, error.message);
-    });
-  }
+    if(email){
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+        //Show a timed popup
+        console.log('Reset mail send pop');
+        })
+        .catch((err) => {
+           showError(err.code)
+        });
+    }
+    else{
+        showError('Missing email adress', 'signin');
+    }
+    
+}
+//Show error message
+function showError(errCode, action){
+    switch(errCode) {
+        case "auth/email-already-in-use":
+          showErrorBloc('El email ya está en uso', 'email', action);
+          break;
+        case "auth/invalid-email":
+          showErrorBloc('Email inválido', 'email', action);
+          break;
+        case "auth/user-not-found":
+          showErrorBloc('Usuario no encontrado', 'email', action);
+          break;
+        case "Missing email adress":
+          showErrorBloc('Rellene la dirección de email', 'email', action);
+          break;
+        case "auth/weak-password":
+          showErrorBloc('Contraseña débil, debe contener al menos 6 caracteres', 'pwd', action);
+          break;
+        case "auth/wrong-password":
+          showErrorBloc('Contraseña incorrecta', 'pwd', action);
+          break;
+        default:
+            showErrorBloc(errCode, action);
+    }
+}
+//Show The error message block
+function showErrorBloc(msg, inputType, action){
+
+    //Email input
+    if (inputType == 'email'){
+
+        //Check if it's a sign-in action
+        if(action == 'signin'){
+
+            const email_Serr = document.getElementById('s_errorMessage_email');
+            email_Serr.style.visibility = 'visible';
+            email_Serr.innerHTML = msg;
+
+            //Remove the error message after 3 secondes
+            setTimeout(()=>{
+                email_Serr.style.visibility = 'hidden';
+            }, 3000);
+        }
+        else{
+            //So it is a sign-up action
+            const emailErr = document.getElementById('errorMessage_email');
+            emailErr.style.visibility = 'visible';
+            emailErr.innerHTML = msg;
+
+            //Remove the error message after 3 secondes
+            setTimeout(()=>{
+                emailErr.style.visibility = 'hidden';
+            }, 3000);
+        }
+    }
+
+    //Password input
+    else if (inputType == 'pwd'){
+
+        //Check if it's a sign-in action
+        if(action == 'signin'){
+
+            const pwd_Serr = document.getElementById('s_errorMessage_pwd');
+            pwd_Serr.style.visibility = 'visible';
+            pwd_Serr.innerHTML = msg;
+
+            //Remove the error message after 3 secondes
+            setTimeout(()=>{
+                pwd_Serr.style.visibility = 'hidden';
+            }, 3000);
+        }
+        else{
+            const pwdErr = document.getElementById('errorMessage_pwd');
+            pwdErr.style.visibility = 'visible';
+            pwdErr.innerHTML = msg;
+
+            //Remove the error message after 3 secondes
+            setTimeout(()=>{
+                pwdErr.style.visibility = 'hidden';
+            }, 3000);
+        }
+    }
+
+    //Default error input
+    else{
+
+        //Check if it's a sign-in action
+        if(action == 'signin'){
+
+            const s_defaultErr = document.getElementById('signin__defaultError');
+            s_defaultErr.style.visibility = 'visible';
+            s_defaultErr.innerHTML = msg;
+
+            //Remove the error message after 3 secondes
+            setTimeout(()=>{
+                s_defaultErr.style.visibility = 'hidden';
+            }, 3000);
+        }
+        else{
+            const r_defaultErr = document.getElementById('register__defaultError');
+            r_defaultErr.style.visibility = 'visible';
+            r_defaultErr.innerHTML = msg;
+            //Remove the error message after 3 secondes
+            setTimeout(()=>{
+                r_defaultErr.style.visibility = 'hidden';
+            }, 3000);
+        }
+        
+    }
+}

@@ -48,30 +48,36 @@
                         <div class="input__field">
                             <label for="fname">Nombre</label>
                             <input type="text" id="fname" required>
+                            <div class="errorMessage errorMessage_fname">Renseigner le nom</div>
                         </div>
                         <div class="input__field">
                             <label for="lname">Apellido</label>
                             <input type="text" id="lname" required>
+                            <div class="errorMessage errorMessage_lname">Renseigner le nom</div>
                         </div>
                     </div>
                     <div class="form__line">
                         <div class="input__field">
                             <label for="tel">Número de teléfono</label>
-                            <input type="tel" id="tel" required>
+                            <input type="tel" id="tel" placeholder="+xxx xxx xx xx xx" required>
+                            <div class="errorMessage errorMessage_tel">Renseigner le nom</div>
                         </div>
                     </div>
                     <div class="form__line">
                         <div class="input__field">
                             <label for="reg_email">Dirección de e-mail</label>
                             <input type="email" id="reg_email" required>
+                            <div class="errorMessage" id="errorMessage_email">Renseigner le nom</div>
                         </div>
                         <div class="input__field">
                             <label for="reg_pwd">Contraseña</label>
                             <input type="password" id="reg_pwd" required>
+                            <div class="errorMessage" id="errorMessage_pwd">Renseigner le nom</div>
                         </div>
                     </div>
                     <div class="form__line">
                         <button>Regístrate</button>
+                        <div class="form__defaultError" id="register__defaultError">Default error</div>
                     </div>
                 </form>
                 <!-- Sign-in form -->
@@ -80,10 +86,12 @@
                         <div class="input__field">
                             <label for="sign_email">Dirección de e-mail</label>
                             <input type="email" id="sign_email" required>
+                            <div class="errorMessage" id="s_errorMessage_email">Renseigner le nom</div>
                         </div>
                         <div class="input__field">
                             <label for="sign_pwd">Contraseña</label>
                             <input type="password" id="sign_pwd" required>
+                            <div class="errorMessage" id="s_errorMessage_pwd">Renseigner le nom</div>
                         </div>
                     </div>
                     <div class="form__line">
@@ -91,6 +99,7 @@
                     </div>
                     <div class="form__line">
                         <button>Autentifícate</button>
+                        <div class="form__defaultError" id="signin__defaultError">Default error</div>
                     </div>
                 </form>
             </div>
