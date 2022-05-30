@@ -41,7 +41,7 @@ registerForm.addEventListener('submit', (e) => {
 const signinForm = document.getElementById('signin__form');
 signinForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     //Sign-in the user
     signInUser(auth);
     
@@ -82,19 +82,19 @@ function createUserAccount(auth){
     createUserWithEmailAndPassword(auth, userInput.email, userInput.pwd)
     .then((cred) => {
 
-        //Adding extra user infos to the users collection
-        addUser(cred, userInput);
-        console.log(cred);
+    //Adding extra user infos to the users collection
+    addUser(cred, userInput);
+    console.log(cred);
 
-        //Updating auth user object info
-        updateProfile(auth.currentUser, {
-            displayName : userInput.fname
-        }).catch(err => {
-            showError(err.code);
-        });
+    //Updating auth user object info
+    updateProfile(auth.currentUser, {
+        displayName : userInput.fname
+    }).catch(err => {
+        showError(err.code);
+    });
 
-        //Showing a successful message popup
-        showPopup('signup', userInput.fname);
+    //Showing a successful message popup
+    showPopup('signup', userInput.fname);
     })
     .catch(err => {
         showError(err.code);
@@ -110,11 +110,13 @@ function signInUser(auth){
     //Sign in the user
     signInWithEmailAndPassword(auth, email, pwd)
     .then((cred) => {
+        
         const fname = auth.currentUser.displayName;
         //Showing a successful popup
         showPopup('signin', fname);
     })
     .catch(err => {
+
         showError(err.code, 'signin');
     });
 }
@@ -183,13 +185,14 @@ function resetPwd(){
 
     const email = signinForm['sign_email'].value;
     if(email){
+
         sendPasswordResetEmail(auth, email)
         .then(() => {
-        //Show a timed popup
-        console.log('Reset mail send pop');
+        //Show a success message
+        showSucces('Se ha enviado un mensaje a su dirección de e-mail')
         })
         .catch((err) => {
-           showError(err.code)
+           showError(err.code, 'signin');
         });
     }
     else{
@@ -218,11 +221,14 @@ function showError(errCode, action){
         case "auth/wrong-password":
           showErrorBloc('Contraseña incorrecta', 'pwd', action);
           break;
+        case "Phone number not valid":
+          showErrorBloc('Número de teléfono no válido', 'tel', action);
+          break;
         default:
             showErrorBloc(errCode, action);
     }
 }
-//Show The error message block
+//Show The error block
 function showErrorBloc(msg, inputType, action){
 
     //Email input
@@ -280,6 +286,19 @@ function showErrorBloc(msg, inputType, action){
         }
     }
 
+    //Telephon input
+    else if (inputType == 'tel'){
+
+        const telErr = document.getElementById('errorMessage_tel');
+        telErr.style.visibility = 'visible';
+        telErr.innerHTML = msg;
+
+        //Remove the error message after 3 secondes
+         setTimeout(()=>{
+            telErr.style.visibility = 'hidden';
+        }, 3000);
+    }
+
     //Default error input
     else{
 
@@ -287,23 +306,46 @@ function showErrorBloc(msg, inputType, action){
         if(action == 'signin'){
 
             const s_defaultErr = document.getElementById('signin__defaultError');
-            s_defaultErr.style.visibility = 'visible';
+            s_defaultErr.style.display = 'inline';
             s_defaultErr.innerHTML = msg;
 
             //Remove the error message after 3 secondes
             setTimeout(()=>{
-                s_defaultErr.style.visibility = 'hidden';
+                s_defaultErr.style.display = 'none';
             }, 3000);
         }
         else{
             const r_defaultErr = document.getElementById('register__defaultError');
-            r_defaultErr.style.visibility = 'visible';
+            r_defaultErr.style.display = 'inline';
             r_defaultErr.innerHTML = msg;
+            
             //Remove the error message after 3 secondes
             setTimeout(()=>{
-                r_defaultErr.style.visibility = 'hidden';
+                r_defaultErr.style.display = 'none';
             }, 3000);
         }
         
     }
 }
+//Validate phone number
+function validatePhoneNum(tel){
+    const regex = new RegExp('/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/');
+    console.log(regex.test(tel))
+    if(regex.test(tel)){
+        return true;
+    }
+    else
+        return false;
+}
+//Show a success message
+function showSucces(msg){
+    const s_defaultErr = document.getElementById('signin__defaultError');
+    s_defaultErr.style.display = 'inline';
+    s_defaultErr.style.backgroundColor = '#97cf8a';
+    s_defaultErr.style.color = 'green';
+    s_defaultErr.innerHTML = msg;
+    
+    setTimeout(()=>{
+        s_defaultErr.style.display = 'none';
+    }, 3000);
+  }

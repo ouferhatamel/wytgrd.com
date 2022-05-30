@@ -518,17 +518,22 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  overflow-x: hidden;
 }
 
 .modals #modals__form .form__line {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   gap: 2rem;
 }
 
 .modals #modals__form .input__field {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -558,6 +563,14 @@ main {
   width: 220%;
 }
 
+.modals #modals__form .input__field .errorMessage {
+  visibility: hidden;
+  color: #d30000;
+  font-weight: 400;
+  padding-top: 7px;
+  font-size: .8rem;
+}
+
 .modals #modals__form #forgotten_pwd {
   font-weight: 300;
   font-style: italic;
@@ -585,6 +598,14 @@ main {
 .modals #modals__form button:hover {
   background-color: #202223;
   color: #fff200;
+}
+
+.modals #modals__form .form__defaultError {
+  display: none;
+  background-color: #ffa6a6;
+  padding: .4rem .8rem;
+  border-radius: 50px;
+  color: #d30000;
 }
 
 .modals #modals__order {
