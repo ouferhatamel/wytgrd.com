@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="short cut icon" href="images/icons/wytgrd-abbr-logo-icon.svg">
+    <link rel="stylesheet" href="scss/pages/wt-admin.css">
+    <title>WTIG portal</title>
+</head>
+<body>
+    <!-- Admin login -->
+    <div class="admin__modal" id="admin__login">
+        <img src="images/logos/wytgrd-grading-company-logo.svg" alt="wtig-grading-company-logo">
+        
+        <div class="login__form">
+            <form class="admin__forms" id="login__form">
+                <div class="form__line">
+                    <div class="input__field">
+                        <label for="loginEmail">Dirección de e-mail</label>
+                        <input type="email" id="loginEmail" required>
+                        <div class="errorMessage" id="errorMessage_email">Renseigner le nom</div>
+                    </div>
+                    <div class="input__field">
+                        <label for="loginPwd">Contraseña</label>
+                        <input type="password" id="loginPwd" required>
+                        <div class="errorMessage">Renseigner le nom</div>
+                    </div>
+                </div>
+                <div class="form__line">
+                    <div id="forgotten_pwd">¿Ha olvidado su contraseña?</div>
+                </div>
+                <div class="form__line">
+                    <button>Autentifícate</button>
+                    
+                </div>
+            </form>
+            <div class="defaultError">Default error</div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------->
+    <!-- Admin dashboard -->
+    <div class="admin__modal" id="admin__dashboard">
+        <!-- Dashboard menu -->
+        <div class="dashboard__menu">
+            <img id="dashboard__logo" src="images/logos/wtig-grading-log-whiteV.svg" alt="wtig-grading-logo-whiteV">
+
+            <ul class="dashbord__menuList">
+                <li class="selected">Perfil</li> 
+                <li>Cuentas</li> 
+                <li>Pedidos</li> 
+                <li>Tarjetas certificadas</li> 
+            </ul>
+
+            <div class="dashboard__signup">
+                <img src="images/icons/wtig-logout-white-icon.svg" alt="wtig-logout-icon">
+                <span>Cerrar la sesión</span>
+            </div>
+        </div>
+        <!-- Dashboard sections -->
+        <div class="dashboard__sections">
+            <!-- Dashboard header -->
+            <h1 class="dashboard__header">Perfil</h1>
+            <!-- Dashboard Profile section -->
+            <div id="dashbord__profile">
+                <form class ="admin__forms" id="update__form">
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="profileEmail">Dirección de e-mail</label>
+                            <input type="email" id="profileEmail" required>
+                            <div class="errorMessage" id="errorMessage_email">Renseigner le nom</div>
+                        </div>
+                        <div class="input__field">
+                            <label for="pwd">Contraseña</label>
+                            <input type="password" id="profilePwd" required>
+                            <div class="errorMessage" id="profilePwd">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    <div class="form__line">
+                        <div id="forgotten_pwd">¿Ha olvidado su contraseña?</div>
+                    </div>
+                    <div class="form__line">
+                        <button>Actualización</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Dashboard Admin accounts -->
+            <div id="dashboard__accounts">
+                <!-- Add admin form -->
+                <form class ="admin__forms" id="accounts__form">
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="adminEmail">Dirección de e-mail</label>
+                            <input type="email" id="adminEmail" required>
+                            <div class="errorMessage" id="errorMessage_email">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    <div class="form__line">
+                        <button>Añadir admin</button>
+                    </div>
+                </form>
+                <!-- Add Admins list -->
+                <ul class="accounts__list">
+                    <li class="list__header">
+                        <span>Email</span>
+                        <span>Papel</span>
+                        <span>Última conexión</span>
+                    </li>
+                    <li>
+                        <span>ouferhatamel@gmail.com</span>
+                        <span>Administrateur</span>
+                        <span>02 - 06 - 2022</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/wt-admin.js"></script>
+</body>
+</html>
