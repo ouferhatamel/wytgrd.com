@@ -46,10 +46,10 @@
             <img id="dashboard__logo" src="images/logos/wtig-grading-log-whiteV.svg" alt="wtig-grading-logo-whiteV">
 
             <ul class="dashbord__menuList">
-                <li class="selected">Perfil</li> 
-                <li>Cuentas</li> 
-                <li>Pedidos</li> 
-                <li>Tarjetas certificadas</li> 
+                <li id="profileSec" class="selected">Perfil</li> 
+                <li id="accountsSec">Cuentas</li> 
+                <li id="ordersSec">Pedidos</li> 
+                <li id="ccSec">Tarjetas certificadas</li> 
             </ul>
 
             <div class="dashboard__signup">
@@ -62,7 +62,7 @@
             <!-- Dashboard header -->
             <h1 class="dashboard__header">Perfil</h1>
             <!-- Dashboard Profile section -->
-            <div id="dashbord__profile">
+            <div class="dashboard__section" id="dashboard__profile">
                 <form class ="admin__forms" id="update__form">
                     <div class="form__line">
                         <div class="input__field">
@@ -71,9 +71,14 @@
                             <div class="errorMessage" id="errorMessage_email">Renseigner le nom</div>
                         </div>
                         <div class="input__field">
-                            <label for="pwd">Contraseña</label>
-                            <input type="password" id="profilePwd" required>
-                            <div class="errorMessage" id="profilePwd">Renseigner le nom</div>
+                            <label for="profilepwd">Contraseña</label>
+                            <input type="password" id="profilepwd" required>
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                        <div class="input__field">
+                            <label for="nProfilepwd">Nueva Contraseña</label>
+                            <input type="password" id="nProfilepwd" required>
+                            <div class="errorMessage">Renseigner le nom</div>
                         </div>
                     </div>
                     <div class="form__line">
@@ -85,7 +90,7 @@
                 </form>
             </div>
             <!-- Dashboard Admin accounts -->
-            <div id="dashboard__accounts">
+            <div class="dashboard__section" id="dashboard__accounts">
                 <!-- Add admin form -->
                 <form class ="admin__forms" id="accounts__form">
                     <div class="form__line">
@@ -112,6 +117,109 @@
                         <span>02 - 06 - 2022</span>
                     </li>
                 </ul>
+            </div>
+            <!-- Dashboard list of orders -->
+            <div class="dashboard__section" id="dashboard__orders"></div>
+            <!-- Dashboard Add certified cards -->
+            <div class="dashboard__section" id="dashboard__certifiedCards">
+                <!-- List of cards -->
+                <button class="certifiedCards__addBtn">Añadir</button>
+                <ul class="certifiedCards__list">
+                    <li class="list__header">
+                        <span>Codigo</span>
+                        <span>ID de cliente</span>
+                        <span>Nombre</span>
+                        <span>Set</span>
+                        <span>Fecha de certificación</span>
+                        <span>Nota</span>
+                        <span>Editar</span>
+                    </li>
+                    <li>
+                        <span>9667</span>
+                        <span>d5rTy8/YHIpf887t/lk*lkl</span>
+                        <span>Victini V</span>
+                        <span>Sword & Shield</span>
+                        <span>22/10/2022</span>
+                        <span>8 <br> near mint-mint</span>
+                        <span>
+                            <img src="images/icons/wtig-edit-icon.svg" alt="wtig-edit-icon">
+                        </span>
+                    </li>
+                    
+                </ul>
+                <!-- Add card form -->
+                <form class="admin__forms" id="certifiedCards__form">
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="cardCode">Codego</label>
+                            <input type="text" id="cardCode">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                        <div class="input__field">
+                            <label for="userId">ID de cliente</label>
+                            <input type="text" id="userId">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    <!------------------------------------------------------->
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="cDate">Fecha de certificación</label>
+                            <input type="date" id="cDate">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    <!------------------------------------------------------->
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="ccLang">Idioma de la certificación</label>
+                            <input type="text" id="ccLang">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    <!------------------------------------------------------->
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="cName">Nombre de la tarjeta</label>
+                            <input type="text" id="cName">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                        <div class="input__field">
+                            <label for="cSet">set</label>
+                            <input type="text" id="cSet">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    <!------------------------------------------------------->
+                    <div class="form__line">
+                        <div class="input__field">
+                            <label for="cLang">Idioma del carta</label>
+                            <input type="text" id="cLang">
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                        <div class="input__field">
+                            <label for="cNote">Nota</label>
+                            <select name="note" id="cNote">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="9.5">9.5</option>
+                                <option value="10">10</option>
+                            </select>
+                            <div class="errorMessage">Renseigner le nom</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__line">
+                        <button id="certifiedCard_addBtn">Añadir</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
