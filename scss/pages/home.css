@@ -681,6 +681,7 @@ a {
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   z-index: 3;
+  cursor: pointer;
 }
 
 #checkAuth .checkAuth__checkBtn:hover {
