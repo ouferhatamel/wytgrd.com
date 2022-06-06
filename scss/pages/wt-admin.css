@@ -466,7 +466,7 @@ a {
   margin-right: 1rem;
 }
 
-#admin__dashboard #dashboard__certifiedCards #certifiedCards__form #ccLang {
+#admin__dashboard #dashboard__certifiedCards #certifiedCards__form #ccLang, #admin__dashboard #dashboard__certifiedCards #certifiedCards__form #cGame {
   width: 155%;
 }
 /*# sourceMappingURL=wt-admin.css.map */
