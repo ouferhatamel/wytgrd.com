@@ -23,13 +23,12 @@ import{
 
 // The web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB5CRFwKomKp8tV87S6_3S83yQfcYvbdlw",
-  authDomain: "williamturner-grading-2a059.firebaseapp.com",
-  projectId: "williamturner-grading-2a059",
-  storageBucket: "williamturner-grading-2a059.appspot.com",
-  messagingSenderId: "546793748854",
-  appId: "1:546793748854:web:39839f4a74f72f105a2257",
-  measurementId: "G-0NW7SHMLVH"
+  apiKey: "AIzaSyDHohtoLLqqHrsFu_oO4nN-9i0W00MwqQQ",
+  authDomain: "wtig-341a0.firebaseapp.com",
+  projectId: "wtig-341a0",
+  storageBucket: "wtig-341a0.appspot.com",
+  messagingSenderId: "930885499691",
+  appId: "1:930885499691:web:b980465a3cd1d63720636e"
 };
 
 // Initialize Firebase
